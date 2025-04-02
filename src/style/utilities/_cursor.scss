@@ -1,0 +1,73 @@
+@use '../variables/colors.scss' as c;
+@use '../variables/fonts.scss' as f;
+@use '../mixins/breakpoints' as *;
+
+.title-cursor {
+    &::after {
+        content: '';
+        display: inline-flex;
+        height: 28px;
+        width: 8px;
+        background-color: c.$white;
+        animation: titleBlink .4s infinite alternate;
+
+        @include break(tablet) {
+            height: 48px;
+            width: 16px;
+        }
+    
+        @include break(laptop) {
+            height: 67px;
+            width: 24px;
+        }
+    
+        @include break(desktop) {
+            height: 78px;
+            width: 24px;
+        }
+    }
+}
+
+@keyframes titleBlink {
+    0%, 49% {
+        background-color: transparent; // Using transparent for clarity
+    }
+    50%, 100% {
+        background-color: c.$white; // Consistently use the variable
+    }
+}
+
+.text-cursor {
+    &::after {
+        content: '';
+        display: inline-flex;
+        height: 10px;
+        width: 4px;
+        background-color: c.$white;
+        animation: titleBlink .4s infinite alternate;
+
+        @include break(tablet) {
+            height: 14px;
+            width: 4px;
+        }
+    
+        @include break(laptop) {
+            height: 18px;
+            width: 6px;
+        }
+    
+        @include break(desktop) {
+            height: 20px;
+            width: 8px;
+        }
+    }
+}
+
+@keyframes textBlink {
+    0%, 49% {
+        background-color: transparent; // Using transparent for clarity
+    }
+    50%, 100% {
+        background-color: c.$white; // Consistently use the variable
+    }
+}

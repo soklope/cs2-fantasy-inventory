@@ -1,0 +1,11 @@
+@use './../variables/colors.scss' as c;
+
+body {
+    position: relative;
+    color: c.$white;
+    background: c.$body-gradient;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

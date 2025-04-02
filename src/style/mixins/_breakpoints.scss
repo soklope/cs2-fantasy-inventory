@@ -1,0 +1,19 @@
+@mixin break($size, $max: null) {
+  @if $size == "tablet" {
+    $size: 767px;
+  } @else if $size == "laptop" {
+    $size: 1088px;
+  } @else if $size == "desktop" {
+    $size: 1537px;
+  }
+
+  @if $max != null {
+    @media (min-width: #{$size + 1px}) and (max-width: #{$max}px) {
+      @content;
+    }
+  } @else {
+    @media (min-width: #{$size + 1px}) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@use '../variables/colors.scss' as c;
+@use '../variables/fonts.scss' as f;
+@use '../mixins/breakpoints' as *;
+
+// h2 {
+//     font-family: f.$primary-font;
+//     font-weight: lighter;
+//     font-size: f.$greeting-mobile;
+//     color: c.$green;
+
+//     @include break(tablet) {
+//         font-size: f.$greeting-tablet;
+//     }
+
+//     @include break(laptop) {
+//         font-size: f.$greeting-laptop;
+//     }
+
+//     @include break(desktop) {
+//         font-size: f.$greeting-desktop;
+//     }
+
+//     &::after {
+//         content: ".";
+//         color: c.$white;
+//     }
+// }

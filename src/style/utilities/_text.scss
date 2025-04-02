@@ -1,0 +1,22 @@
+@use '../variables/colors' as c;
+@use '../variables/fonts' as f;
+@use '../mixins/breakpoints' as *;
+
+.util-text {
+    color: c.$white;
+    font-family: f.$secondary-font;
+    font-size: f.$text-mobile;
+
+    @include break(tablet) {
+        font-size: f.$text-tablet;
+    }
+
+    @include break(laptop) {
+        font-size: f.$text-laptop;
+        max-width: 800px;
+    }
+
+    @include break(desktop) {
+        font-size: f.$text-desktop;
+    }
+}

@@ -1,0 +1,11 @@
+$green: #20FC8F;
+$white: #FFFFFF;
+$dark-grey: #171717;
+$medium-grey: #272826;
+$green-grey: #2B2D29;
+$body-gradient: 
+    linear-gradient(135deg, 
+        $green-grey 10%,
+        $medium-grey 30%,
+        $dark-grey 100% 
+    );
