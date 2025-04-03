@@ -10,11 +10,10 @@ export default function SkinCard({ item, weaponName, skinName, skinImage, rarity
     };
 
     return (
-        <li className="skin-card">
+        <li className="skin-card" onClick={handleAddItemClick}>
             <h3>{weaponName}</h3>
             <h3>{skinName}</h3>
             <img src={skinImage} alt="skin image" />
-            <button onClick={handleAddItemClick}>Pick Item</button>
             <div className='item-card__rarity' style={{ backgroundColor: rarity }} />
         </li>
     );

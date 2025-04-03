@@ -1,8 +1,8 @@
 @use '../../style/variables/colors' as c;
 
 .inventory-container {
-    margin-top: 120px;
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(4, 1fr);
     gap: 8px;
+    margin-bottom: 64px;
 }

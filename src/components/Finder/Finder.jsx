@@ -15,19 +15,19 @@ export default function Finder() {
         const parsedData = JSON.parse(storedSkins);
         setSkins(parsedData.filter(item => item.weapon.name === itemName))
       } else {
-        // const fetchSkins = async () => {
-        //   try {
-        //     const response = await axios.get("https://bymykel.github.io/CSGO-API/api/en/skins.json");
-        //     const data = response.data;
-        //     console.log(data);
-            
-            //     localStorage.setItem("cs2Skins", JSON.stringify(data));
-        //   } catch (error) {
-        //     console.error("Error fetching skins:", error);
-        //   }
-        // };
+        const fetchSkins = async () => {
+          try {
+            const response = await axios.get("https://bymykel.github.io/CSGO-API/api/en/skins.json");
+            const data = response.data;
+            console.log("api called");
+
+            localStorage.setItem("cs2Skins", JSON.stringify(data));
+          } catch (error) {
+            console.error("Error fetching skins:", error);
+          }
+        };
         
-        // fetchSkins();
+        fetchSkins();
       }
     }, [itemName]);
 
@@ -35,18 +35,20 @@ export default function Finder() {
         <>
             {finderIsOpen && (
                 <dialog open>
-                    <button onClick={setFinderStatus}>Close</button>
-                    <ul className='finder-item-list'>
-                        {skins.map((skin, index) => (
-                            <SkinCard 
-                                key={index}
-                                item={skin}
-                                skinName={skin.name}
-                                skinImage={skin.image}
-                                rarity={skin.rarity.color}
-                            />
-                        ))}
-                    </ul>
+                    <div className='finder page-container'>
+                        <button onClick={setFinderStatus}>Close</button>
+                        <ul className='finder__item-list'>
+                            {skins.map((skin, index) => (
+                                <SkinCard 
+                                    key={index}
+                                    item={skin}
+                                    skinName={skin.name}
+                                    skinImage={skin.image}
+                                    rarity={skin.rarity.color}
+                                />
+                            ))}
+                        </ul>
+                    </div>
                 </dialog>
             )}
         </>

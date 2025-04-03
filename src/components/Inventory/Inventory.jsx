@@ -5,7 +5,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import defaultLoadout from "../../assets/items/items";
 import useItemStore from "../../store/itemStore";
 
-const Inventory = () => {
+export default function Inventory() {
   const { userLoadoutStore } = useItemStore();
 
   useEffect(() => {
@@ -32,19 +32,38 @@ const Inventory = () => {
   }, []);
 
   return (
-    <div className="inventory-container page-container">
-      {userLoadoutStore.map((item, index) => (
-        <ItemCard
-          key={item.id}
-          weapon={item.value}
-          itemName={item.name} 
-          weaponName={item.weapon.name} 
-          skinImage={item.image}
-          rarity={item.rarity.color}
-        />
-      ))}
-    </div>
+    <>
+      <div className="inventory-container page-container">
+        {userLoadoutStore
+          .filter(item => item.category.name.toLowerCase() === "pistols")
+          .map((item, index) => (
+            <ItemCard
+            key={item.id}
+            weapon={item.value}
+            itemName={item.name} 
+            weaponName={item.weapon.name} 
+            skinImage={item.image}
+            rarity={item.rarity.color}
+            />
+          ))
+        }
+      </div>
+
+      <div className="inventory-container page-container">
+        {userLoadoutStore
+          .filter(item => item.category.name.toLowerCase() === "rifles")
+          .map((item, index) => (
+            <ItemCard
+            key={item.id}
+            weapon={item.value}
+            itemName={item.name} 
+            weaponName={item.weapon.name} 
+            skinImage={item.image}
+            rarity={item.rarity.color}
+            />
+          ))
+        }
+      </div>
+    </>
   );
 };
-
-export default Inventory;
