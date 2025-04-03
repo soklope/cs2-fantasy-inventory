@@ -1,19 +1,52 @@
 import './finder.scss'
-import React, { useState } from 'react';
+import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import SkinCard from '../SkinCard/SkinCard';
+import useItemStore from '../../store/itemStore';
 
 export default function Finder() {
-    const [isOpen, setIsOpen] = useState(true); // State to track if the dialog is open or closed
+    const { itemName, finderIsOpen, setFinderStatus} = useItemStore();
+    const [skins, setSkins] = useState([]);
 
-    const closeDialog = () => {
-        setIsOpen(false);
-    };
+    useEffect(() => {
+      const storedSkins = localStorage.getItem("cs2Skins");
+
+      if (storedSkins) {
+        const parsedData = JSON.parse(storedSkins);
+        setSkins(parsedData.filter(item => item.weapon.name === itemName))
+      } else {
+        // const fetchSkins = async () => {
+        //   try {
+        //     const response = await axios.get("https://bymykel.github.io/CSGO-API/api/en/skins.json");
+        //     const data = response.data;
+        //     console.log(data);
+            
+            //     localStorage.setItem("cs2Skins", JSON.stringify(data));
+        //   } catch (error) {
+        //     console.error("Error fetching skins:", error);
+        //   }
+        // };
+        
+        // fetchSkins();
+      }
+    }, [itemName]);
 
     return (
         <>
-            {isOpen && (
+            {finderIsOpen && (
                 <dialog open>
-                    <button onClick={closeDialog}>Close</button>
-                    <input type="text" placeholder='...'/>
+                    <button onClick={setFinderStatus}>Close</button>
+                    <ul className='finder-item-list'>
+                        {skins.map((skin, index) => (
+                            <SkinCard 
+                                key={index}
+                                item={skin}
+                                skinName={skin.name}
+                                skinImage={skin.image}
+                                rarity={skin.rarity.color}
+                            />
+                        ))}
+                    </ul>
                 </dialog>
             )}
         </>

@@ -1,6 +1,6 @@
 @use '../../style/variables/colors' as c;
 
-.item-card {
+.skin-card {
     background-color: c.$medium-grey;
     color: c.$white;
     padding: 16px;
@@ -10,10 +10,9 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
-
+    
     &__rarity {
         width: 100%;
         height: 4px;
-        background-color: aqua;
     }
 }

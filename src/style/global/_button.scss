@@ -1,0 +1,11 @@
+@use '../variables/colors.scss' as c;
+@use '../variables/fonts.scss' as f;
+@use '../mixins/breakpoints' as *;
+
+button {
+    background: none;
+    border: solid 1px c.$white;
+    padding: 8px;
+    border-radius: 8px;
+    color: c.$white;
+}
