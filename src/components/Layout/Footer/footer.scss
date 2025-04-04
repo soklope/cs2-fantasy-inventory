@@ -1,0 +1,13 @@
+@use '../../../style/variables/colors' as c;
+
+.footer {
+    background-color: c.$black;
+    height: 240px;
+
+    &__inner {
+        display: flex;
+        height: 100%;
+        align-items: center;
+
+    }
+}

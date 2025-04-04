@@ -1,3 +1,4 @@
+// Finder Component
 import './finder.scss'
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
@@ -5,7 +6,7 @@ import SkinCard from '../SkinCard/SkinCard';
 import useInventoryStore from '../../store/inventoryStore';
 
 export default function Finder() {
-    const { itemName, finderIsOpen, setFinderStatus} = useInventoryStore();
+    const { item, finderIsOpen, setFinderStatus } = useInventoryStore();
     const [skins, setSkins] = useState([]);
 
     useEffect(() => {
@@ -13,15 +14,23 @@ export default function Finder() {
 
       if (storedSkins) {
         const parsedData = JSON.parse(storedSkins);
-        setSkins(parsedData.filter(item => item.weapon.name === itemName))
+
+        const nameMatches = parsedData.filter(skin => skin.weapon.name === item.name);
+    
+        const matchedSkins = nameMatches.length > 0 
+          ? nameMatches 
+          : parsedData.filter(skin => skin.category.name === item.category);
+
+        setSkins(matchedSkins);
       } else {
         const fetchSkins = async () => {
           try {
             const response = await axios.get("https://bymykel.github.io/CSGO-API/api/en/skins.json");
             const data = response.data;
-            console.log("api called");
+            console.log("API called");
 
             localStorage.setItem("cs2Skins", JSON.stringify(data));
+            setSkins(data.filter(item => item.weapon.name === item.name));  // Ensure skins are set
           } catch (error) {
             console.error("Error fetching skins:", error);
           }
@@ -29,14 +38,14 @@ export default function Finder() {
         
         fetchSkins();
       }
-    }, [itemName]);
+    }, [item]);
 
     return (
         <>
             {finderIsOpen && (
                 <dialog open>
                     <div className='finder page-container'>
-                        <button onClick={setFinderStatus}>Close</button>
+                        <button onClick={() => setFinderStatus('', '')}>Close</button>  {/* Close the finder with no name/category */}
                         <ul className='finder__item-list'>
                             {skins.map((skin, index) => (
                                 <SkinCard 

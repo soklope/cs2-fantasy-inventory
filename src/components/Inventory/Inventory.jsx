@@ -1,50 +1,52 @@
+// Inventory Component
 import "./inventory.scss";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 import useInventoryStore from "../../store/inventoryStore";
 
 export default function Inventory() {
   const { userLoadoutStore } = useInventoryStore();
 
+  const renderWeaponsByCategory = (category) => {
+    return userLoadoutStore
+      .filter(item => item.category.name.toLowerCase() === category)
+      .map((item) => (
+        <ItemCard
+          key={item.id}
+          weapon={item.value}
+          itemName={item.name}
+          weaponName={item.weapon.name}
+          skinImage={item.image}
+          rarity={item.rarity.color}
+          weaponCategory={item.category.name}
+        />
+      ));
+  };
+
   return (
-    <>
+    <div className="inventory">
+      <div className="inventory__container page-container">
+        <h2>Knives and Gloves</h2>
+        <div className="inventory__weapon-category">
+          {renderWeaponsByCategory("knives")}
+          {renderWeaponsByCategory("agents")}
+          {renderWeaponsByCategory("gloves")}
+        </div>
+      </div>
+
       <div className="inventory-container page-container">
         <h2>Rifles</h2>
-        <div className="inventory-container__inner">
-          {userLoadoutStore
-            .filter(item => item.category.name.toLowerCase() === "rifles")
-            .map((item, index) => (
-              <ItemCard
-              key={item.id}
-              weapon={item.value}
-              itemName={item.name} 
-              weaponName={item.weapon.name} 
-              skinImage={item.image}
-              rarity={item.rarity.color}
-              />
-            ))
-          }
+        <div className="inventory__weapon-category">
+          {renderWeaponsByCategory("rifles")}
         </div>
       </div>
 
       <div className="inventory-container page-container">
         <h2>Pistols</h2>
-        <div className="inventory-container__inner">
-          {userLoadoutStore
-            .filter(item => item.category.name.toLowerCase() === "pistols")
-            .map((item, index) => (
-              <ItemCard
-              key={item.id}
-              weapon={item.value}
-              itemName={item.name} 
-              weaponName={item.weapon.name} 
-              skinImage={item.image}
-              rarity={item.rarity.color}
-              />
-            ))
-          }
+        <div className="inventory__weapon-category">
+          {renderWeaponsByCategory("pistols")}
         </div>
       </div>
-    </>
+    </div>
   );
-};
+}

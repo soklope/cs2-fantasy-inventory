@@ -3,7 +3,7 @@
 @use '../mixins/breakpoints' as *;
 
 .util-title {
-    color: c.$green;
+    color: c.$orange;
     font-family: f.$primary-font;
     font-size: f.$title-mobile;
     margin-right: auto;
@@ -33,7 +33,7 @@
 }
 
 .util-sub-title {
-    color: c.$green;
+    color: c.$orange;
     font-family: f.$primary-font;
     font-size: f.$sub-title-mobile;
     margin-bottom: 8px;

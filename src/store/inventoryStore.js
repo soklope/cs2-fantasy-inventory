@@ -3,35 +3,59 @@ import defaultLoadout from "../assets/items/default-loadout.json";
 
 const useInventoryStore = create((set) => ({
   finderIsOpen: false,
-  itemName: "", // Initial state
+  item: {
+    name: "",
+    category: ""
+  },
   userLoadoutStore: JSON.parse(localStorage.getItem("userLoadout")) || defaultLoadout,
 
-  setFinderStatus: (name) => {
+  setFinderStatus: (name, category) => {
     set((state) => ({
       finderIsOpen: !state.finderIsOpen,
-      itemName: name,
+      item: {
+        name: name,
+        category: category
+      },
     }));
   },
 
-  setItemName: (name) => {
-    set({ itemName: name });
+  setItemName: (name, category) => {
+    set({ 
+      item: {
+        name: name,
+        category: category
+      }
+    });
   },
 
   updateUserLoadoutStore: (clickedItem) => {
     set((state) => {
-
-      const updatedLoadout = state.userLoadoutStore.map((item) =>
-        item.weapon?.name === state.itemName ? clickedItem : item
+      const hasWeaponMatch = state.userLoadoutStore.some(
+        (item) => item.weapon.name === clickedItem.weapon.name
       );
-
+  
+      const updatedLoadout = state.userLoadoutStore.map((item) => {
+        if (hasWeaponMatch && item.weapon.name === clickedItem.weapon.name) {
+          return clickedItem;
+        }
+  
+        if (!hasWeaponMatch && item.category.name === clickedItem.category.name) {
+          return clickedItem;
+        }
+  
+        return item;
+      });
+  
       localStorage.setItem("userLoadout", JSON.stringify(updatedLoadout));
-
-      return { 
+  
+      return {
         userLoadoutStore: updatedLoadout,
-        finderIsOpen: false, 
+        finderIsOpen: false,
       };
     });
   },
+  
+  
 
   importInventory: (importData) => {
     if (Array.isArray(importData)) {

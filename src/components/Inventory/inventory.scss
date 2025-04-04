@@ -1,14 +1,20 @@
 @use '../../style/variables/colors' as c;
 
-.inventory-container {
+.inventory {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 64px;
-    
-    &__inner {
+    gap: 32px;
+    margin-bottom: 120px;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__weapon-category {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        gap: 8px;
+        gap: 16px;
     }
 }

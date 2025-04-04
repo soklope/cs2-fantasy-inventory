@@ -578,5 +578,121 @@
     },
     "legacy_model": false,
     "image": "/default-weapons/P250.webp"
+  },
+  {
+    "id": "gloves-ct",
+    "name": "CT Gloves",
+    "description": "Protective gloves used by the Counter-Terrorist team. They provide both functionality and style for tactical operations.",
+    "weapon": {
+      "id": "gloves-ct",
+      "weapon_id": 101,
+      "name": "CT Gloves"
+    },
+    "category": {
+      "id": "sfui_invpanel_filter_gloves",
+      "name": "Gloves"
+    },
+    "pattern": {
+      "id": "default",
+      "name": "Default"
+    },
+    "min_float": 0.00,
+    "max_float": 1.00,
+    "rarity": {
+      "id": "rarity_rare",
+      "name": "Rare",
+      "color": false
+    },
+    "stattrak": false,
+    "souvenir": false,
+    "paint_index": "0",
+    "wears": [
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_0",
+        "name": "Factory New"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_1",
+        "name": "Minimal Wear"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_2",
+        "name": "Field-Tested"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_3",
+        "name": "Well-Worn"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_4",
+        "name": "Battle-Scarred"
+      }
+    ],
+    "collections": [],
+    "crates": [],
+    "team": {
+      "id": "counter-terrorist",
+      "name": "Counter-Terrorist"
+    },
+    "legacy_model": false,
+    "image": "/default-weapons/CT_gloves.webp"
+  },
+  {
+    "id": "knife-ct",
+    "name": "CT Knife",
+    "description": "A knife used by the Counter-Terrorist side. It’s sleek, practical, and effective for close combat, while offering a stylish appearance.",
+    "weapon": {
+      "id": "knife-ct",
+      "weapon_id": 200,
+      "name": "CT Knife"
+    },
+    "category": {
+      "id": "sfui_invpanel_filter_knives",
+      "name": "Knives"
+    },
+    "pattern": {
+      "id": "default",
+      "name": "Default"
+    },
+    "min_float": 0.00,
+    "max_float": 1.00,
+    "rarity": {
+      "id": "rarity_legendary",
+      "name": "Legendary",
+      "color": true
+    },
+    "stattrak": false,
+    "souvenir": false,
+    "paint_index": "0",
+    "wears": [
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_0",
+        "name": "Factory New"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_1",
+        "name": "Minimal Wear"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_2",
+        "name": "Field-Tested"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_3",
+        "name": "Well-Worn"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_4",
+        "name": "Battle-Scarred"
+      }
+    ],
+    "collections": [],
+    "crates": [],
+    "team": {
+      "id": "counter-terrorist",
+      "name": "Counter-Terrorist"
+    },
+    "legacy_model": false,
+    "image": "/default-weapons/CT_knife.webp"
   }
 ]

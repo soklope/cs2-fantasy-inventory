@@ -1,5 +1,6 @@
 import './index.scss'
 import Header from './components/Layout/Header/Header'
+import Footer from './components/Layout/Footer/Footer'
 import Inventory from './components/Inventory/Inventory'
 import Finder from './components/Finder/Finder'
 import { ToastContainer, Slide } from 'react-toastify';
@@ -23,6 +24,7 @@ export default function App() {
         theme="dark"
         transition={Slide}
       />
+      <Footer />
     </>
   )
 }
