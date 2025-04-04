@@ -15,11 +15,16 @@ export default function Finder() {
       if (storedSkins) {
         const parsedData = JSON.parse(storedSkins);
 
+        let matchedSkins = []
         const nameMatches = parsedData.filter(skin => skin.weapon.name === item.name);
-    
-        const matchedSkins = nameMatches.length > 0 
-          ? nameMatches 
-          : parsedData.filter(skin => skin.category.name === item.category);
+        
+        if (nameMatches.length === 0) {
+          matchedSkins = parsedData.filter(skin => skin.category.name === item.category);
+        } else if (item.category === "Knives" || item.category === "Gloves") {
+          matchedSkins = parsedData.filter(skin => skin.category.name === item.category);
+        } else {
+          matchedSkins = nameMatches;
+        }
 
         setSkins(matchedSkins);
       } else {

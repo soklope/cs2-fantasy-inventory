@@ -7,7 +7,7 @@ import defaultLoadout from "../../../assets/items/default-loadout.json";
 import axios from "axios";
 
 export default function Header() {
-    const { userLoadoutStore, importInventory } = useInventoryStore();
+    const { userLoadoutStore, importInventory, resetInventory } = useInventoryStore();
     const [inputValue, setInputValue] = useState('');
 
     const handleChange = (e) => {
@@ -80,6 +80,7 @@ export default function Header() {
 
                 <button onClick={handleImportInventory}>Import Inventory</button>
                 <button onClick={copyInventoryCode}>Export Inventory</button>
+                <button onClick={resetInventory}>Reset Inventory</button>
             </div>
         </header>
     )

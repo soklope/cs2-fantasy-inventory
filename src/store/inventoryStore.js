@@ -1,68 +1,62 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import defaultLoadout from "../assets/items/default-loadout.json";
 
-const useInventoryStore = create((set) => ({
-  finderIsOpen: false,
-  item: {
-    name: "",
-    category: ""
-  },
-  userLoadoutStore: JSON.parse(localStorage.getItem("userLoadout")) || defaultLoadout,
+const useInventoryStore = create(
+  persist(
+    (set, get) => ({
+      finderIsOpen: false,
+      item: { name: "", category: ""},
+      userLoadoutStore: defaultLoadout,
 
-  setFinderStatus: (name, category) => {
-    set((state) => ({
-      finderIsOpen: !state.finderIsOpen,
-      item: {
-        name: name,
-        category: category
+      resetInventory: () => {
+        set({ userLoadoutStore: defaultLoadout });
       },
-    }));
-  },
 
-  setItemName: (name, category) => {
-    set({ 
-      item: {
-        name: name,
-        category: category
+      setFinderStatus: (name, category) => {
+        set((state) => ({
+          finderIsOpen: !state.finderIsOpen,
+          item: { name, category },
+        }));
+      },
+
+      setItemName: (name, category) => {
+        set({ item: { name, category } });
+      },
+
+      updateUserLoadoutStore: (clickedItem) => {
+        const current = get().userLoadoutStore;
+
+        const hasWeaponMatch = current.some(
+          (item) => item.weapon.name === clickedItem.weapon.name
+        );
+
+        const updatedLoadout = current.map((item) => {
+          if (hasWeaponMatch && item.weapon.name === clickedItem.weapon.name) {
+            return clickedItem;
+          }
+
+          if (!hasWeaponMatch && item.category.name === clickedItem.category.name) {
+            return clickedItem;
+          }
+
+          return item;
+        });
+
+        set({ userLoadoutStore: updatedLoadout, finderIsOpen: false });
+      },
+
+      importInventory: (importData) => {
+        if (Array.isArray(importData)) {
+          set({ userLoadoutStore: importData });
+        }
       }
-    });
-  },
-
-  updateUserLoadoutStore: (clickedItem) => {
-    set((state) => {
-      const hasWeaponMatch = state.userLoadoutStore.some(
-        (item) => item.weapon.name === clickedItem.weapon.name
-      );
-  
-      const updatedLoadout = state.userLoadoutStore.map((item) => {
-        if (hasWeaponMatch && item.weapon.name === clickedItem.weapon.name) {
-          return clickedItem;
-        }
-  
-        if (!hasWeaponMatch && item.category.name === clickedItem.category.name) {
-          return clickedItem;
-        }
-  
-        return item;
-      });
-  
-      localStorage.setItem("userLoadout", JSON.stringify(updatedLoadout));
-  
-      return {
-        userLoadoutStore: updatedLoadout,
-        finderIsOpen: false,
-      };
-    });
-  },
-  
-  
-
-  importInventory: (importData) => {
-    if (Array.isArray(importData)) {
-      set({ userLoadoutStore: importData });
-      localStorage.setItem("userLoadout", JSON.stringify(importData));
+    }),
+    {
+      name: "userLoadout", // key in localStorage
+      partialize: (state) => ({ userLoadoutStore: state.userLoadoutStore }), // only persist this
     }
-  }
-}));
+  )
+);
 
 export default useInventoryStore;
