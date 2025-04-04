@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ItemCard from "../ItemCard/ItemCard";
 import defaultLoadout from "../../assets/items/items";
-import useItemStore from "../../store/itemStore";
+import useInventoryStore from "../../store/inventoryStore";
 
 export default function Inventory() {
-  const { userLoadoutStore } = useItemStore();
+  const { userLoadoutStore } = useInventoryStore();
 
   useEffect(() => {
     const cs2SkinsLocalStorage = localStorage.getItem("cs2Skins");
@@ -25,7 +25,6 @@ export default function Inventory() {
       fetchSkins();
     }
 
-    // Ensure userLoadout is in localStorage
     if (!localStorage.getItem("userLoadout")) {
       localStorage.setItem("userLoadout", JSON.stringify(defaultLoadout));
     }

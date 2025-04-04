@@ -1,8 +1,8 @@
 import './itemCard.scss'
-import useItemStore from "../../store/itemStore";
+import useInventoryStore from "../../store/inventoryStore";
 
 export default function ItemCard({ weaponName, itemName, skinImage, rarity }) {
-    const { setFinderStatus} = useItemStore();
+    const { setFinderStatus} = useInventoryStore();
 
     return (
         <li className="item-card" onClick={() => setFinderStatus(weaponName)}>

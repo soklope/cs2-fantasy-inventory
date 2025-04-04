@@ -2,10 +2,10 @@ import './finder.scss'
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import SkinCard from '../SkinCard/SkinCard';
-import useItemStore from '../../store/itemStore';
+import useInventoryStore from '../../store/inventoryStore';
 
 export default function Finder() {
-    const { itemName, finderIsOpen, setFinderStatus} = useItemStore();
+    const { itemName, finderIsOpen, setFinderStatus} = useInventoryStore();
     const [skins, setSkins] = useState([]);
 
     useEffect(() => {

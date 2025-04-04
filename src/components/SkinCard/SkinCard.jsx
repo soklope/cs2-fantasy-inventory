@@ -1,8 +1,8 @@
 import './skinCard.scss'
-import useItemStore from "../../store/itemStore";
+import useInventoryStore from "../../store/inventoryStore";
 
 export default function SkinCard({ item, weaponName, skinName, skinImage, rarity }) {
-    const { updateUserLoadoutStore } = useItemStore();
+    const { updateUserLoadoutStore } = useInventoryStore();
 
     const handleAddItemClick = () => {
         console.log("Clicked Item:", item); // Debugging

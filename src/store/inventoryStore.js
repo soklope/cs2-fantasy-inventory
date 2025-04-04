@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import defaultLoadout from "../assets/items/items";
 
-const useItemStore = create((set) => ({
+const useInventoryStore = create((set) => ({
   finderIsOpen: false,
   itemName: "", // Initial state
   userLoadoutStore: JSON.parse(localStorage.getItem("userLoadout")) || defaultLoadout,
@@ -32,6 +32,13 @@ const useItemStore = create((set) => ({
       };
     });
   },
+
+  importInventory: (importData) => {
+    if (Array.isArray(importData)) {
+      set({ userLoadoutStore: importData });
+      localStorage.setItem("userLoadout", JSON.stringify(importData));
+    }
+  }
 }));
 
-export default useItemStore;
+export default useInventoryStore;
