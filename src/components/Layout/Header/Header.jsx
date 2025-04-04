@@ -3,23 +3,20 @@ import logo from "../../../assets/images/logo.png"
 import useInventoryStore from "../../../store/inventoryStore"
 import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
+import defaultLoadout from "../../../assets/items/default-loadout.json";
+import axios from "axios";
 
 export default function Header() {
     const { userLoadoutStore, importInventory } = useInventoryStore();
     const [inputValue, setInputValue] = useState('');
 
-    useEffect(() => {
-        console.log(userLoadoutStore);
-    }, [userLoadoutStore])
-
     const handleChange = (e) => {
         setInputValue(e.target.value);
-        console.log(inputValue);
     };
 
     const copyInventoryCode = () => {
-        const json = JSON.stringify(userLoadoutStore); // no need for pretty print or double stringify
-        const base64 = btoa(json); // encode the raw JSON
+        const json = JSON.stringify(userLoadoutStore); 
+        const base64 = btoa(json); 
     
         navigator.clipboard.writeText(base64)
             .then(() => toast("Inventory copied to clipboard"))
@@ -28,15 +25,36 @@ export default function Header() {
     
     const handleImportInventory = () => {
         try {
-            const decoded = JSON.parse(atob(inputValue)); // decode Base64 then parse JSON
-            importInventory(decoded); // import to store
+            const decoded = JSON.parse(atob(inputValue));
+            importInventory(decoded);
             toast("Inventory imported successfully");
         } catch (err) {
             toast.error("Invalid inventory code");
         }
     };
-    
 
+    useEffect(() => {
+        const cs2SkinsLocalStorage = localStorage.getItem("cs2Skins");
+
+        if (!cs2SkinsLocalStorage) {
+            const fetchSkins = async () => {
+            try {
+                const response = await axios.get("https://bymykel.github.io/CSGO-API/api/en/skins.json");
+                const data = response.data;
+                localStorage.setItem("cs2Skins", JSON.stringify(data));
+            } catch (error) {
+                console.error("Error fetching skins:", error);
+            }
+            };
+            
+            fetchSkins();
+        }
+
+        if (!localStorage.getItem("userLoadout")) {
+            localStorage.setItem("userLoadout", JSON.stringify(defaultLoadout));
+        }
+    }, []);
+    
     return (
         <header className="header">
             <div className="header__inner page-container">
@@ -45,7 +63,7 @@ export default function Header() {
                     type="text"
                     value={inputValue}
                     onChange={handleChange}
-                    placeholder="Type something..."
+                    placeholder="Inventory Code..."
                 />
 
                 <button onClick={handleImportInventory}>Import Inventory</button>

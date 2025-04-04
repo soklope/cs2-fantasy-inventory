@@ -1,8 +1,14 @@
 @use '../../style/variables/colors' as c;
 
 .inventory-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     margin-bottom: 64px;
+    
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+    }
 }

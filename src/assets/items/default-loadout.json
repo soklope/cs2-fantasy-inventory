@@ -21,7 +21,7 @@
     "rarity": {
       "id": "rarity_common",
       "name": "Common",
-      "color": "#b5b5b5"
+      "color": false
     },
     "stattrak": false,
     "souvenir": false,
@@ -55,7 +55,7 @@
       "name": "Both Teams"
     },
     "legacy_model": false,
-    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/ak47_default_png.png"
+    "image": "/default-weapons/AK-47.webp"
   },
   {
     "id": "weapon-m4a4",
@@ -79,7 +79,7 @@
     "rarity": {
       "id": "rarity_common",
       "name": "Common",
-      "color": "#b5b5b5"
+      "color": false
     },
     "stattrak": false,
     "souvenir": false,
@@ -113,7 +113,7 @@
       "name": "Both Teams"
     },
     "legacy_model": false,
-    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/m4a4_default_png.png"
+    "image": "/default-weapons/M4A4.webp"
   },
   {
     "id": "skin-m4a1s",
@@ -137,7 +137,7 @@
     "rarity": {
       "id": "rarity_common",
       "name": "Common",
-      "color": "#ffffff"
+      "color": false
     },
     "stattrak": false,
     "souvenir": false,
@@ -171,7 +171,7 @@
       "name": "Both Teams"
     },
     "legacy_model": false,
-    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/m4a1s_default_png.png"
+    "image": "/default-weapons/M4A1-S.webp"
   },
   {
     "id": "skin-awp",
@@ -195,7 +195,7 @@
     "rarity": {
       "id": "rarity_rare",
       "name": "Rare",
-      "color": "#56e1b1"
+      "color": false
     },
     "stattrak": false,
     "souvenir": false,
@@ -229,7 +229,7 @@
       "name": "Both Teams"
     },
     "legacy_model": false,
-    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/awp_default_png.png"
+    "image": "/default-weapons/AWP.webp"
   },
   {
     "id": "skin-deagle",
@@ -253,7 +253,7 @@
     "rarity": {
       "id": "rarity_rare",
       "name": "Rare",
-      "color": "#56e1b1"
+      "color": false
     },
     "stattrak": false,
     "souvenir": false,
@@ -287,7 +287,7 @@
       "name": "Both Teams"
     },
     "legacy_model": false,
-    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/deagle_default_png.png"
+    "image": "/default-weapons/Desert_Eagle.webp"
   },
   {
     "id": "weapon-glock18",
@@ -311,7 +311,7 @@
     "rarity": {
       "id": "rarity_common",
       "name": "Common",
-      "color": "#b5b5b5"
+      "color": false
     },
     "stattrak": false,
     "souvenir": false,
@@ -345,7 +345,7 @@
       "name": "Terrorist"
     },
     "legacy_model": false,
-    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/glock18_default_png.png"
+    "image": "/default-weapons/Glock-18.webp"
   },
   {
     "id": "weapon-usp-s",
@@ -369,7 +369,7 @@
     "rarity": {
       "id": "rarity_common",
       "name": "Common",
-      "color": "#b5b5b5"
+      "color": false
     },
     "stattrak": false,
     "souvenir": false,
@@ -403,7 +403,7 @@
       "name": "Counter-Terrorist"
     },
     "legacy_model": false,
-    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/usp_silencer_default_png.png"
+    "image": "/default-weapons/USP-S.webp"
   },
   {
     "id": "weapon-p2000",
@@ -427,7 +427,7 @@
     "rarity": {
       "id": "rarity_common",
       "name": "Common",
-      "color": "#b5b5b5"
+      "color": false
     },
     "stattrak": false,
     "souvenir": false,
@@ -461,6 +461,122 @@
       "name": "Counter-Terrorist"
     },
     "legacy_model": false,
-    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/hkp2000_default_png.png"
+    "image": "/default-weapons/P2000.webp"
+  },
+  {
+    "id": "weapon-galil-ar",
+    "name": "Galil AR",
+    "description": "The Galil AR is a fully automatic assault rifle used by the Terrorist side. Known for its solid performance in mid-range combat and its affordability.",
+    "weapon": {
+      "id": "galil-ar",
+      "weapon_id": 13,
+      "name": "Galil AR"
+    },
+    "category": {
+      "id": "sfui_invpanel_filter_rifles",
+      "name": "Rifles"
+    },
+    "pattern": {
+      "id": "default",
+      "name": "Default"
+    },
+    "min_float": 0.00,
+    "max_float": 0.99,
+    "rarity": {
+      "id": "rarity_common",
+      "name": "Common",
+      "color": false
+    },
+    "stattrak": false,
+    "souvenir": false,
+    "paint_index": "0",
+    "wears": [
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_0",
+        "name": "Factory New"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_1",
+        "name": "Minimal Wear"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_2",
+        "name": "Field-Tested"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_3",
+        "name": "Well-Worn"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_4",
+        "name": "Battle-Scarred"
+      }
+    ],
+    "collections": [],
+    "crates": [],
+    "team": {
+      "id": "terrorist",
+      "name": "Terrorist"
+    },
+    "legacy_model": false,
+    "image": "/default-weapons/Galil_AR.webp"
+  },
+  {
+    "id": "weapon-p250",
+    "name": "P250",
+    "description": "The P250 is a compact semi-automatic pistol, with decent damage and a high rate of fire. It is often used as a secondary weapon due to its affordability.",
+    "weapon": {
+      "id": "p250",
+      "weapon_id": 14,
+      "name": "P250"
+    },
+    "category": {
+      "id": "sfui_invpanel_filter_pistols",
+      "name": "Pistols"
+    },
+    "pattern": {
+      "id": "default",
+      "name": "Default"
+    },
+    "min_float": 0.00,
+    "max_float": 1.00,
+    "rarity": {
+      "id": "rarity_common",
+      "name": "Common",
+      "color": false
+    },
+    "stattrak": false,
+    "souvenir": false,
+    "paint_index": "0",
+    "wears": [
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_0",
+        "name": "Factory New"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_1",
+        "name": "Minimal Wear"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_2",
+        "name": "Field-Tested"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_3",
+        "name": "Well-Worn"
+      },
+      {
+        "id": "SFUI_InvTooltip_Wear_Amount_4",
+        "name": "Battle-Scarred"
+      }
+    ],
+    "collections": [],
+    "crates": [],
+    "team": {
+      "id": "both",
+      "name": "Both Teams"
+    },
+    "legacy_model": false,
+    "image": "/default-weapons/P250.webp"
   }
 ]

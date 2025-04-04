@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import defaultLoadout from "../assets/items/items";
+import defaultLoadout from "../assets/items/default-loadout.json";
 
 const useInventoryStore = create((set) => ({
   finderIsOpen: false,
