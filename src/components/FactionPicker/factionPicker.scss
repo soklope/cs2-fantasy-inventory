@@ -1,0 +1,30 @@
+.faction-picker {
+    display: flex;
+    gap: 16px;
+    justify-content: end;
+
+    &__icon {
+        height: 80px;
+        width: 80px;
+        border: none;
+  
+        &--ct {
+            background-image: url("/default-icons/Ct-patch-small.webp");
+            background-position: center;
+            background-size: contain;
+            opacity: .2;
+        }
+    
+        &--t {
+            background-image: url("/default-icons/Icon-t-patch-small.webp");
+            background-position: center;
+            background-size: contain;
+            opacity: .2;
+        }
+
+        &--active {
+            opacity: 1;
+        }
+    }
+}
+  

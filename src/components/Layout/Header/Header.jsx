@@ -1,49 +1,11 @@
 import "./header.scss"
 import logo from "../../../assets/images/logo.png"
 import useInventoryStore from "../../../store/inventoryStore"
-import { useEffect, useState } from "react";
-import { toast } from 'react-toastify';
-import defaultLoadout from "../../../assets/items/default-loadout.json";
+import { useEffect } from "react";
 import axios from "axios";
 
 export default function Header() {
-    const { userLoadoutStore, importInventory, resetInventory } = useInventoryStore();
-    const [inputValue, setInputValue] = useState('');
-
-    const handleChange = (e) => {
-        setInputValue(e.target.value);
-    };
-
-    const copyInventoryCode = () => {
-        try {
-          const json = JSON.stringify(userLoadoutStore);
-          const encoder = new TextEncoder();
-          const uint8Array = encoder.encode(json);
-          const base64 = btoa(String.fromCharCode(...uint8Array));
-      
-          navigator.clipboard.writeText(base64)
-            .then(() => toast("Inventory copied to clipboard"))
-            .catch((err) => alert("Failed to copy: " + err));
-        } catch (err) {
-          console.error("Encoding error:", err);
-          alert("Failed to encode inventory.");
-        }
-      };
-    
-      const handleImportInventory = () => {
-        try {
-          const binary = atob(inputValue);
-          const bytes = Uint8Array.from(binary, char => char.charCodeAt(0));
-          const decoder = new TextDecoder();
-          const decoded = JSON.parse(decoder.decode(bytes));
-      
-          importInventory(decoded);
-          toast("Inventory imported successfully");
-        } catch (err) {
-          console.error("Decode error:", err);
-          toast.error("Invalid inventory code");
-        }
-      };
+    const { userCtLoadoutStore, userTLoadoutStore } = useInventoryStore();
 
     useEffect(() => {
         const cs2SkinsLocalStorage = localStorage.getItem("cs2Skins");
@@ -62,25 +24,19 @@ export default function Header() {
             fetchSkins();
         }
 
-        if (!localStorage.getItem("userLoadout")) {
-            localStorage.setItem("userLoadout", JSON.stringify(defaultLoadout));
-        }
+        // if (!localStorage.getItem("userCtLoadout")) {
+        //     localStorage.setItem("userCtLoadout", JSON.stringify(userCtLoadoutStore));
+        // }
+
+        // if (!localStorage.getItem("userTLoadout")) {
+        //   localStorage.setItem("userTLoadout", JSON.stringify(userTLoadoutStore));
+        // }
     }, []);
     
     return (
         <header className="header">
             <div className="header__inner page-container">
                 <img src={logo} alt="" />
-                <input
-                    type="text"
-                    value={inputValue}
-                    onChange={handleChange}
-                    placeholder="Inventory Code..."
-                />
-
-                <button onClick={handleImportInventory}>Import Inventory</button>
-                <button onClick={copyInventoryCode}>Export Inventory</button>
-                <button onClick={resetInventory}>Reset Inventory</button>
             </div>
         </header>
     )

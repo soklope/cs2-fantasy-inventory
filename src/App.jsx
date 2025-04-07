@@ -3,6 +3,7 @@ import Header from './components/Layout/Header/Header'
 import Footer from './components/Layout/Footer/Footer'
 import Inventory from './components/Inventory/Inventory'
 import Finder from './components/Finder/Finder'
+import Toolbar from './components/Toolbar/Toolbar'
 import { ToastContainer, Slide } from 'react-toastify';
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
     <>
       <Finder />
       <Header />
+      <Toolbar />
       <Inventory />
       <ToastContainer
         position="bottom-center"

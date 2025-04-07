@@ -1,16 +1,26 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import defaultLoadout from "../assets/items/default-loadout.json";
+import defaultCtLoadout from "../assets/loadouts/default-ct-loadout";
+import defaultTLoadout from "../assets/loadouts/default-t-loadout";
 
 const useInventoryStore = create(
   persist(
     (set, get) => ({
       finderIsOpen: false,
+      currentFaction: "ct",
       item: { name: "", category: ""},
-      userLoadoutStore: defaultLoadout,
+      userCtLoadoutStore: defaultCtLoadout,
+      userTLoadoutStore: defaultTLoadout,
 
       resetInventory: () => {
-        set({ userLoadoutStore: defaultLoadout });
+        const { currentFaction } = get();
+        currentFaction === "ct"
+          ? set({ userCtLoadoutStore: defaultCtLoadout })
+          : set({ userTLoadoutStore: defaultTLoadout });
+      },
+
+      setFaction: (faction) => {
+        set({ currentFaction: faction });
       },
 
       setFinderStatus: (name, category) => {
@@ -25,36 +35,67 @@ const useInventoryStore = create(
       },
 
       updateUserLoadoutStore: (clickedItem) => {
-        const current = get().userLoadoutStore;
-
-        const hasWeaponMatch = current.some(
+        const { currentFaction, userCtLoadoutStore, userTLoadoutStore } = get();
+        const currentLoadout = currentFaction === "ct" ? userCtLoadoutStore.loadout : userTLoadoutStore.loadout;
+      
+        const hasWeaponMatch = currentLoadout.some(
           (item) => item.weapon.name === clickedItem.weapon.name
         );
-
-        const updatedLoadout = current.map((item) => {
+      
+        const updatedLoadout = currentLoadout.map((item) => {
           if (hasWeaponMatch && item.weapon.name === clickedItem.weapon.name) {
             return clickedItem;
           }
-
+      
           if (!hasWeaponMatch && item.category.name === clickedItem.category.name) {
             return clickedItem;
           }
-
+      
           return item;
         });
-
-        set({ userLoadoutStore: updatedLoadout, finderIsOpen: false });
+      
+        if (currentFaction === "ct") {
+          set({
+            userCtLoadoutStore: {
+              ...userCtLoadoutStore,
+              loadout: updatedLoadout,
+            },
+            finderIsOpen: false,
+          });
+        } else {
+          set({
+            userTLoadoutStore: {
+              ...userTLoadoutStore,
+              loadout: updatedLoadout,
+            },
+            finderIsOpen: false,
+          });
+        }
       },
 
       importInventory: (importData) => {
-        if (Array.isArray(importData)) {
-          set({ userLoadoutStore: importData });
+        console.log(importData);
+        
+        const { currentFaction } = get();
+      
+        if (importData) {
+          if (currentFaction === "ct") {
+            set({ userCtLoadoutStore: importData });
+          } else if (currentFaction === "t") {
+            set({ userTLoadoutStore: importData });
+          }
+        } else {
+          console.error("Invalid importData structure, no loadout array found.");
         }
       }
+      
     }),
     {
-      name: "userLoadout", // key in localStorage
-      partialize: (state) => ({ userLoadoutStore: state.userLoadoutStore }), // only persist this
+      name: "userLoadouts", // A combined key
+      partialize: (state) => ({
+        userCtLoadoutStore: state.userCtLoadoutStore,
+        userTLoadoutStore: state.userTLoadoutStore,
+      }),
     }
   )
 );

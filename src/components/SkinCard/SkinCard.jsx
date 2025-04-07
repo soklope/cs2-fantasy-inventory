@@ -5,8 +5,7 @@ export default function SkinCard({ item, weaponName, skinName, skinImage, rarity
     const { updateUserLoadoutStore } = useInventoryStore();
   
     const handleAddItemClick = () => {
-      console.log("Clicked Item:", item); // Debugging
-      updateUserLoadoutStore(item);  // Send full weapon object
+      updateUserLoadoutStore(item);
     };
   
     return (

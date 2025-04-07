@@ -5,12 +5,14 @@ import ItemCard from "../ItemCard/ItemCard";
 import useInventoryStore from "../../store/inventoryStore";
 
 export default function Inventory() {
-  const { userLoadoutStore } = useInventoryStore();
+  const { userCtLoadoutStore, userTLoadoutStore, currentFaction } = useInventoryStore();
 
   const renderWeaponsByCategory = (category) => {
-    return userLoadoutStore
+    const selectedLoadout = currentFaction === "ct" ? userCtLoadoutStore : userTLoadoutStore;
+    
+    return selectedLoadout.loadout
       .filter(item => item.category.name.toLowerCase() === category)
-      .map((item) => (
+      .map(item => (
         <ItemCard
           key={item.id}
           weapon={item.value}
