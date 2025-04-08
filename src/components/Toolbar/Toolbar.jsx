@@ -17,11 +17,11 @@ export default function Toolbar() {
 
         try {
           const json = JSON.stringify(selectedLoadout);
-          console.log(selectedLoadout);
           
           const encoder = new TextEncoder();
           const uint8Array = encoder.encode(json);
           const base64 = btoa(String.fromCharCode(...uint8Array));
+          console.log(base64);
       
           navigator.clipboard.writeText(base64)
             .then(() => toast("Inventory copied to clipboard"))

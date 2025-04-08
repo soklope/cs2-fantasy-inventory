@@ -76,13 +76,13 @@ const useInventoryStore = create(
       importInventory: (importData) => {
         console.log(importData);
         
-        const { currentFaction } = get();
-      
         if (importData) {
-          if (currentFaction === "ct") {
+          if (importData.faction === "ct") {
             set({ userCtLoadoutStore: importData });
-          } else if (currentFaction === "t") {
+            set({ currentFaction: "ct" });
+          } else {
             set({ userTLoadoutStore: importData });
+            set({ currentFaction: "t" });
           }
         } else {
           console.error("Invalid importData structure, no loadout array found.");

@@ -27,22 +27,7 @@ export default function Finder() {
         }
 
         setSkins(matchedSkins);
-      } else {
-        const fetchSkins = async () => {
-          try {
-            const response = await axios.get("https://bymykel.github.io/CSGO-API/api/en/skins.json");
-            const data = response.data;
-            console.log("API called");
-
-            localStorage.setItem("cs2Skins", JSON.stringify(data));
-            setSkins(data.filter(item => item.weapon.name === item.name));  // Ensure skins are set
-          } catch (error) {
-            console.error("Error fetching skins:", error);
-          }
-        };
-        
-        fetchSkins();
-      }
+      } 
     }, [item]);
 
     return (
