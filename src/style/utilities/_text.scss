@@ -4,7 +4,7 @@
 
 .util-text {
     color: c.$white;
-    font-family: f.$secondary-font;
+    // font-family: f.$secondary-font;
     font-size: f.$text-mobile;
 
     @include break(tablet) {

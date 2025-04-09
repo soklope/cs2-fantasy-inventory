@@ -3,9 +3,26 @@
 @use '../mixins/breakpoints' as *;
 
 button {
+    font-family: f.$primary-font;
+    letter-spacing: 1px;
+    background: none;
+    padding: 0 16px;
+    height: 48px;
+    border-radius: 4px;
+    color: c.$white;
+    background-color: c.$black;
+}
+
+.button-primary {
+    background-color: c.$primary;
+}
+
+.button-secondary {
     background: none;
     border: solid 1px c.$white;
-    padding: 8px;
-    border-radius: 8px;
-    color: c.$white;
+}
+
+.button-danger {
+    color: c.$danger;
+    background: none;
 }

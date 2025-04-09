@@ -6,7 +6,7 @@ h2 {
     font-family: f.$primary-font;
     font-weight: lighter;
     font-size: f.$sub-title-mobile;
-    color: c.$orange;
+    color: c.$primary;
 
     @include break(tablet) {
         font-size: f.$sub-title-tablet;

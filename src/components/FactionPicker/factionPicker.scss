@@ -4,9 +4,9 @@
     justify-content: end;
 
     &__icon {
-        height: 80px;
-        width: 80px;
-        border: none;
+        height: 56px;
+        width: 56px;
+        border-radius: 28px;
   
         &--ct {
             background-image: url("/default-icons/Ct-patch-small.webp");

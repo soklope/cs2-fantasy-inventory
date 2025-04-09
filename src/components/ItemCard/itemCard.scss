@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15); /* Example shadow */
+    box-shadow: c.$box-shadow; /* Example shadow */
 
 
     &:hover {

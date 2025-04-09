@@ -2,8 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 64px;
+    gap: 24px;
 
     &__import-export-reset {
-
+        display: flex;
+        gap: 16px;
+        width: 100%;
     }
 }

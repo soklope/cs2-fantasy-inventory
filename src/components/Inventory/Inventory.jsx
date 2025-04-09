@@ -1,6 +1,5 @@
 // Inventory Component
 import "./inventory.scss";
-import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 import useInventoryStore from "../../store/inventoryStore";
 
