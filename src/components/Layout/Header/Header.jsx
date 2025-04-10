@@ -37,8 +37,9 @@ export default function Header() {
             const transformedData = data.map(skin => ({
                 id: `${skin.id}`,
                 name: skin.name,
-                weapon: { name: skin.team.name },
-                category: { name: skin.team.id },
+                weapon: { name: skin.id.split("-")[0] },
+                category: { name: skin.id.split("-")[0] },
+                team: skin.team.id,
                 rarity: skin.rarity.color,
                 image: skin.image || "/default-weapons/default-image.webp"
             }));

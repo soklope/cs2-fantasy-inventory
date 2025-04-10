@@ -7,7 +7,7 @@ export default function Inventory() {
   const { userCtLoadoutStore, userTLoadoutStore, currentFaction } = useInventoryStore();
 
   const renderWeaponsByCategory = (category) => {
-    const selectedLoadout = currentFaction === "ct" ? userCtLoadoutStore : userTLoadoutStore;
+    const selectedLoadout = currentFaction === "counter-terrorists" ? userCtLoadoutStore : userTLoadoutStore;
     
     return selectedLoadout.loadout
       .filter(item => item.category.name.toLowerCase() === category)
@@ -20,6 +20,7 @@ export default function Inventory() {
           skinImage={item?.image}
           rarity={item?.rarity.color}
           weaponCategory={item?.category.name}
+          faction={item.team || null}
         />
       ));
   };
@@ -29,7 +30,7 @@ export default function Inventory() {
       <div className="inventory__container page-container">
         <h2>Agents</h2>
         <div className="inventory__weapon-category">
-          {renderWeaponsByCategory("agents")}
+          {renderWeaponsByCategory("agent")}
         </div>
       </div>
 

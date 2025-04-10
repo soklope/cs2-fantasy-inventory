@@ -7,14 +7,14 @@ const useInventoryStore = create(
   persist(
     (set, get) => ({
       finderIsOpen: false,
-      currentFaction: "ct",
-      itemInFocus: { name: "", category: ""},
+      currentFaction: "counter-terrorists",
+      itemInFocus: { name: "", category: "", faction: null},
       userCtLoadoutStore: defaultCtLoadout,
       userTLoadoutStore: defaultTLoadout,
 
       resetInventory: () => {
         const { currentFaction } = get();
-        currentFaction === "ct"
+        currentFaction === "counter-terrorists"
           ? set({ userCtLoadoutStore: defaultCtLoadout })
           : set({ userTLoadoutStore: defaultTLoadout });
       },
@@ -23,20 +23,20 @@ const useInventoryStore = create(
         set({ currentFaction: faction });
       },
 
-      setFinderStatus: (name, category) => {
+      setFinderStatus: (name, category, faction) => {
         set((state) => ({
           finderIsOpen: !state.finderIsOpen,
-          itemInFocus: { name, category },
+          itemInFocus: { name, category, faction },
         }));
       },
 
-      setItemName: (name, category) => {
-        set({ itemInFocus: { name, category } });
+      setItemName: (name, category, faction) => {
+        set({ itemInFocus: { name, category, faction } });
       },
 
       updateUserLoadoutStore: (newSkinClicked) => {
         const { currentFaction, userCtLoadoutStore, userTLoadoutStore } = get();
-        const currentLoadout = currentFaction === "ct" ? userCtLoadoutStore.loadout : userTLoadoutStore.loadout;
+        const currentLoadout = currentFaction === "counter-terrorists" ? userCtLoadoutStore.loadout : userTLoadoutStore.loadout;
       
         const hasWeaponMatch = currentLoadout.some(
           (item) => item.weapon.name === newSkinClicked.weapon.name
@@ -54,7 +54,7 @@ const useInventoryStore = create(
           return item;
         });
       
-        if (currentFaction === "ct") {
+        if (currentFaction === "counter-terrorists") {
           set({
             userCtLoadoutStore: {
               ...userCtLoadoutStore,
@@ -75,12 +75,12 @@ const useInventoryStore = create(
 
       importInventory: (importData) => {
         if (importData) {
-          if (importData.faction === "ct") {
+          if (importData.faction === "counter-terrorists") {
             set({ userCtLoadoutStore: importData });
-            set({ currentFaction: "ct" });
+            set({ currentFaction: "counter-terrorists" });
           } else {
             set({ userTLoadoutStore: importData });
-            set({ currentFaction: "t" });
+            set({ currentFaction: "terrorists" });
           }
         } else {
           console.error("Invalid importData structure, no loadout array found.");

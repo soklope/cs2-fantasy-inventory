@@ -7,13 +7,13 @@ export default function FactionPicker() {
     return (
         <div className="faction-picker">
             <button 
-                className={`faction-picker__icon faction-picker__icon--ct ${currentFaction === "ct" && "faction-picker__icon--active"}`} 
-                onClick={() => setFaction("ct")}>
+                className={`faction-picker__icon faction-picker__icon--ct ${currentFaction === "counter-terrorists" && "faction-picker__icon--active"}`} 
+                onClick={() => setFaction("counter-terrorists")}>
             </button>
 
             <button 
-                className={`faction-picker__icon faction-picker__icon--t ${currentFaction === "t" && "faction-picker__icon--active"}`} 
-                onClick={() => setFaction("t")}>
+                className={`faction-picker__icon faction-picker__icon--t ${currentFaction === "terrorists" && "faction-picker__icon--active"}`} 
+                onClick={() => setFaction("terrorists")}>
             </button>
         </div>
     )

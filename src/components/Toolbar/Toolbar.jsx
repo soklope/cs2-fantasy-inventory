@@ -11,7 +11,7 @@ export default function Toolbar() {
     const { setShowConfirm, importStringValue, handleImportStringChange, setActionType } = useOverwriteStore()
 
     const copyInventoryCode = () => {
-        const selectedLoadout = currentFaction === "ct" ? userCtLoadoutStore : userTLoadoutStore;
+        const selectedLoadout = currentFaction === "counter-terrorists" ? userCtLoadoutStore : userTLoadoutStore;
 
         try {
             const json = JSON.stringify(selectedLoadout);
