@@ -14,12 +14,12 @@ export default function Inventory() {
       .map(item => (
         <ItemCard
           key={item.id}
-          weapon={item.value}
-          itemName={item.name}
-          weaponName={item.weapon.name}
-          skinImage={item.image}
-          rarity={item.rarity.color}
-          weaponCategory={item.category.name}
+          weapon={item?.value}
+          itemName={item?.name}
+          weaponName={item?.weapon.name}
+          skinImage={item?.image}
+          rarity={item?.rarity.color}
+          weaponCategory={item?.category.name}
         />
       ));
   };
@@ -27,10 +27,16 @@ export default function Inventory() {
   return (
     <div className="inventory">
       <div className="inventory__container page-container">
+        <h2>Agents</h2>
+        <div className="inventory__weapon-category">
+          {renderWeaponsByCategory("agents")}
+        </div>
+      </div>
+
+      <div className="inventory__container page-container">
         <h2>Knives and Gloves</h2>
         <div className="inventory__weapon-category">
           {renderWeaponsByCategory("knives")}
-          {renderWeaponsByCategory("agents")}
           {renderWeaponsByCategory("gloves")}
         </div>
       </div>

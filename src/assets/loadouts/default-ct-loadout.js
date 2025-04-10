@@ -1,3 +1,92 @@
+const defaultCtLoadout = {
+  name: "Default CT Loadout",
+  faction: "ct",
+  loadout: [
+    {
+      id: "agent-ct-default",
+      name: "Agent",
+      team: "counter-terrorists",
+      weapon: { name: "Counter-Terrorist | The Default" },
+      category: { name: "Agents" },
+      rarity: { color: false },
+      image: "/default-weapons/CT_agent.webp"
+    },
+    {
+      id: "weapon-m4a4",
+      name: "M4A4",
+      weapon: { name: "M4A4" },
+      category: { name: "Rifles" },
+      rarity: { color: false },
+      image: "/default-weapons/M4A4.webp"
+    },
+    {
+      id: "skin-m4a1s",
+      name: "M4A1-S",
+      weapon: { name: "M4A1-S" },
+      category: { name: "Rifles" },
+      rarity: { color: false },
+      image: "/default-weapons/M4A1-S.webp"
+    },
+    {
+      id: "skin-awp",
+      name: "AWP",
+      weapon: { name: "AWP" },
+      category: { name: "Rifles" },
+      rarity: { color: false },
+      image: "/default-weapons/AWP.webp"
+    },
+    {
+      id: "skin-deagle",
+      name: "Desert Eagle",
+      weapon: { name: "Desert Eagle" },
+      category: { name: "Pistols" },
+      rarity: { color: false },
+      image: "/default-weapons/Desert_Eagle.webp"
+    },
+    {
+      id: "weapon-usp-s",
+      name: "USP-S",
+      weapon: { name: "USP-S" },
+      category: { name: "Pistols" },
+      rarity: { color: false },
+      image: "/default-weapons/USP-S.webp"
+    },
+    {
+      id: "weapon-p2000",
+      name: "P2000",
+      weapon: { name: "P2000" },
+      category: { name: "Pistols" },
+      rarity: { color: false },
+      image: "/default-weapons/P2000.webp"
+    },
+    {
+      id: "weapon-p250",
+      name: "P250",
+      weapon: { name: "P250" },
+      category: { name: "Pistols" },
+      rarity: { color: false },
+      image: "/default-weapons/P250.webp"
+    },
+    {
+      id: "gloves-ct",
+      name: "CT Gloves",
+      weapon: { name: "CT Gloves" },
+      category: { name: "Gloves" },
+      rarity: { color: false },
+      image: "/default-weapons/CT_gloves.webp"
+    },
+    {
+      id: "knife-ct",
+      name: "CT Knife",
+      weapon: { name: "CT Knife" },
+      category: { name: "Knives" },
+      rarity: { color: true },
+      image: "/default-weapons/CT_knife.webp"
+    }
+  ]
+};
+
+
 // const defaultCtLoadout = {
 //   name: "Default CT Loadout",
 //   faction: "ct", 
@@ -529,83 +618,5 @@
 
 // export default defaultCtLoadout
 
-const defaultCtLoadout = {
-  name: "Default CT Loadout",
-  faction: "ct",
-  loadout: [
-    {
-      id: "weapon-m4a4",
-      name: "M4A4",
-      weapon: { name: "M4A4" },
-      category: { name: "Rifles" },
-      rarity: { color: false },
-      image: "/default-weapons/M4A4.webp"
-    },
-    {
-      id: "skin-m4a1s",
-      name: "M4A1-S",
-      weapon: { name: "M4A1-S" },
-      category: { name: "Rifles" },
-      rarity: { color: false },
-      image: "/default-weapons/M4A1-S.webp"
-    },
-    {
-      id: "skin-awp",
-      name: "AWP",
-      weapon: { name: "AWP" },
-      category: { name: "Rifles" },
-      rarity: { color: false },
-      image: "/default-weapons/AWP.webp"
-    },
-    {
-      id: "skin-deagle",
-      name: "Desert Eagle",
-      weapon: { name: "Desert Eagle" },
-      category: { name: "Pistols" },
-      rarity: { color: false },
-      image: "/default-weapons/Desert_Eagle.webp"
-    },
-    {
-      id: "weapon-usp-s",
-      name: "USP-S",
-      weapon: { name: "USP-S" },
-      category: { name: "Pistols" },
-      rarity: { color: false },
-      image: "/default-weapons/USP-S.webp"
-    },
-    {
-      id: "weapon-p2000",
-      name: "P2000",
-      weapon: { name: "P2000" },
-      category: { name: "Pistols" },
-      rarity: { color: false },
-      image: "/default-weapons/P2000.webp"
-    },
-    {
-      id: "weapon-p250",
-      name: "P250",
-      weapon: { name: "P250" },
-      category: { name: "Pistols" },
-      rarity: { color: false },
-      image: "/default-weapons/P250.webp"
-    },
-    {
-      id: "gloves-ct",
-      name: "CT Gloves",
-      weapon: { name: "CT Gloves" },
-      category: { name: "Gloves" },
-      rarity: { color: false },
-      image: "/default-weapons/CT_gloves.webp"
-    },
-    {
-      id: "knife-ct",
-      name: "CT Knife",
-      weapon: { name: "CT Knife" },
-      category: { name: "Knives" },
-      rarity: { color: true },
-      image: "/default-weapons/CT_knife.webp"
-    }
-  ]
-};
 
 export default defaultCtLoadout;

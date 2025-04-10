@@ -1,3 +1,84 @@
+const defaultTLoadout = {
+  name: "Default T Loadout",
+  faction: "t", 
+  loadout: [
+    {
+      id: "agent-t-default",
+      name: "Agent",
+      team: "terrorists",
+      weapon: { name: "Terrorist | The Default" },
+      category: { name: "Agents" },
+      rarity: { color: false },
+      image: "/default-weapons/T_agent.webp"
+    },
+    {
+      id: "weapon-ak47",
+      name: "AK-47",
+      weapon: { name: "AK-47" },
+      category: { name: "Rifles" },
+      rarity: { color: false },
+      image: "/default-weapons/AK-47.webp"
+    },
+    {
+      id: "skin-awp",
+      name: "AWP",
+      weapon: { name: "AWP" },
+      category: { name: "Rifles" },
+      rarity: { color: false },
+      image: "/default-weapons/AWP.webp"
+    },
+    {
+      id: "skin-deagle",
+      name: "Desert Eagle",
+      weapon: { name: "Desert Eagle" },
+      category: { name: "Pistols" },
+      rarity: { color: false },
+      image: "/default-weapons/Desert_Eagle.webp"
+    },
+    {
+      id: "weapon-glock18",
+      name: "Glock-18",
+      weapon: { name: "Glock-18" },
+      category: { name: "Pistols" },
+      rarity: { color: false },
+      image: "/default-weapons/Glock-18.webp"
+    },
+    {
+      id: "weapon-galil-ar",
+      name: "Galil AR",
+      weapon: { name: "Galil AR" },
+      category: { name: "Rifles" },
+      rarity: { color: false },
+      image: "/default-weapons/Galil_AR.webp"
+    },
+    {
+      id: "weapon-p250",
+      name: "P250",
+      weapon: { name: "P250" },
+      category: { name: "Pistols" },
+      rarity: { color: false },
+      image: "/default-weapons/P250.webp"
+    },
+    {
+      id: "gloves-t",
+      name: "T Gloves",
+      weapon: { name: "CT Gloves" },
+      category: { name: "Gloves" },
+      rarity: { color: false },
+      image: "/default-weapons/T_gloves.webp"
+    },
+    {
+      id: "knife-t",
+      name: "T Knife",
+      weapon: { name: "CT Knife" },
+      category: { name: "Knives" },
+      rarity: { color: true },
+      image: "/default-weapons/T_knife.webp"
+    }
+  ]
+};
+
+
 // const defaultTLoadout = {
 //   name: "Default T Loadout",
 //   faction: "t", 
@@ -471,75 +552,6 @@
 
 // export default defaultTLoadout
 
-const defaultTLoadout = {
-  name: "Default T Loadout",
-  faction: "t", 
-  loadout: [
-    {
-      id: "weapon-ak47",
-      name: "AK-47",
-      weapon: { name: "AK-47" },
-      category: { name: "Rifles" },
-      rarity: { color: false },
-      image: "/default-weapons/AK-47.webp"
-    },
-    {
-      id: "skin-awp",
-      name: "AWP",
-      weapon: { name: "AWP" },
-      category: { name: "Rifles" },
-      rarity: { color: false },
-      image: "/default-weapons/AWP.webp"
-    },
-    {
-      id: "skin-deagle",
-      name: "Desert Eagle",
-      weapon: { name: "Desert Eagle" },
-      category: { name: "Pistols" },
-      rarity: { color: false },
-      image: "/default-weapons/Desert_Eagle.webp"
-    },
-    {
-      id: "weapon-glock18",
-      name: "Glock-18",
-      weapon: { name: "Glock-18" },
-      category: { name: "Pistols" },
-      rarity: { color: false },
-      image: "/default-weapons/Glock-18.webp"
-    },
-    {
-      id: "weapon-galil-ar",
-      name: "Galil AR",
-      weapon: { name: "Galil AR" },
-      category: { name: "Rifles" },
-      rarity: { color: false },
-      image: "/default-weapons/Galil_AR.webp"
-    },
-    {
-      id: "weapon-p250",
-      name: "P250",
-      weapon: { name: "P250" },
-      category: { name: "Pistols" },
-      rarity: { color: false },
-      image: "/default-weapons/P250.webp"
-    },
-    {
-      id: "gloves-t",
-      name: "T Gloves",
-      weapon: { name: "CT Gloves" },
-      category: { name: "Gloves" },
-      rarity: { color: false },
-      image: "/default-weapons/T_gloves.webp"
-    },
-    {
-      id: "knife-t",
-      name: "T Knife",
-      weapon: { name: "CT Knife" },
-      category: { name: "Knives" },
-      rarity: { color: true },
-      image: "/default-weapons/T_knife.webp"
-    }
-  ]
-};
+
 
 export default defaultTLoadout;

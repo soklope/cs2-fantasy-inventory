@@ -41,9 +41,9 @@ export default function ConfirmModal() {
                         <div className="confirm-modal__inner">
                             <h2>Are you sure?</h2>
                             <p>This will reset your loadout and cannot be undone.</p>
-                            <div>
-                                <button onClick={() => { setShowConfirm(false); resetInventory();}}> Confirm </button>
-                                <button onClick={() => setShowConfirm(false)}>Cancel</button>
+                            <div className="confirm-modal__buttons">
+                                <button className="button-accept" onClick={() => { setShowConfirm(false); resetInventory();}}> Confirm </button>
+                                <button className="button-danger" onClick={() => setShowConfirm(false)}>Cancel</button>
                             </div>
                         </div>
                     )}
@@ -53,9 +53,9 @@ export default function ConfirmModal() {
                         <div className="confirm-modal__inner">
                             <h2>Are you sure?</h2>
                             <p>This will overwrite your current loadout and cannot be undone.</p>
-                            <div>
-                                <button onClick={() => { setShowConfirm(false); handleImportInventory();}}> Confirm </button>
-                                <button onClick={() => setShowConfirm(false)}>Cancel</button>
+                            <div className="confirm-modal__buttons">
+                                <button className="button-accept" onClick={() => { setShowConfirm(false); handleImportInventory();}}> Confirm </button>
+                                <button className="button-danger" onClick={() => setShowConfirm(false)}>Cancel</button>
                             </div>
                     </div>
                     )}

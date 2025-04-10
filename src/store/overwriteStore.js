@@ -1,9 +1,9 @@
 import { create } from "zustand";
 
 const useOverwriteStore = create((set) => ({
-  showConfirm: true,
+  showConfirm: false,
   importStringValue: "",
-  actionType: "reset",
+  actionType: "",
 
   setShowConfirm: (value) => set({ showConfirm: value }),
   setActionType: (value) => set({ actionType: value }),

@@ -17,6 +17,11 @@ button {
     background-color: c.$primary;
 }
 
+.button-accept {
+    padding: 0;
+    color: c.$accept;
+}
+
 .button-secondary {
     background: none;
     border: solid 1px c.$white;

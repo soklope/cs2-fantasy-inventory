@@ -8,7 +8,7 @@ const useInventoryStore = create(
     (set, get) => ({
       finderIsOpen: false,
       currentFaction: "ct",
-      item: { name: "", category: ""},
+      itemInFocus: { name: "", category: ""},
       userCtLoadoutStore: defaultCtLoadout,
       userTLoadoutStore: defaultTLoadout,
 
@@ -26,29 +26,29 @@ const useInventoryStore = create(
       setFinderStatus: (name, category) => {
         set((state) => ({
           finderIsOpen: !state.finderIsOpen,
-          item: { name, category },
+          itemInFocus: { name, category },
         }));
       },
 
       setItemName: (name, category) => {
-        set({ item: { name, category } });
+        set({ itemInFocus: { name, category } });
       },
 
-      updateUserLoadoutStore: (clickedItem) => {
+      updateUserLoadoutStore: (newSkinClicked) => {
         const { currentFaction, userCtLoadoutStore, userTLoadoutStore } = get();
         const currentLoadout = currentFaction === "ct" ? userCtLoadoutStore.loadout : userTLoadoutStore.loadout;
       
         const hasWeaponMatch = currentLoadout.some(
-          (item) => item.weapon.name === clickedItem.weapon.name
+          (item) => item.weapon.name === newSkinClicked.weapon.name
         );
       
         const updatedLoadout = currentLoadout.map((item) => {
-          if (hasWeaponMatch && item.weapon.name === clickedItem.weapon.name) {
-            return clickedItem;
+          if (hasWeaponMatch && item.weapon.name === newSkinClicked.weapon.name) {
+            return newSkinClicked;
           }
       
-          if (!hasWeaponMatch && item.category.name === clickedItem.category.name) {
-            return clickedItem;
+          if (!hasWeaponMatch && item.category.name === newSkinClicked.category.name) {
+            return newSkinClicked;
           }
       
           return item;

@@ -6,7 +6,7 @@ import SkinCard from '../SkinCard/SkinCard';
 import useInventoryStore from '../../store/inventoryStore';
 
 export default function Finder() {
-    const { item, finderIsOpen, setFinderStatus } = useInventoryStore();
+    const { itemInFocus, finderIsOpen, setFinderStatus } = useInventoryStore();
     const [skins, setSkins] = useState([]);
 
     useEffect(() => {
@@ -16,19 +16,19 @@ export default function Finder() {
         const parsedData = JSON.parse(storedSkins);
 
         let matchedSkins = []
-        const nameMatches = parsedData.filter(skin => skin.weapon.name === item.name);
+        const nameMatches = parsedData.filter(skin => skin.weapon.name === itemInFocus.name);
         
         if (nameMatches.length === 0) {
-          matchedSkins = parsedData.filter(skin => skin.category.name === item.category);
-        } else if (item.category === "Knives" || item.category === "Gloves") {
-          matchedSkins = parsedData.filter(skin => skin.category.name === item.category);
+          matchedSkins = parsedData.filter(skin => skin.category.name === itemInFocus.category);
+        } else if (itemInFocus.category === "Knives" || itemInFocus.category === "Gloves") {
+          matchedSkins = parsedData.filter(skin => skin.category.name === itemInFocus.category);
         } else {
           matchedSkins = nameMatches;
         }
 
         setSkins(matchedSkins);
       } 
-    }, [item]);
+    }, [itemInFocus]);
 
     return (
         <>

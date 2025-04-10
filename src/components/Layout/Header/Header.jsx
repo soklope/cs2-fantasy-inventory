@@ -24,20 +24,43 @@ export default function Header() {
             }));
 
             localStorage.setItem("cs2Skins", JSON.stringify(transformedData));
-            localStorage.setItem("version", version); // Update version after successful fetch
-            setLocalVersion(String(version)); // Update local state
+            localStorage.setItem("version", version); 
+            setLocalVersion(String(version)); 
+        } catch (error) {
+            console.error("Error fetching skins:", error);
+        }
+
+        try {
+            const response = await axios.get("https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/en/agents.json");
+            const data = response.data;
+
+            const transformedData = data.map(skin => ({
+                id: `${skin.id}`,
+                name: skin.name,
+                weapon: { name: skin.team.name },
+                category: { name: skin.team.id },
+                rarity: skin.rarity.color,
+                image: skin.image || "/default-weapons/default-image.webp"
+            }));
+
+            localStorage.setItem("cs2Agents", JSON.stringify(transformedData));
+            localStorage.setItem("version", version); 
+            setLocalVersion(String(version)); 
         } catch (error) {
             console.error("Error fetching skins:", error);
         }
     };
 
     useEffect(() => {
-        if (localVersion !== String(version)) {
+        if (
+            localVersion !== String(version) ||
+            !localStorage.getItem("cs2Skins") ||
+            !localStorage.getItem("cs2Agents")
+        ) {
             fetchSkins();
-        } else if (!localStorage.getItem("cs2Skins")) {
-            fetchSkins(); 
         }
-    }, [version, localVersion]); 
+    }, [version, localVersion]);
+    
 
     return (
         <header className="header">
