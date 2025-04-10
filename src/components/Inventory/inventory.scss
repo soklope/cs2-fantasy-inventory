@@ -4,8 +4,10 @@
 .inventory {
     display: flex;
     flex-direction: column;
+    position: relative;
     gap: 32px;
     margin-bottom: 120px;
+    padding-bottom: 60px;
 
     &__container {
         display: flex;

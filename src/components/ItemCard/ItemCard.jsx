@@ -2,11 +2,11 @@
 import './itemCard.scss'
 import useInventoryStore from "../../store/inventoryStore";
 
-export default function ItemCard({ weaponName, itemName, skinImage, rarity, weaponCategory, faction }) {
+export default function ItemCard({ weaponName, itemName, skinImage, rarity, weaponCategory }) {
     const { setFinderStatus } = useInventoryStore();
 
     const handleCardClick = () => {
-        setFinderStatus(weaponName, weaponCategory, faction);
+        setFinderStatus(weaponName, weaponCategory);
     }
 
     return (

@@ -4,9 +4,8 @@ const defaultTLoadout = {
   loadout: [
     {
       id: "agent-t-default",
-      name: "Agent",
+      name: "Terrorist",
       team: "terrorists",
-      weapon: { name: "Terrorist | The Default" },
       category: { name: "agent" },
       rarity: { color: false },
       image: "/default-weapons/T_agent.webp"

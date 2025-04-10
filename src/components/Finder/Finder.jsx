@@ -23,16 +23,16 @@ export default function Finder() {
     
       const nameMatches = parsedData.filter(skin => skin.weapon.name === itemInFocus.name);
     
-      if (nameMatches.length === 0) {
+      if (nameMatches.length === 0 && itemInFocus.category !== "agent") {
         matchedSkins = parsedData.filter(skin => skin.category.name === itemInFocus.category);
       } else if (itemInFocus.category === "Knives" || itemInFocus.category === "Gloves") {
         matchedSkins = parsedData.filter(skin => skin.category.name === itemInFocus.category);
-      } else if (itemInFocus.category === "agent") {
-        matchedSkins = parsedData.filter(skin => skin.category.name === itemInFocus.category);
+      } else if (nameMatches.length === 0 && itemInFocus.category === "agent") {
+        matchedSkins = parsedData.filter(skin => skin.team === currentFaction);
       } else {
         matchedSkins = nameMatches;
       }
-    
+      
       setSkins(matchedSkins);
     }, [itemInFocus]);
     
@@ -50,7 +50,7 @@ export default function Finder() {
                                     item={skin}
                                     skinName={skin.name}
                                     skinImage={skin.image}
-                                    rarity={skin.rarity.color}
+                                    rarity={skin.rarity.color || skin.rarity}
                                 />
                             ))}
                         </ul>

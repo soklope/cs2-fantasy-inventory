@@ -8,7 +8,7 @@ const useInventoryStore = create(
     (set, get) => ({
       finderIsOpen: false,
       currentFaction: "counter-terrorists",
-      itemInFocus: { name: "", category: "", faction: null},
+      itemInFocus: { name: "", category: ""},
       userCtLoadoutStore: defaultCtLoadout,
       userTLoadoutStore: defaultTLoadout,
 
@@ -20,34 +20,33 @@ const useInventoryStore = create(
       },
 
       setFaction: (faction) => {
-        set({ currentFaction: faction });
+        set({ currentFaction: faction});
       },
 
-      setFinderStatus: (name, category, faction) => {
+      setFinderStatus: (name, category) => {
         set((state) => ({
           finderIsOpen: !state.finderIsOpen,
-          itemInFocus: { name, category, faction },
+          itemInFocus: { name, category },
         }));
-      },
-
-      setItemName: (name, category, faction) => {
-        set({ itemInFocus: { name, category, faction } });
       },
 
       updateUserLoadoutStore: (newSkinClicked) => {
         const { currentFaction, userCtLoadoutStore, userTLoadoutStore } = get();
-        const currentLoadout = currentFaction === "counter-terrorists" ? userCtLoadoutStore.loadout : userTLoadoutStore.loadout;
+        const currentLoadout =
+          currentFaction === "counter-terrorists"
+            ? userCtLoadoutStore.loadout
+            : userTLoadoutStore.loadout;
       
         const hasWeaponMatch = currentLoadout.some(
-          (item) => item.weapon.name === newSkinClicked.weapon.name
+          (item) => item.weapon?.name === newSkinClicked.weapon?.name
         );
       
         const updatedLoadout = currentLoadout.map((item) => {
-          if (hasWeaponMatch && item.weapon.name === newSkinClicked.weapon.name) {
+          if (hasWeaponMatch && item.weapon?.name === newSkinClicked.weapon?.name) {
             return newSkinClicked;
           }
       
-          if (!hasWeaponMatch && item.category.name === newSkinClicked.category.name) {
+          if (!hasWeaponMatch && item.category?.name === newSkinClicked.category?.name) {
             return newSkinClicked;
           }
       

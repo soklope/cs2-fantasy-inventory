@@ -4,9 +4,8 @@ const defaultCtLoadout = {
   loadout: [
     {
       id: "agent-ct-default",
-      name: "Agent",
+      name: "Counter-Terrorist",
       team: "counter-terrorists",
-      weapon: { name: "Counter-Terrorist | The Default" },
       category: { name: "agent" },
       rarity: { color: false },
       image: "/default-weapons/CT_agent.webp"
