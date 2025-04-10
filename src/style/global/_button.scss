@@ -7,7 +7,7 @@ button {
     letter-spacing: 1px;
     background: none;
     padding: 0 16px;
-    height: 48px;
+    height: 32px;
     border-radius: 4px;
     color: c.$white;
     background-color: c.$black;
@@ -25,4 +25,5 @@ button {
 .button-danger {
     color: c.$danger;
     background: none;
+    padding: 0;
 }

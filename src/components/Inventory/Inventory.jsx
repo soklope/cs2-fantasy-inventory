@@ -35,14 +35,14 @@ export default function Inventory() {
         </div>
       </div>
 
-      <div className="inventory-container page-container">
+      <div className="inventory__container page-container">
         <h2>Rifles</h2>
         <div className="inventory__weapon-category">
           {renderWeaponsByCategory("rifles")}
         </div>
       </div>
 
-      <div className="inventory-container page-container">
+      <div className="inventory__container page-container">
         <h2>Pistols</h2>
         <div className="inventory__weapon-category">
           {renderWeaponsByCategory("pistols")}

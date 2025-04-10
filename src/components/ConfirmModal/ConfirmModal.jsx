@@ -1,0 +1,67 @@
+import "./confirmModal.scss"
+import useOverwriteStore from "../../store/overwriteStore";
+import useInventoryStore from "../../store/inventoryStore";
+import { toast } from 'react-toastify';
+import LZString from 'lz-string'; // Import the LZString library
+
+export default function ConfirmModal() {
+    const { showConfirm, setShowConfirm, importStringValue, setImportStringValue, actionType } = useOverwriteStore()
+    const { importInventory, resetInventory } = useInventoryStore();
+
+    const handleImportInventory = () => {
+        try {
+            const decompressedJson = LZString.decompressFromBase64(importStringValue);
+
+            if (decompressedJson === null) {
+                toast.error("Invalid inventory code");
+                return;
+            }
+
+            const decoded = JSON.parse(decompressedJson);
+
+            if (decoded && decoded.loadout && Array.isArray(decoded.loadout)) {
+                importInventory(decoded);
+                toast("Inventory imported successfully (decompressed)");
+                setImportStringValue("");
+            } else {
+                throw new Error("Invalid inventory structure");
+            }
+
+        } catch (err) {
+            console.error("Decode error:", err);
+            toast.error("Invalid inventory code");
+        }
+    };
+
+    return (
+        showConfirm && (
+            <dialog>
+                <div className="page-container confirm-modal">
+                    { actionType === "reset" && (
+                        <div className="confirm-modal__inner">
+                            <h2>Are you sure?</h2>
+                            <p>This will reset your loadout and cannot be undone.</p>
+                            <div>
+                                <button onClick={() => { setShowConfirm(false); resetInventory();}}> Confirm </button>
+                                <button onClick={() => setShowConfirm(false)}>Cancel</button>
+                            </div>
+                        </div>
+                    )}
+
+                    { actionType === "import" && (
+
+                        <div className="confirm-modal__inner">
+                            <h2>Are you sure?</h2>
+                            <p>This will overwrite your current loadout and cannot be undone.</p>
+                            <div>
+                                <button onClick={() => { setShowConfirm(false); handleImportInventory();}}> Confirm </button>
+                                <button onClick={() => setShowConfirm(false)}>Cancel</button>
+                            </div>
+                    </div>
+                    )}
+
+                </div>
+            </dialog>
+        )
+    )
+}

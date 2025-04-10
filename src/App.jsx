@@ -4,14 +4,16 @@ import Footer from './components/Layout/Footer/Footer'
 import Inventory from './components/Inventory/Inventory'
 import Finder from './components/Finder/Finder'
 import Toolbar from './components/Toolbar/Toolbar'
+import ConfirmModal from './components/ConfirmModal/ConfirmModal'
+import ResetLoadoutButton from './components/ResetLoadoutButton/ResetLoadoutButton'
+
 import { ToastContainer, Slide } from 'react-toastify';
-import useInventoryStore from './store/inventoryStore'
 
 export default function App() {
-  const { resetInventory } = useInventoryStore();
 
   return (
     <>
+      <ConfirmModal />
       <Finder />
       <Header />
       <Toolbar />
@@ -28,11 +30,7 @@ export default function App() {
         theme="dark"
         transition={Slide}
       />
-
-      <div className='reset-loadout-button page-container'>
-        <button className="button-danger" onClick={resetInventory}>Reset Inventory</button>
-      </div>
-
+      <ResetLoadoutButton />
       <Footer />
     </>
   )

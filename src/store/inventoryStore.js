@@ -74,8 +74,6 @@ const useInventoryStore = create(
       },
 
       importInventory: (importData) => {
-        console.log(importData);
-        
         if (importData) {
           if (importData.faction === "ct") {
             set({ userCtLoadoutStore: importData });

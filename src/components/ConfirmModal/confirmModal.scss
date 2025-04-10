@@ -1,0 +1,17 @@
+@use '../../style/variables/colors' as c;
+@use '../../style/mixins/breakpoints' as *;
+
+.confirm-modal {
+    background-color: c.$black;
+    padding: 32px;
+    width: auto;
+    border-radius: 4px;
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+}

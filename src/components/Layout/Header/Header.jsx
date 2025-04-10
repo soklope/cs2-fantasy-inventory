@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Header() {
-    const [version, setVersion] = useState(0.2);
+    const [version, setVersion] = useState(0.1);
     const [localVersion, setLocalVersion] = useState(localStorage.getItem("version")); 
 
     const fetchSkins = async () => {
