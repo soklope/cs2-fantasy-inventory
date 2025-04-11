@@ -1,18 +1,25 @@
 @use '../../../style/variables/colors' as c;
+@use '../../../style/variables/fonts' as f;
 
 .header {
-    height: 88px;
-    margin-bottom: 64px;
-    background-color: c.$black;
+    // margin-bottom: 16px;
+    padding: 16px 0;
+    font-family: f.$primary-font;
+    // background-color: c.$black;
 
     &__inner {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         gap: 16px;
 
-        img {
-            max-height: 80px;
-            margin-right: auto;
-        }
+        // img {
+        //     max-height: 80px;
+        //     margin-right: auto;
+        // }
+    }
+
+    &__version-text {
+        opacity: .2;
     }
 }

@@ -1,10 +1,25 @@
+@use '../../style/mixins/breakpoints' as *;
+
 .agent {
     position: absolute;
     height: 100%;
     width: 100%;
     z-index: -1;
+    display: none;
+
+    @include break(tablet) {
+    }
+
+    @include break(laptop) {
+        display: block;
+    }
+
+    @include break(desktop) {
+
+    }
 
     &__image {
+        position: absolute;
         width: 100%;
         height: 100%;
         background-image: url("/default-icons/Ct-patch-small.webp");
@@ -14,5 +29,10 @@
         display: flex;
         align-items: flex-start;
         justify-content: end;
+        opacity: .5;
+
+        &--terrorist {
+            background-position: left;
+        }
     }
 }

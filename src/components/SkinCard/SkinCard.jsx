@@ -1,7 +1,6 @@
-import './skinCard.scss'
 import useInventoryStore from "../../store/inventoryStore";
 
-export default function SkinCard({ item, weaponName, skinName, skinImage, rarity }) {
+export default function SkinCard({ item, skinName, skinImage, rarity }) {
     const { updateUserLoadoutStore } = useInventoryStore();
   
     const handleAddItemClick = () => {
@@ -9,11 +8,12 @@ export default function SkinCard({ item, weaponName, skinName, skinImage, rarity
     };
   
     return (
-      <li className="skin-card" onClick={handleAddItemClick}>
-        <h3>{weaponName}</h3>
-        <h3>{skinName}</h3>
-        <img src={skinImage} alt="skin image" />
-        <div className='item-card__rarity' style={{ backgroundColor: rarity }} />
+      <li className="card" onClick={handleAddItemClick}>
+        <div className='card__inner'>
+          <h3>{skinName}</h3>
+          <img src={skinImage} alt="skin image" />
+        </div>
+        <div className='card__rarity' style={{ backgroundColor: rarity }} />
       </li>
     );
   }

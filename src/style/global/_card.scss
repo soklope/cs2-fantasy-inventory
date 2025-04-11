@@ -1,0 +1,31 @@
+@use '../variables/colors.scss' as c;
+@use '../variables/fonts.scss' as f;
+@use '../mixins/breakpoints' as *;
+
+.card {
+    background-color: c.$medium-grey;
+    color: c.$white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &__inner {
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+    }
+    
+    &__rarity {
+        width: 100%;
+        height: 4px;
+    }
+}

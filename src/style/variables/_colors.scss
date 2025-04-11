@@ -1,3 +1,4 @@
+// Core Colors
 $primary: #EB7905;
 $white: #FFFFFF;
 $dark-grey: #171717;
@@ -8,9 +9,18 @@ $accept: #00FF00;
 $black: #1d1d1d;
 $box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
-$body-gradient: 
-    linear-gradient(135deg, 
-        $green-grey 10%,
-        $medium-grey 30%,
-        $dark-grey 100% 
-    );
+// CT (Counter-Terrorist) Colors
+$ct-blue-light: #4A90E2;
+$ct-blue-dark: #2C3E50;
+$ct-text-light: #A9CCE3; // Example of light text color for CT
+
+// T (Terrorist) Colors
+$t-orange-light: #E67E22;
+$t-orange-dark: #8E5E3B;
+$t-text-light: #F8C471; // Example of light text color for T
+
+// Body Background Gradients
+$ct-body-gradient: linear-gradient(to top, $ct-blue-dark 0%, transparent 70%);
+$t-body-gradient: linear-gradient(to top, $t-orange-dark 0%, transparent 70%);
+
+

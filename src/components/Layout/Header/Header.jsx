@@ -40,7 +40,7 @@ export default function Header() {
                 weapon: { name: skin.id.split("-")[0] },
                 category: { name: skin.id.split("-")[0] },
                 team: skin.team.id,
-                rarity: skin.rarity.color,
+                rarity: { color: skin.rarity.color },
                 image: skin.image || "/default-weapons/default-image.webp"
             }));
 
@@ -66,8 +66,9 @@ export default function Header() {
     return (
         <header className="header">
             <div className="header__inner page-container">
-                <img src={logo} alt="" />
-                <p>v.{version}</p>
+                {/* <img src={logo} alt="" /> */}
+                <p>CS2 Fantasy Loadout</p>
+                <p className="header__version-text">v.{version}</p>
             </div>
         </header>
     );

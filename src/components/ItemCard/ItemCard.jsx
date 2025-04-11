@@ -1,5 +1,3 @@
-// ItemCard Component
-import './itemCard.scss'
 import useInventoryStore from "../../store/inventoryStore";
 
 export default function ItemCard({ weaponName, itemName, skinImage, rarity, weaponCategory }) {
@@ -10,10 +8,12 @@ export default function ItemCard({ weaponName, itemName, skinImage, rarity, weap
     }
 
     return (
-        <li className="item-card" onClick={handleCardClick}>
-            <h3>{itemName}</h3>
-            <img src={skinImage} alt={`${itemName} skin`} />
-            <div className='item-card__rarity' style={{ backgroundColor: rarity }} />
+        <li className="card" onClick={handleCardClick}>
+            <div className='card__inner'>
+                <h3>{itemName}</h3>
+                <img src={skinImage} alt={`${itemName} skin`} />
+            </div>
+            <div className='card__rarity' style={{ backgroundColor: rarity }} />
         </li>
     )
 }

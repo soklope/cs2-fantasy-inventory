@@ -6,6 +6,7 @@ export default function Agent({ agentImage }) {
     const { userCtLoadoutStore, userTLoadoutStore, currentFaction} = useInventoryStore()
     const selectedLoadout = currentFaction === "counter-terrorists" ? userCtLoadoutStore : userTLoadoutStore;
     const [currentAgent, setCurrentAgent] = useState({})
+    const isTerrorist = currentFaction === "terrorists";
 
     useEffect(() => {
         if (selectedLoadout) {
@@ -19,7 +20,7 @@ export default function Agent({ agentImage }) {
     
     return (
         <div className="agent">
-            <div className="agent__image" style={{ backgroundImage: `url(${currentAgent.image})`}}></div>
+            <div className={`agent__image ${isTerrorist && "agent__image--terrorist"}`} style={{ backgroundImage: `url(${currentAgent.image})`}}></div>
         </div>
     );
 }

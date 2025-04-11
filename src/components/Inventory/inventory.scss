@@ -2,17 +2,46 @@
 @use '../../style/mixins/breakpoints' as *;
 
 .inventory {
+    margin-bottom: 120px;
+    height: calc(100dvh - 56px);
+    max-height: calc(1080px - 56px);
     display: flex;
     flex-direction: column;
-    position: relative;
-    gap: 32px;
-    margin-bottom: 120px;
-    padding-bottom: 60px;
+    justify-content: space-between;
+
+    &--ct-theme {
+        background: c.$ct-body-gradient;
+    }
+
+    &--t-theme {
+        background: c.$t-body-gradient;
+    }
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        gap: 32px;
+        padding-bottom: 60px;
+    }
 
     &__container {
         display: flex;
         flex-direction: column;
         gap: 16px;
+
+        &--terrorist {
+            text-align: end;
+        }
+    }
+
+    &__category-title {
+        &--ct-theme {
+            color: c.$ct-text-light;
+        }
+
+        &--t-theme {
+            color: c.$t-text-light;
+        }
     }
 
     &__weapon-category {
@@ -20,8 +49,13 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
 
+        &--terrorist {
+            direction: rtl;
+            text-align: left;
+        }
+
         @include break(tablet) {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
         }
 
         @include break(laptop) {
@@ -29,7 +63,7 @@
         }
 
         @include break(desktop) {
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(7, 1fr);
         }
     }
 }

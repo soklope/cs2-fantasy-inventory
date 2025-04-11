@@ -1,9 +1,19 @@
+@use '../../style/mixins/breakpoints' as *;
+
 .toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 64px;
     gap: 24px;
+
+    @include break(tablet) {
+    }
+
+    @include break(laptop) {
+    }
+
+    @include break(desktop) {
+    }
 
     &__import-export-reset {
         display: flex;
