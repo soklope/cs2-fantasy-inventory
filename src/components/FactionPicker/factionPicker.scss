@@ -1,25 +1,43 @@
+@use '../../style/mixins/breakpoints' as *;
+
 .faction-picker {
-    display: flex;
-    gap: 16px;
-    justify-content: end;
 
     &__icon {
-        height: 56px;
-        width: 56px;
+        height: 40px;
+        width: 40px;
         border-radius: 28px;
-  
+        transition: .1s;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        opacity: .2;
+
+        @include break(tablet) {
+            height: 64px;
+            width: 64px;
+        }
+    
+        @include break(laptop) {
+            height: 40px;
+            width: 40px;
+        }
+    
+        @include break(desktop) {
+            height: 48px;
+            width: 48px;
+        }
+
+        &:hover {
+            transition: .1s;
+            opacity: 1;
+        }
+        
         &--ct {
             background-image: url("/default-icons/Ct-patch-small.webp");
-            background-position: center;
-            background-size: contain;
-            opacity: .2;
         }
     
         &--t {
             background-image: url("/default-icons/Icon-t-patch-small.webp");
-            background-position: center;
-            background-size: contain;
-            opacity: .2;
         }
 
         &--active {

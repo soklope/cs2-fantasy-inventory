@@ -2,9 +2,8 @@
 @use '../../style/mixins/breakpoints' as *;
 
 .inventory {
-    margin-bottom: 120px;
-    height: calc(100dvh - 56px);
-    max-height: calc(1080px - 56px);
+    height: calc(100dvh - 72px);
+    max-height: calc(1080px - 72px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -27,7 +26,17 @@
     &__container {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 8px;
+
+        @include break(tablet) {
+        }
+
+        @include break(laptop) {
+        }
+
+        @include break(desktop) {
+            gap: 16px;
+        }
 
         &--terrorist {
             text-align: end;
@@ -45,9 +54,9 @@
     }
 
     &__weapon-category {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        display: flex;
+        gap: 8px;
+        overflow: auto;
 
         &--terrorist {
             direction: rtl;
@@ -55,15 +64,17 @@
         }
 
         @include break(tablet) {
-            grid-template-columns: repeat(3, 1fr);
+            width: 100%;
         }
 
         @include break(laptop) {
+            display: grid;
             grid-template-columns: repeat(6, 1fr);
         }
 
         @include break(desktop) {
             grid-template-columns: repeat(7, 1fr);
+            gap: 16px;
         }
     }
 }

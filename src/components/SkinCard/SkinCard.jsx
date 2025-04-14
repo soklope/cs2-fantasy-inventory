@@ -13,7 +13,7 @@ export default function SkinCard({ item, skinName, skinImage, rarity }) {
           <h3>{skinName}</h3>
           <img src={skinImage} alt="skin image" />
         </div>
-        <div className='card__rarity' style={{ backgroundColor: rarity }} />
+        <div className='card__rarity' style={{ background: `linear-gradient(to top, ${rarity}, transparent)` }} />
       </li>
     );
   }

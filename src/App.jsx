@@ -28,7 +28,6 @@ export default function App() {
         theme="dark"
         transition={Slide}
       />
-      <ResetLoadoutButton />
       <Footer />
     </>
   )

@@ -13,7 +13,7 @@ export default function ItemCard({ weaponName, itemName, skinImage, rarity, weap
                 <h3>{itemName}</h3>
                 <img src={skinImage} alt={`${itemName} skin`} />
             </div>
-            <div className='card__rarity' style={{ backgroundColor: rarity }} />
+            <div className='card__rarity' style={{ background: `linear-gradient(to top, ${rarity}, transparent)` }} />
         </li>
     )
 }

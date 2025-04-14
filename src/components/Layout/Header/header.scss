@@ -2,21 +2,14 @@
 @use '../../../style/variables/fonts' as f;
 
 .header {
-    // margin-bottom: 16px;
-    padding: 16px 0;
+    padding: 24px 0;
     font-family: f.$primary-font;
-    // background-color: c.$black;
 
     &__inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 16px;
-
-        // img {
-        //     max-height: 80px;
-        //     margin-right: auto;
-        // }
     }
 
     &__version-text {

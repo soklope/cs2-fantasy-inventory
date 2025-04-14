@@ -1,4 +1,5 @@
 @use '../../style/mixins/breakpoints' as *;
+@use '../../style/variables/colors' as c;
 
 .toolbar {
     display: flex;
@@ -15,10 +16,63 @@
     @include break(desktop) {
     }
 
-    &__import-export-reset {
+    &__buttons {
         display: flex;
+        position: relative;
         gap: 16px;
-        width: 100%;
         align-items: center;
+        background-color: rgba(c.$green-grey, .3);
+        padding: 8px 16px;
+        border-radius: 32px;
+
+        @include break(tablet) {
+            padding: 16px 24px;
+        }
+    
+        @include break(laptop) {
+            padding: 8px 16px;
+        }
+    
+        @include break(desktop) {
+            padding: 16px 24px;
+        }
+    }
+
+    &__cancel-import {
+        background-image: url("/svg-icons/cancel.svg");
+        background-position: center;
+        background-size: contain;
+    }
+
+    &__accept-import {
+        background-image: url("/svg-icons/check.svg");
+        background-position: center;
+        background-size: contain;
+    }
+
+    &__import {
+        background-image: url("/svg-icons/import.svg");
+        background-position: center;
+        background-size: contain;
+        
+        &:hover {
+            filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
+        }
+    }
+
+    &__export {
+        background-image: url("/svg-icons/export.svg");
+        background-position: center;
+        background-size: contain;
+
+        &:hover {
+            filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
+        }
+    }
+
+    &__spacer {
+        height: 24px;
+        width: 1px;
+        background-color: rgba(c.$white, .3);
     }
 }
