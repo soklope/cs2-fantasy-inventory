@@ -2,11 +2,22 @@
 @use '../../style/mixins/breakpoints' as *;
 
 .inventory {
-    height: calc(100dvh - 72px);
+    height: 100%;
+    min-height: calc(100dvh - 72px);
     max-height: calc(1080px - 72px);
     display: flex;
     flex-direction: column;
+    gap: 16px;
     justify-content: space-between;
+
+    @include break(tablet) {
+    }
+
+    @include break(laptop) {
+    }
+
+    @include break(desktop) {
+    }
 
     &--ct-theme {
         background: c.$ct-body-gradient;
@@ -15,15 +26,26 @@
     &--t-theme {
         background: c.$t-body-gradient;
     }
+
     &__inner {
         display: flex;
         flex-direction: column;
         position: relative;
         gap: 32px;
-        padding-bottom: 60px;
+        padding-bottom: 32px;
+
+        @include break(tablet) {
+        }
+    
+        @include break(laptop) {
+            padding-bottom: 60px;
+        }
+    
+        @include break(desktop) {
+        }
     }
 
-    &__container {
+    &__category {
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -69,12 +91,10 @@
 
         @include break(laptop) {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(7, 1fr);
         }
 
         @include break(desktop) {
-            grid-template-columns: repeat(7, 1fr);
-            gap: 16px;
         }
     }
 }

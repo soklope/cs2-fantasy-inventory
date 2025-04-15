@@ -11,6 +11,17 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    box-shadow: c.$box-shadow;
+
+    @include break(tablet) {
+    }
+
+    @include break(laptop) {
+        aspect-ratio: 1/1;
+    }
+
+    @include break(desktop) {
+    }
 
     &:hover {
         cursor: pointer;
@@ -18,19 +29,53 @@
 
     &__inner {
         display: flex;
-        height: 100%;
         justify-content: space-between;
         flex-direction: column;
         gap: 16px;
         padding: 16px;
         z-index: 1;
+        overflow: hidden;
+        width: 100%;
+        min-width: 120px;
+        height: 144px;
+
+        @include break(tablet) {
+            width: 160px;
+            height: 200px;
+        }
+    
+        @include break(laptop) {
+            width: 100%;
+            height: 160px;
+        }
+        
+        @include break(desktop) {
+            height: 184px;
+        }
+    }
+
+    &__title {
+        font-size: f.$card-title-mobile;
+        text-align: center;
+
+        @include break(tablet) {
+            font-size: f.$card-title-tablet;
+        }
+
+        @include break(laptop) {
+            font-size: f.$card-title-laptop;
+        }
+
+        @include break(desktop) {
+            font-size: f.$card-title-desktop;
+        }
     }
     
     &__rarity {
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 30%;
+        height: 50%;
         opacity: .15;
         border-radius: 0 0 8px 8px;
     }

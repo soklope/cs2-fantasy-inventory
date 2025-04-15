@@ -42,18 +42,20 @@ export default function Finder() {
             {finderIsOpen && (
                 <dialog open>
                     <div className='finder page-container'>
+                      <div>
                         <button onClick={() => setFinderStatus('', '', null)}>Close</button>
-                        <ul className='finder__item-list'>
-                            {skins.map((skin, index) => (
-                                <SkinCard 
-                                    key={index}
-                                    item={skin}
-                                    skinName={skin.name}
-                                    skinImage={skin.image}
-                                    rarity={skin.rarity.color || skin.rarity}
-                                />
-                            ))}
-                        </ul>
+                      </div>
+                      <ul className='finder__item-list'>
+                          {skins.map((skin, index) => (
+                              <SkinCard 
+                                  key={index}
+                                  item={skin}
+                                  skinName={skin.name}
+                                  skinImage={skin.image}
+                                  rarity={skin.rarity.color || skin.rarity}
+                              />
+                          ))}
+                      </ul>
                     </div>
                 </dialog>
             )}
