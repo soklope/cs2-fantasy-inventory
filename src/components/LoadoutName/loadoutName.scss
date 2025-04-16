@@ -1,0 +1,15 @@
+@use '../../style/mixins/breakpoints' as *;
+@use '../../style/variables/colors' as c;
+
+.loadout-name {
+    width: 100%;
+    color: c.$ct-text-light;
+
+    &--t {
+        color: c.$t-text-light;
+        
+        @include break(laptop) {
+            text-align: end;
+        }
+    }
+}

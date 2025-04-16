@@ -5,7 +5,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 24px;
 
     @include break(tablet) {
     }
@@ -38,37 +37,26 @@
         }
     }
 
-    &__cancel-import {
-        background-image: url("/svg-icons/cancel.svg");
-        background-position: center;
-        background-size: contain;
-    }
+// Shared base styles for all import buttons
+%button {
+    background-position: center;
+    background-size: contain;
 
-    &__accept-import {
-        background-image: url("/svg-icons/check.svg");
-        background-position: center;
-        background-size: contain;
+    &:hover {
+        filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
     }
+}
 
-    &__import {
-        background-image: url("/svg-icons/import.svg");
-        background-position: center;
-        background-size: contain;
-        
-        &:hover {
-            filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
-        }
-    }
 
-    &__export {
-        background-image: url("/svg-icons/export.svg");
-        background-position: center;
-        background-size: contain;
+&__import {
+    @extend %button;
+    background-image: url("/svg-icons/import.svg");
+}
 
-        &:hover {
-            filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
-        }
-    }
+&__export {
+    @extend %button;
+    background-image: url("/svg-icons/export.svg");
+}
 
     &__spacer {
         height: 24px;

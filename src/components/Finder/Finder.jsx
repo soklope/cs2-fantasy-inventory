@@ -49,7 +49,7 @@ export default function Finder() {
                           {skins.map((skin, index) => (
                               <SkinCard 
                                   key={index}
-                                  item={skin}
+                                  skin={skin}
                                   skinName={skin.name}
                                   skinImage={skin.image}
                                   rarity={skin.rarity.color || skin.rarity}

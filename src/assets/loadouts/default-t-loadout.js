@@ -7,7 +7,7 @@ const defaultTLoadout = {
       name: "Terrorist",
       team: "terrorists",
       category: { name: "agent" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/T_agent.webp"
     },
     {
@@ -15,7 +15,7 @@ const defaultTLoadout = {
       name: "AK-47",
       weapon: { name: "AK-47" },
       category: { name: "Rifles" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/AK-47.webp"
     },
     {
@@ -23,7 +23,7 @@ const defaultTLoadout = {
       name: "AWP",
       weapon: { name: "AWP" },
       category: { name: "Rifles" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/AWP.webp"
     },
     {
@@ -31,7 +31,7 @@ const defaultTLoadout = {
       name: "SSG 08",
       weapon: { name: "SSG 08" },
       category: { name: "Rifles" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/SSG.webp"
     },
     {
@@ -39,7 +39,7 @@ const defaultTLoadout = {
       name: "Desert Eagle",
       weapon: { name: "Desert Eagle" },
       category: { name: "Pistols" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/Desert_Eagle.webp"
     },
     {
@@ -47,7 +47,7 @@ const defaultTLoadout = {
       name: "Glock-18",
       weapon: { name: "Glock-18" },
       category: { name: "Pistols" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/Glock-18.webp"
     },
     {
@@ -55,7 +55,7 @@ const defaultTLoadout = {
       name: "Galil AR",
       weapon: { name: "Galil AR" },
       category: { name: "Rifles" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/Galil_AR.webp"
     },
     {
@@ -63,7 +63,7 @@ const defaultTLoadout = {
       name: "P250",
       weapon: { name: "P250" },
       category: { name: "Pistols" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/P250.webp"
     },
     {
@@ -71,7 +71,7 @@ const defaultTLoadout = {
       name: "Tec-9",
       weapon: { name: "Tec-9" },
       category: { name: "Pistols" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/Tec_9.webp"
     },
     {
@@ -79,7 +79,7 @@ const defaultTLoadout = {
       name: "CZ75-Auto",
       weapon: { name: "CZ75-Auto" },
       category: { name: "Pistols" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/CZ_Auto.webp"
     },
     {
@@ -87,7 +87,7 @@ const defaultTLoadout = {
       name: "T Gloves",
       weapon: { name: "CT Gloves" },
       category: { name: "Gloves" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/T_gloves.webp"
     },
     {
@@ -95,7 +95,7 @@ const defaultTLoadout = {
       name: "T Knife",
       weapon: { name: "CT Knife" },
       category: { name: "Knives" },
-      rarity: { color: "#FFFFFF" },
+      rarity: { color: false },
       image: "/default-weapons/T_knife.webp"
     }
   ]
@@ -128,10 +128,10 @@ const defaultTLoadout = {
 //       "rarity": {
 //         "id": "rarity_common",
 //         "name": "Common",
-//         "color": "#FFFFFF"
+//         "color": false
 //       },
-//       "stattrak": "#FFFFFF",
-//       "souvenir": "#FFFFFF",
+//       "stattrak": false,
+//       "souvenir": false,
 //       "paint_index": "0",
 //       "wears": [
 //         {
@@ -161,7 +161,7 @@ const defaultTLoadout = {
 //         "id": "both",
 //         "name": "Both Teams"
 //       },
-//       "legacy_model": "#FFFFFF",
+//       "legacy_model": false,
 //       "image": "/default-weapons/AK-47.webp"
 //     },
 //     {
@@ -186,10 +186,10 @@ const defaultTLoadout = {
 //       "rarity": {
 //         "id": "rarity_rare",
 //         "name": "Rare",
-//         "color": "#FFFFFF"
+//         "color": false
 //       },
-//       "stattrak": "#FFFFFF",
-//       "souvenir": "#FFFFFF",
+//       "stattrak": false,
+//       "souvenir": false,
 //       "paint_index": "1002",
 //       "wears": [
 //         {
@@ -219,7 +219,7 @@ const defaultTLoadout = {
 //         "id": "both",
 //         "name": "Both Teams"
 //       },
-//       "legacy_model": "#FFFFFF",
+//       "legacy_model": false,
 //       "image": "/default-weapons/AWP.webp"
 //     },
 //     {
@@ -244,10 +244,10 @@ const defaultTLoadout = {
 //       "rarity": {
 //         "id": "rarity_rare",
 //         "name": "Rare",
-//         "color": "#FFFFFF"
+//         "color": false
 //       },
-//       "stattrak": "#FFFFFF",
-//       "souvenir": "#FFFFFF",
+//       "stattrak": false,
+//       "souvenir": false,
 //       "paint_index": "1003",
 //       "wears": [
 //         {
@@ -277,7 +277,7 @@ const defaultTLoadout = {
 //         "id": "both",
 //         "name": "Both Teams"
 //       },
-//       "legacy_model": "#FFFFFF",
+//       "legacy_model": false,
 //       "image": "/default-weapons/Desert_Eagle.webp"
 //     },
 //     {
@@ -302,10 +302,10 @@ const defaultTLoadout = {
 //       "rarity": {
 //         "id": "rarity_common",
 //         "name": "Common",
-//         "color": "#FFFFFF"
+//         "color": false
 //       },
-//       "stattrak": "#FFFFFF",
-//       "souvenir": "#FFFFFF",
+//       "stattrak": false,
+//       "souvenir": false,
 //       "paint_index": "0",
 //       "wears": [
 //         {
@@ -335,7 +335,7 @@ const defaultTLoadout = {
 //         "id": "terrorist",
 //         "name": "Terrorist"
 //       },
-//       "legacy_model": "#FFFFFF",
+//       "legacy_model": false,
 //       "image": "/default-weapons/Glock-18.webp"
 //     },
 //     {
@@ -360,10 +360,10 @@ const defaultTLoadout = {
 //       "rarity": {
 //         "id": "rarity_common",
 //         "name": "Common",
-//         "color": "#FFFFFF"
+//         "color": false
 //       },
-//       "stattrak": "#FFFFFF",
-//       "souvenir": "#FFFFFF",
+//       "stattrak": false,
+//       "souvenir": false,
 //       "paint_index": "0",
 //       "wears": [
 //         {
@@ -393,7 +393,7 @@ const defaultTLoadout = {
 //         "id": "terrorist",
 //         "name": "Terrorist"
 //       },
-//       "legacy_model": "#FFFFFF",
+//       "legacy_model": false,
 //       "image": "/default-weapons/Galil_AR.webp"
 //     },
 //     {
@@ -418,10 +418,10 @@ const defaultTLoadout = {
 //       "rarity": {
 //         "id": "rarity_common",
 //         "name": "Common",
-//         "color": "#FFFFFF"
+//         "color": false
 //       },
-//       "stattrak": "#FFFFFF",
-//       "souvenir": "#FFFFFF",
+//       "stattrak": false,
+//       "souvenir": false,
 //       "paint_index": "0",
 //       "wears": [
 //         {
@@ -451,7 +451,7 @@ const defaultTLoadout = {
 //         "id": "both",
 //         "name": "Both Teams"
 //       },
-//       "legacy_model": "#FFFFFF",
+//       "legacy_model": false,
 //       "image": "/default-weapons/P250.webp"
 //     },
 //     {
@@ -476,10 +476,10 @@ const defaultTLoadout = {
 //       "rarity": {
 //         "id": "rarity_rare",
 //         "name": "Rare",
-//         "color": "#FFFFFF"
+//         "color": false
 //       },
-//       "stattrak": "#FFFFFF",
-//       "souvenir": "#FFFFFF",
+//       "stattrak": false,
+//       "souvenir": false,
 //       "paint_index": "0",
 //       "wears": [
 //         {
@@ -509,7 +509,7 @@ const defaultTLoadout = {
 //         "id": "terrorist",
 //         "name": "Terrorist"
 //       },
-//       "legacy_model": "#FFFFFF",
+//       "legacy_model": false,
 //       "image": "/default-weapons/T_gloves.webp"
 //     },
 //     {
@@ -536,8 +536,8 @@ const defaultTLoadout = {
 //         "name": "Legendary",
 //         "color": true
 //       },
-//       "stattrak": "#FFFFFF",
-//       "souvenir": "#FFFFFF",
+//       "stattrak": false,
+//       "souvenir": false,
 //       "paint_index": "0",
 //       "wears": [
 //         {
@@ -567,7 +567,7 @@ const defaultTLoadout = {
 //         "id": "counter-terrorist",
 //         "name": "Counter-Terrorist"
 //       },
-//       "legacy_model": "#FFFFFF",
+//       "legacy_model": false,
 //       "image": "/default-weapons/T_knife.webp"
 //     }
 //   ]

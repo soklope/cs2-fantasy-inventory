@@ -34,7 +34,6 @@
         gap: 16px;
         padding: 16px;
         z-index: 1;
-        overflow: hidden;
         width: 100%;
         min-width: 120px;
         height: 144px;
@@ -52,6 +51,14 @@
         @include break(desktop) {
             height: 184px;
         }
+    }
+
+    &__title-image-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        overflow: hidden;
     }
 
     &__title {

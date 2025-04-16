@@ -2,8 +2,7 @@
 @use '../../style/mixins/breakpoints' as *;
 
 .inventory {
-    height: 100%;
-    min-height: calc(100dvh - 72px);
+    height: calc(100dvh - 72px);
     max-height: calc(1080px - 72px);
     display: flex;
     flex-direction: column;
@@ -61,7 +60,9 @@
         }
 
         &--terrorist {
-            text-align: end;
+            @include break(laptop) {
+                text-align: end;
+            }
         }
     }
 
@@ -81,8 +82,10 @@
         overflow: auto;
 
         &--terrorist {
-            direction: rtl;
-            text-align: left;
+            @include break(laptop) {
+                direction: rtl;
+                text-align: left;
+            }
         }
 
         @include break(tablet) {

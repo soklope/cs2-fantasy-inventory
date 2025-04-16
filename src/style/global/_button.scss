@@ -16,11 +16,6 @@ button {
     background-color: c.$primary;
 }
 
-.button-accept {
-    padding: 0;
-    color: c.$accept;
-}
-
 .button-secondary {
     background: none;
     border: solid 1px c.$white;
@@ -30,4 +25,24 @@ button {
     color: c.$danger;
     background: none;
     padding: 0;
+}
+
+.button-accept {
+    background-position: center;
+    background-size: contain;
+    background-image: url("/svg-icons/check.svg");
+
+    &:hover {
+        filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
+    }
+}
+
+.button-cancel {
+    background-position: center;
+    background-size: contain;
+    background-image: url("/svg-icons/cancel.svg");
+
+    &:hover {
+        filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
+    }
 }

@@ -10,8 +10,10 @@ export default function ItemCard({ weaponName, itemName, skinImage, rarity, weap
     return (
         <li className="card" onClick={handleCardClick}>
             <div className='card__inner'>
-                <h3 className="card__title">{itemName}</h3>
-                <img src={skinImage} alt={`${itemName} skin`}/>
+                <div className="card__title-image-wrapper">
+                    <h3 className="card__title">{itemName}</h3>
+                    <img src={skinImage} alt={`${itemName} skin`}/>
+                </div>
             </div>
             <div className='card__rarity' style={{ background: `linear-gradient(to top, ${rarity}, transparent)` }} />
         </li>

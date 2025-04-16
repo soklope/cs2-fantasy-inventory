@@ -30,6 +30,26 @@ const useInventoryStore = create(
         }));
       },
 
+      updateLoadoutName: (name) => {
+        const { currentFaction } = get();
+
+        if (currentFaction === "counter-terrorists") {
+          set((state) => ({
+            userCtLoadoutStore: {
+              ...state.userCtLoadoutStore,
+              name: name
+            }
+          }))
+        } else {
+          set((state) => ({
+            userTLoadoutStore: {
+              ...state.userTLoadoutStore,
+              name: name
+            }
+          }))
+        }
+      },
+
       updateUserLoadoutStore: (newSkinClicked) => {
         const { currentFaction, userCtLoadoutStore, userTLoadoutStore } = get();
         const currentLoadout =

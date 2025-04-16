@@ -3,6 +3,7 @@ import FactionPicker from "../FactionPicker/FactionPicker"
 import useInventoryStore from "../../store/inventoryStore";
 import useOverwriteStore from "../../store/overwriteStore";
 import ResetLoadoutButton from "../ResetLoadoutButton/ResetLoadoutButton";
+import RenameButton from "../RenameButton/RenameButton";
 
 import { toast } from 'react-toastify';
 import LZString from 'lz-string';
@@ -43,18 +44,20 @@ export default function Toolbar() {
                 {
                     showImportInput ? (
                         <>
-                            <button className="toolbar__cancel-import" onClick={() => handleShowImport()}></button>
+                            <button className="button-cancel" onClick={() => handleShowImport()}></button>
                             <input
                                 type="text"
                                 value={importStringValue}
                                 onChange={handleImportStringChange}
                                 placeholder="Loadout Code..."
                             />
-                            <button className="toolbar__accept-import" onClick={() => {setShowConfirm(true); setActionType("import"); handleShowImport()}}></button>
+                            <button className="button-accept" onClick={() => {setShowConfirm(true); setActionType("import"); handleShowImport()}}></button>
                         </>
 
                     ) : (
                         <>
+                            <RenameButton />
+                            <div className="toolbar__spacer"></div>
                             <button className="toolbar__export" onClick={copyInventoryCode}></button>
                             <button className="toolbar__import" onClick={() => handleShowImport()}></button>
                             <div className="toolbar__spacer"></div>

@@ -1,17 +1,19 @@
 import useInventoryStore from "../../store/inventoryStore";
 
-export default function SkinCard({ item, skinName, skinImage, rarity }) {
+export default function SkinCard({ skin, skinName, skinImage, rarity }) {
     const { updateUserLoadoutStore } = useInventoryStore();
   
     const handleAddItemClick = () => {
-      updateUserLoadoutStore(item);
+      updateUserLoadoutStore(skin);
     };
   
     return (
       <li className="card" onClick={handleAddItemClick}>
         <div className='card__inner'>
-          <h3 className="card__title">{skinName}</h3>
-          <img src={skinImage} alt="skin image" />
+          <div className="card__title-image-wrapper">
+            <h3 className="card__title">{skinName}</h3>
+            <img src={skinImage} alt="skin image" />
+          </div>
         </div>
         <div className='card__rarity' style={{ background: `linear-gradient(to top, ${rarity}, transparent)` }} />
       </li>
