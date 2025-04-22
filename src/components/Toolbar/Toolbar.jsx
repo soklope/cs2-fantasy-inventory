@@ -57,10 +57,10 @@ export default function Toolbar() {
                     ) : (
                         <>
                             <RenameButton />
-                            <div className="toolbar__spacer"></div>
+                            {/* <div className="toolbar__spacer"></div> */}
                             <button className="toolbar__export" onClick={copyInventoryCode}></button>
                             <button className="toolbar__import" onClick={() => handleShowImport()}></button>
-                            <div className="toolbar__spacer"></div>
+                            {/* <div className="toolbar__spacer"></div> */}
                             <ResetLoadoutButton />
                         </>
                     )

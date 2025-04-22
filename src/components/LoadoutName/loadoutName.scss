@@ -1,15 +1,53 @@
 @use '../../style/mixins/breakpoints' as *;
 @use '../../style/variables/colors' as c;
+@use '../../style/variables/fonts.scss' as f;
 
 .loadout-name {
     width: 100%;
     color: c.$ct-text-light;
+    display: flex;
+    gap: 16px;
 
     &--t {
         color: c.$t-text-light;
         
         @include break(laptop) {
-            text-align: end;
+            justify-content: end;
         }
+    }
+
+    &__rename-input {
+        color: c.$ct-text-light;
+        font-family: f.$primary-font;
+        font-size: f.$title-mobile;
+        width: 100%;
+        height: 20px;
+        background-color: c.$dark-grey;
+        margin: auto 0;
+        
+        @include break(tablet) {
+            font-size: f.$title-tablet;
+            height: 28px;
+        }
+    
+        @include break(laptop) {
+            font-size: f.$title-laptop;
+            height: 32px;
+        }
+    
+        @include break(desktop) {
+            font-size: f.$title-desktop;
+            height: 48px;
+        }
+
+        &--t {
+            color: c.$t-text-light;
+        }
+    }
+
+    &__rename-input-buttons {
+        display: flex;
+        align-items: center;
+        gap: 16px;
     }
 }

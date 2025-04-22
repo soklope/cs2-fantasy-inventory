@@ -2,17 +2,17 @@
 @use '../variables/fonts.scss' as f;
 @use '../mixins/breakpoints' as *;
 
-input {
-    padding: 0 24px;
-    height: 32px;
-    background: none;
-    background-color: c.$black;
-    border-radius: 24px;
-    color: c.$white;
-    width: 100%;
-    border: solid 2px c.$black;
+// input {
+//     padding: 0 24px;
+//     height: 32px;
+//     background: none;
+//     background-color: c.$black;
+//     border-radius: 24px;
+//     color: c.$white;
+//     width: 100%;
+//     border: solid 2px c.$black;
 
-    &:focus {
-        border: solid 1px c.$white;
-    }
-    }
+//     &:focus {
+//         border: solid 1px c.$white;
+//     }
+// }
