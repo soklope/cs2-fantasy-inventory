@@ -1,0 +1,5 @@
+@use '../variables/colors.scss' as c;
+
+span {
+    color: c.$primary;
+}

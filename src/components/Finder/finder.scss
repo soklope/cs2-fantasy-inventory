@@ -14,6 +14,7 @@ dialog {
     align-items: center;
     justify-content: center;
     z-index: 2;
+    backdrop-filter: blur(4px);
 
     button {
         color: c.$white;
@@ -67,7 +68,6 @@ dialog {
         }
 
         &__sort-button {
-            background-color: blueviolet;
         }
     }
 }
