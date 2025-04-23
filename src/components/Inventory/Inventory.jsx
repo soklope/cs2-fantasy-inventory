@@ -46,9 +46,10 @@ export default function Inventory() {
         />
         {renderSection("Agent, Knives and Gloves", ["knives", "gloves", "agent"])}
         {renderSection("Rifles", ["rifles"])}
+        {renderSection("SMGs / Heavy", ["smgs", "heavy"])}
         {renderSection("Pistols", ["pistols"])}
-        <Agent />
       </div>
+      <Agent />
     </div>
   );
 }

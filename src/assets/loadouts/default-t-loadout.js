@@ -11,6 +11,24 @@ const defaultTLoadout = {
       image: "/default-weapons/T_agent.webp"
     },
     {
+      id: "gloves-t",
+      name: "T Gloves",
+      weapon: { name: "CT Gloves" },
+      category: { name: "Gloves" },
+      rarity: { color: false },
+      image: "/default-weapons/T_gloves.webp"
+    },
+    {
+      id: "knife-t",
+      name: "T Knife",
+      weapon: { name: "CT Knife" },
+      category: { name: "Knives" },
+      rarity: { color: false },
+      image: "/default-weapons/T_knife.webp"
+    },
+
+
+    {
       id: "weapon-ak47",
       name: "AK-47",
       weapon: { name: "AK-47" },
@@ -35,6 +53,66 @@ const defaultTLoadout = {
       image: "/default-weapons/SSG.webp"
     },
     {
+      id: "skin-sg-553",
+      name: "SG 553",
+      weapon: { name: "SG 553" },
+      category: { name: "Rifles" },
+      rarity: { color: false },
+      image: "/default-weapons/SG.webp"
+    },
+    {
+      id: "weapon-galil-ar",
+      name: "Galil AR",
+      weapon: { name: "Galil AR" },
+      category: { name: "Rifles" },
+      rarity: { color: false },
+      image: "/default-weapons/Galil_AR.webp"
+    },
+
+
+    {
+      id: "weapon-mac10",
+      name: "MAC-10",
+      weapon: { name: "MAC-10" },
+      category: { name: "SMGs" },
+      rarity: { color: false },
+      image: "/default-weapons/MAC-10.webp"
+    },
+    {
+      id: "weapon-mp5sd",
+      name: "MP5-SD",
+      weapon: { name: "MP5-SD" },
+      category: { name: "SMGs" },
+      rarity: { color: false },
+      image: "/default-weapons/MP5-SD.webp"
+    },
+    {
+      id: "weapon-mp7",
+      name: "MP7",
+      weapon: { name: "MP7" },
+      category: { name: "SMGs" },
+      rarity: { color: false },
+      image: "/default-weapons/MP7.webp"
+    },
+    {
+      id: "weapon-ump45",
+      name: "UMP-45",
+      weapon: { name: "UMP-45" },
+      category: { name: "SMGs" },
+      rarity: { color: false },
+      image: "/default-weapons/UMP-45.webp"
+    },
+    {
+      id: "weapon-nova",
+      name: "Nova",
+      weapon: { name: "Nova" },
+      category: { name: "Heavy" },
+      rarity: { color: false },
+      image: "/default-weapons/Nova.webp"
+    },
+    
+
+    {
       id: "skin-deagle",
       name: "Desert Eagle",
       weapon: { name: "Desert Eagle" },
@@ -49,14 +127,6 @@ const defaultTLoadout = {
       category: { name: "Pistols" },
       rarity: { color: false },
       image: "/default-weapons/Glock-18.webp"
-    },
-    {
-      id: "weapon-galil-ar",
-      name: "Galil AR",
-      weapon: { name: "Galil AR" },
-      category: { name: "Rifles" },
-      rarity: { color: false },
-      image: "/default-weapons/Galil_AR.webp"
     },
     {
       id: "weapon-p250",
@@ -81,22 +151,6 @@ const defaultTLoadout = {
       category: { name: "Pistols" },
       rarity: { color: false },
       image: "/default-weapons/CZ_Auto.webp"
-    },
-    {
-      id: "gloves-t",
-      name: "T Gloves",
-      weapon: { name: "CT Gloves" },
-      category: { name: "Gloves" },
-      rarity: { color: false },
-      image: "/default-weapons/T_gloves.webp"
-    },
-    {
-      id: "knife-t",
-      name: "T Knife",
-      weapon: { name: "CT Knife" },
-      category: { name: "Knives" },
-      rarity: { color: false },
-      image: "/default-weapons/T_knife.webp"
     }
   ]
 };

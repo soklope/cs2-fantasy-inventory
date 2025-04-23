@@ -11,6 +11,65 @@ const defaultCtLoadout = {
       image: "/default-weapons/CT_agent.webp"
     },
     {
+      id: "gloves-ct",
+      name: "CT Gloves",
+      weapon: { name: "CT Gloves" },
+      category: { name: "Gloves" },
+      rarity: { color: false },
+      image: "/default-weapons/CT_gloves.webp"
+    },
+    {
+      id: "knife-ct",
+      name: "CT Knife",
+      weapon: { name: "CT Knife" },
+      category: { name: "Knives" },
+      rarity: { color: false },
+      image: "/default-weapons/CT_knife.webp"
+    },
+
+    {
+      id: "weapon-mp5sd",
+      name: "MP5-SD",
+      weapon: { name: "MP5-SD" },
+      category: { name: "SMGs" },
+      rarity: { color: false },
+      image: "/default-weapons/MP5-SD.webp"
+    },
+    {
+      id: "weapon-mp7",
+      name: "MP7",
+      weapon: { name: "MP7" },
+      category: { name: "SMGs" },
+      rarity: { color: false },
+      image: "/default-weapons/MP7.webp"
+    },
+    {
+      id: "weapon-mp9",
+      name: "MP9",
+      weapon: { name: "MP9" },
+      category: { name: "SMGs" },
+      rarity: { color: false },
+      image: "/default-weapons/MP9.webp"
+    },
+    {
+      id: "weapon-ump45",
+      name: "UMP-45",
+      weapon: { name: "UMP-45" },
+      category: { name: "SMGs" },
+      rarity: { color: false },
+      image: "/default-weapons/UMP-45.webp"
+    },
+    {
+      id: "weapon-nova",
+      name: "Nova",
+      weapon: { name: "Nova" },
+      category: { name: "Heavy" },
+      rarity: { color: false },
+      image: "/default-weapons/Nova.webp"
+    },
+
+
+    {
       id: "weapon-m4a4",
       name: "M4A4",
       weapon: { name: "M4A4" },
@@ -42,6 +101,16 @@ const defaultCtLoadout = {
       rarity: { color: false },
       image: "/default-weapons/SSG.webp"
     },
+    {
+      id: "skin-famas",
+      name: "FAMAS",
+      weapon: { name: "FAMAS" },
+      category: { name: "Rifles" },
+      rarity: { color: false },
+      image: "/default-weapons/FAMAS.webp"
+    },
+
+
     {
       id: "skin-deagle",
       name: "Desert Eagle",
@@ -81,22 +150,6 @@ const defaultCtLoadout = {
       category: { name: "Pistols" },
       rarity: { color: false },
       image: "/default-weapons/Five_Seven.webp"
-    },
-    {
-      id: "gloves-ct",
-      name: "CT Gloves",
-      weapon: { name: "CT Gloves" },
-      category: { name: "Gloves" },
-      rarity: { color: false },
-      image: "/default-weapons/CT_gloves.webp"
-    },
-    {
-      id: "knife-ct",
-      name: "CT Knife",
-      weapon: { name: "CT Knife" },
-      category: { name: "Knives" },
-      rarity: { color: false },
-      image: "/default-weapons/CT_knife.webp"
     }
   ]
 };

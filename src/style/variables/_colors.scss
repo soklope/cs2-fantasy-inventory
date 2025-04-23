@@ -19,6 +19,9 @@ $t-orange-light: #E67E22;
 $t-orange-dark: #8E5E3B;
 $t-text-light: #F8C471; // Example of light text color for T
 
+$hover-shadow-t: 0 0 10px 3px rgba($t-orange-light, 0.5);
+$hover-shadow-ct: 0 0 10px 3px rgba($ct-blue-light, 0.5);
+
 // Body Background Gradients
 $ct-body-gradient: linear-gradient(to top, $ct-blue-dark 0%, transparent 70%);
 $t-body-gradient: linear-gradient(to top, $t-orange-dark 0%, transparent 70%);

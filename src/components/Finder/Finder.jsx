@@ -42,7 +42,6 @@ export default function Finder() {
       }
 
       setSkins(sortByRarity(matchedSkins, "asc"));
-
     }, [itemInFocus]);
 
     useEffect(() => {

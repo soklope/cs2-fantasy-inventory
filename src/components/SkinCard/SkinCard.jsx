@@ -1,14 +1,15 @@
 import useInventoryStore from "../../store/inventoryStore";
 
 export default function SkinCard({ skin, skinName, skinImage, rarity }) {
-    const { updateUserLoadoutStore } = useInventoryStore();
+    const { updateUserLoadoutStore, currentFaction } = useInventoryStore();
+    const isTerrorist = currentFaction === "terrorists"
   
     const handleAddItemClick = () => {
       updateUserLoadoutStore(skin);
     };
   
     return (
-      <li className="card" onClick={handleAddItemClick}>
+      <li className={`card ${isTerrorist ? "card--t" : "card--ct"}`} onClick={handleAddItemClick}>
         <div className='card__inner'>
           <div className="card__title-image-wrapper">
             <h3 className="card__title">{skinName}</h3>
