@@ -2,16 +2,19 @@ import './finder.scss'
 import React, { useState, useEffect } from 'react';
 import SkinCard from '../SkinCard/SkinCard';
 import useInventoryStore from '../../store/inventoryStore';
+import useSkinFilterStore from '../../store/skinFilterStore';
 import sortByRarity from '../../helpers/sortFinder';
+import SkinFilter from '../SkinFilter/SkinFilter';
 
 export default function Finder() {
-    const { itemInFocus, finderIsOpen, setFinderStatus, currentFaction } = useInventoryStore();
-    const [skins, setSkins] = useState([]);
-    const [order, setOrder] = useState("asc")
+    const { itemInFocus, finderIsOpen, currentFaction } = useInventoryStore();
+    const skinsInFinder = useSkinFilterStore((state) => state.skinsInFinder);
+    const setSkinsInFinder = useSkinFilterStore((state) => state.setSkinsInFinder);
+    const setSkinsInFinderCopy = useSkinFilterStore((state) => state.setSkinsInFinderCopy);
 
     useEffect(() => {
       let storedSkins = null;
-      
+
       if (itemInFocus.category === "agent") {
         storedSkins = localStorage.getItem("cs2Agents");
       } else {
@@ -41,7 +44,8 @@ export default function Finder() {
         matchedSkins = nameMatches;
       }
 
-      setSkins(sortByRarity(matchedSkins, "asc"));
+      setSkinsInFinder(sortByRarity(matchedSkins, "asc"));
+      setSkinsInFinderCopy(sortByRarity(matchedSkins, "asc"));
     }, [itemInFocus]);
 
     useEffect(() => {
@@ -56,29 +60,15 @@ export default function Finder() {
       };
     }, [finderIsOpen]);
 
-    const changeOrder = () => {
-      if (order === "asc") {
-        setSkins(sortByRarity(skins, "desc")),
-        setOrder("desc")
-      } else (
-        setSkins(sortByRarity(skins, "asc")),
-        setOrder("asc")
-      )
-    }
-    
     return (
         <>
             {finderIsOpen && (
                 <dialog open>
                     <div className='finder page-container'>
-
-                      <div className='finder__header'>
-                        <button className='finder__sort-button' onClick={() => changeOrder()}>sort by rarity: <span>{order}</span></button>
-                        <button className='button-cancel' onClick={() => setFinderStatus('', '', null)}></button>
-                      </div>
+                      <SkinFilter />
 
                       <ul className='finder__item-list'>
-                          {skins.map((skin, index) => (
+                          {skinsInFinder.map((skin, index) => (
                               <SkinCard 
                                   key={index}
                                   skin={skin}

@@ -2,17 +2,18 @@
 @use '../../style/mixins/breakpoints' as *;
 
 .inventory {
-    height: calc(100dvh - 72px);
-    max-height: calc(1080px - 72px);
     display: flex;
     flex-direction: column;
     gap: 16px;
     justify-content: space-between;
+    height: 100%;
 
     @include break(tablet) {
     }
 
     @include break(laptop) {
+        height: calc(100dvh - 72px);
+        max-height: calc(1080px - 72px);
     }
 
     @include break(desktop) {
