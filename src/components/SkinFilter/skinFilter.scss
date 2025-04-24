@@ -1,2 +1,12 @@
 @use '../../style/variables/colors' as c;
 @use '../../style/mixins/breakpoints' as *;
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    &__dropdown {
+        padding: 0;
+    }
+}

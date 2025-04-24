@@ -13,8 +13,9 @@ export default function SkinFilter() {
     const [order, setOrder] = useState("asc");
 
     const [showRarityFilter, setShowRarityFilter] = useState(false);
-    const [showKnifeFilter, setShowKnifeFilter] = useState(false);
-    const [showGloveFilter, setShowGloveFilter] = useState(false);
+
+    const isGlove = itemInFocus.category.toLowerCase() === "gloves";
+    const isKnife = itemInFocus.category.toLowerCase() === "knives";
 
     const knifeTypes = [
         "Bayonet",
@@ -67,52 +68,46 @@ export default function SkinFilter() {
     }
 
     useEffect(() => {
-        const isGlove = itemInFocus.category.toLowerCase() === "gloves";
-        const isKnife = itemInFocus.category.toLowerCase() === "knives";
-
-        if (isKnife) {
-            setShowKnifeFilter(true);
-            setShowGloveFilter(false);
-            setShowRarityFilter(false);
-        } else if (isGlove) {
-            setShowGloveFilter(true);
-            setShowKnifeFilter(false);
+        if (isKnife || isGlove) {
             setShowRarityFilter(false);
         } else {
             setShowRarityFilter(true);
-            setShowKnifeFilter(false);
-            setShowGloveFilter(false);
         }
     }, [itemInFocus]);
 
     return (
-        <div className='finder__header'>
+        <div className='filter'>
             {showRarityFilter && (
-                <button className='finder__sort-button' onClick={changeOrder}>
+                <button className='filter__sort-rarity' onClick={changeOrder}>
                     sort by rarity: <span>{order}</span>
                 </button>
             )}
 
-            {showGloveFilter && (
+            {!showRarityFilter && (
                 <div>
-                    {
-                        gloveTypes.map((glove, index) => (
-                            <button onClick={() => filterByType(glove)} key={index}>{glove}</button>
-                        ))
-                    }
+                    <button className="filter__dropdown">Show:</button>
+                    <ul>
+                        { isGlove ?
+                                <div>
+                                    {
+                                        gloveTypes.map((glove, index) => (
+                                            <button key={index} onClick={() => filterByType(glove)}>{glove}</button>
+                                        ))
+                                    }
+                                </div>
+                            : (
+                                <div>
+                                    {
+                                        knifeTypes.map((knife, index) => (
+                                            <button key={index} onClick={() => filterByType(knife)}>{knife}</button>
+                                        ))
+                                    }
+                                </div>
+                            )
+                        }
+                    </ul>
                 </div>
             )}
-
-            {showKnifeFilter && (
-                <div>
-                    {
-                        knifeTypes.map((knife, index) => (
-                            <button key={index} onClick={() => filterByType(knife)}>{knife}</button>
-                        ))
-                    }
-                </div>
-            )}
-
             <button className='button-cancel' onClick={() => setFinderStatus('', '', null)}></button>
         </div>
     );
