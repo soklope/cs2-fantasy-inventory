@@ -67,16 +67,6 @@
         }
     }
 
-    &__category-title {
-        &--ct-theme {
-            color: c.$ct-text-light;
-        }
-
-        &--t-theme {
-            color: c.$t-text-light;
-        }
-    }
-
     &__weapon-category {
         display: flex;
         gap: 8px;

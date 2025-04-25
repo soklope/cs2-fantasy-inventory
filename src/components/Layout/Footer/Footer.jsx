@@ -3,8 +3,31 @@ import "./footer.scss"
 export default function Footer() {
     return (
         <footer className="footer">
-            <div className="footer__inner page-container">
-                Henning er en fucking mis ApS
+            <div className="page-container">
+                <ul className="footer__info">
+                    <li>
+                        🎮 <strong>CS Fantasy Loadout</strong> is a passion project made from a love of crafting and styling CS2 inventories.
+                    </li>
+                    <li>
+                        🛠️ Built just for fun — no sponsors, no ads, just creativity and a bit of obsession.
+                    </li>
+                    <li>
+                        🙏 Huge thanks to <a href="https://github.com/ByMykel" target="_blank" rel="noopener noreferrer"><span>ByMykel</span></a> for the free and open <a href="https://github.com/ByMykel/CSGO-API" target="_blank" rel="noopener noreferrer"><span>CSGO API</span></a> — this project wouldn't be possible without it.
+                    </li>
+                    <li>
+                        💬 Got feedback or cool ideas? Let me know!.
+                    </li>
+                    <hr />
+                    <li>
+                        <a href="https://www.linkedin.com/in/s%C3%B8ren-kloster-pedersen-aa9481220/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ByMykkel" target="_blank" rel="noopener noreferrer"><span>GitHub</span></a>
+                    </li>
+                    <li>
+                        © {new Date().getFullYear()} CS Fantasy Loadout
+                    </li>
+                </ul>
             </div>
         </footer>
     )

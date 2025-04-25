@@ -1,13 +1,23 @@
 @use '../../../style/variables/colors' as c;
+@use '../../../style/mixins/breakpoints' as *;
 
 .footer {
     background-color: c.$black;
-    height: 240px;
+    padding: 24px 0;
 
-    &__inner {
+    @include break(tablet) {
+    }
+
+    @include break(laptop) {
+        padding: 120px 0;
+    }
+
+    @include break(desktop) {
+    }
+
+    &__info {
         display: flex;
-        height: 100%;
-        align-items: center;
-
+        flex-direction: column;
+        gap: 24px;
     }
 }

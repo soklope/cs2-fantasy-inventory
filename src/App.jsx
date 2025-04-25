@@ -4,8 +4,6 @@ import Footer from './components/Layout/Footer/Footer'
 import Inventory from './components/Inventory/Inventory'
 import Finder from './components/Finder/Finder'
 import ConfirmModal from './components/ConfirmModal/ConfirmModal'
-import ResetLoadoutButton from './components/ResetLoadoutButton/ResetLoadoutButton'
-
 import { ToastContainer, Slide } from 'react-toastify';
 
 export default function App() {

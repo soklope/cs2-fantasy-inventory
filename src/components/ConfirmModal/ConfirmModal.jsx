@@ -21,7 +21,7 @@ export default function ConfirmModal() {
 
             if (decoded && decoded.loadout && Array.isArray(decoded.loadout)) {
                 importInventory(decoded);
-                toast("Inventory imported successfully (decompressed)");
+                toast("Inventory imported successfully");
                 setImportStringValue("");
             } else {
                 throw new Error("Invalid inventory structure");

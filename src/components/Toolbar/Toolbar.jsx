@@ -22,7 +22,7 @@ export default function Toolbar() {
             const compressedBase64 = LZString.compressToBase64(json);
 
             navigator.clipboard.writeText(compressedBase64)
-                .then(() => toast("Inventory copied to clipboard (compressed)"))
+                .then(() => toast(`${currentFaction} inventory copied to clipboard`))
                 .catch((err) => alert("Failed to copy: " + err));
         } catch (err) {
             console.error("Encoding error:", err);
@@ -57,10 +57,8 @@ export default function Toolbar() {
                     ) : (
                         <>
                             <RenameButton />
-                            {/* <div className="toolbar__spacer"></div> */}
                             <button className="toolbar__export" onClick={copyInventoryCode}></button>
                             <button className="toolbar__import" onClick={() => handleShowImport()}></button>
-                            {/* <div className="toolbar__spacer"></div> */}
                             <ResetLoadoutButton />
                         </>
                     )

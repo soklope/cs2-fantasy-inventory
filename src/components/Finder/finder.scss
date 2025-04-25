@@ -28,7 +28,6 @@ dialog {
     .finder {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         height: 90%;
         gap: 8px;
 
@@ -37,6 +36,7 @@ dialog {
 
         @include break(laptop) {
             height: 65%;
+            gap: 4px;
         }
 
         @include break(desktop) {
@@ -55,7 +55,7 @@ dialog {
     
             @include break(laptop) {
                 grid-template-columns: repeat(5, 1fr);
-                padding: 5px;
+                padding: 4px;
             }
     
             @include break(desktop) {
