@@ -12,7 +12,7 @@ export default function Footer() {
                         🛠️ Built just for fun — no sponsors, no ads, just creativity and a bit of obsession.
                     </li>
                     <li>
-                        🙏 Huge thanks to <a href="https://github.com/ByMykel" target="_blank" rel="noopener noreferrer"><span>ByMykel</span></a> for the free and open <a href="https://github.com/ByMykel/CSGO-API" target="_blank" rel="noopener noreferrer"><span>CSGO API</span></a> — this project wouldn't be possible without it.
+                        🙏 Huge thanks to <a href="https://github.com/ByMykel" target="_blank" rel="noopener noreferrer"><span>ByMykel</span></a> for the free and open CSGO API — this project wouldn't be possible without it.
                     </li>
                     <li>
                         💬 Got feedback or cool ideas? Let me know!.
