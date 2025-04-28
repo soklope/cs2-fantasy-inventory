@@ -44,8 +44,8 @@ export default function Finder() {
         matchedSkins = nameMatches;
       }
 
-      setSkinsInFinder(sortByRarity(matchedSkins, "asc"));
-      setSkinsInFinderCopy(sortByRarity(matchedSkins, "asc"));
+      setSkinsInFinder(sortByRarity(matchedSkins, "desc"));
+      setSkinsInFinderCopy(sortByRarity(matchedSkins, "desc"));
     }, [itemInFocus]);
 
     useEffect(() => {

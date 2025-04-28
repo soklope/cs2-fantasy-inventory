@@ -23,11 +23,11 @@
             display: flex;
             align-items: flex-start;
             justify-content: end;
-    
+            filter: blur(10px);
+
             &--terrorist {
                 background-position: left;
             }
         }
     }
-
 }

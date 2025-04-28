@@ -1,9 +1,9 @@
 const rarityOrder = [
-    "#eb4b4b", // red
-    "#d32ce6", // pink/purple
-    "#8847ff", // purple
+    "#5e98d9",  // light blue
     "#4b69ff", // blue
-    "#5e98d9"  // light blue
+    "#8847ff", // purple
+    "#d32ce6", // pink/purple
+    "#eb4b4b" // red
 ];
 
 /**

@@ -5,8 +5,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 40px;
 
     @include break(tablet) {
+        margin-bottom: 0;
     }
 
     @include break(laptop) {

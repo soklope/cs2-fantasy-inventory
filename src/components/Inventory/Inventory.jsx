@@ -19,20 +19,18 @@ export default function Inventory() {
     if (items.length === 0) return null;
 
     return (
-      <div className={`inventory__category ${isTerrorist ? "inventory__category--terrorist" : ""}`}>
-        <div className={`inventory__weapon-category ${isTerrorist ? "inventory__weapon-category--terrorist" : ""}`}>
-          {items.map(item => (
-              <ItemCard
-                key={item.id}
-                weapon={item?.value}
-                itemName={item?.name}
-                weaponName={item.weapon?.name || item.name}
-                skinImage={item?.image}
-                rarity={item?.rarity?.color}
-                weaponCategory={item?.category?.name}
-              />
-            ))}
-        </div>
+      <div className={`inventory__weapon-category ${isTerrorist ? "inventory__weapon-category--terrorist" : ""}`}>
+        {items.map(item => (
+            <ItemCard
+              key={item.id}
+              weapon={item?.value}
+              itemName={item?.name}
+              weaponName={item.weapon?.name || item.name}
+              skinImage={item?.image}
+              rarity={item?.rarity?.color}
+              weaponCategory={item?.category?.name}
+            />
+          ))}
       </div>
     );
   };

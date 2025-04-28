@@ -1,4 +1,5 @@
 import "./skinFilter.scss"
+import FinderSearchBar from "../FinderSearchBar/FinderSearchBar";
 import useSkinFilterStore from "../../store/skinFilterStore"
 import useInventoryStore from '../../store/inventoryStore';
 import sortByRarity from '../../helpers/sortFinder';
@@ -10,7 +11,7 @@ export default function SkinFilter() {
     const skinsInFinderCopy = useSkinFilterStore((state) => state.skinsInFinderCopy);
 
     const { setFinderStatus, itemInFocus } = useInventoryStore();
-    const [order, setOrder] = useState("asc");
+    const [order, setOrder] = useState("desc");
 
     const [showRarityFilter, setShowRarityFilter] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -86,7 +87,7 @@ export default function SkinFilter() {
         <div className='filter'>
             {showRarityFilter && (
                 <button className='filter__sort-rarity' onClick={changeOrder}>
-                    sort by rarity: <span>{order}</span>
+                    rarity: <span>{order}</span>
                 </button>
             )}
 
@@ -109,7 +110,10 @@ export default function SkinFilter() {
                     )}
                 </div>
             )}
-            <button className='button-cancel' onClick={() => setFinderStatus('', '', null)}></button>
+
+            <FinderSearchBar />
+            
+            <button className='button-cancel filter__close' onClick={() => setFinderStatus('', '', null)}></button>
         </div>
     );
 }

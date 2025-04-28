@@ -1,0 +1,19 @@
+@use '../../style/variables/colors' as c;
+@use '../../style/mixins/breakpoints' as *;
+@use '../../style/mixins/breakpoints' as *;
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    
+    &__icon {
+        height: 20px;
+    }
+
+    &__input {
+        height: 100%;
+        background: none;
+        color: c.$white;
+        font-weight: lighter;
+    }
+}

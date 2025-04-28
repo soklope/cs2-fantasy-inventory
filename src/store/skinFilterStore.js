@@ -11,12 +11,12 @@ const useSkinFilterStore = create((set) => ({
         }));
       },
 
-      setSkinsInFinderCopy: (skinArray) => {
-        set((state) => ({
-          ...state,
-          skinsInFinderCopy: skinArray,
-        }));
-      },
+    setSkinsInFinderCopy: (skinArray) => {
+      set((state) => ({
+        ...state,
+        skinsInFinderCopy: skinArray,
+      }));
+    },
 }));
 
 export default useSkinFilterStore;

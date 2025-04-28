@@ -4,13 +4,13 @@
 
 .filter {
     display: flex;
-    justify-content: space-between;
     position: relative;
-    background-color: c.$black;
-    padding: 8px 8px 8px 16px;
     border-radius: 8px;
     margin: 0 auto;
     width: 100%;
+    align-items: center;
+    background-color: c.$black;
+    padding: 0 8px 0 16px;
 
     @include break(tablet) {
     }
@@ -24,15 +24,17 @@
 
     &__dropdown-button {
         padding: 0;
+        background-color: c.$black;
     }
 
     &__sort-rarity {
+        height: 100%;
         padding: 0;
     }
 
     &__dropdown {
         position: absolute;
-        top: 56px;
+        top: 64px;
         left: 0;
         display: flex;
         flex-direction: column;
@@ -60,5 +62,9 @@
             cursor: pointer;
             color: c.$primary;
         }
+    }
+
+    &__close {
+        margin-left: auto;
     }
 }

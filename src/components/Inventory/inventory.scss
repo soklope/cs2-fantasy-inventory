@@ -7,13 +7,13 @@
     gap: 16px;
     justify-content: space-between;
     height: 100%;
-
+    
     @include break(tablet) {
+        height: calc(100dvh - 72px);
+        max-height: calc(1080px - 72px);
     }
 
     @include break(laptop) {
-        height: calc(100dvh - 72px);
-        max-height: calc(1080px - 72px);
     }
 
     @include break(desktop) {
@@ -45,32 +45,15 @@
         }
     }
 
-    &__category {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-
-        @include break(tablet) {
-        }
-
-        @include break(laptop) {
-        }
-
-        @include break(desktop) {
-            gap: 16px;
-        }
-
-        &--terrorist {
-            @include break(laptop) {
-                text-align: end;
-            }
-        }
-    }
-
     &__weapon-category {
         display: flex;
         gap: 8px;
-        overflow: auto;
+        width: 100%;
+        overflow-x: auto;
+
+        & > * {
+            flex-shrink: 0;
+          }
 
         &--terrorist {
             @include break(laptop) {
@@ -80,13 +63,10 @@
         }
 
         @include break(tablet) {
-            width: 100%;
         }
 
         @include break(laptop) {
             overflow: unset;
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
         }
 
         @include break(desktop) {
