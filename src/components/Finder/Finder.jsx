@@ -5,6 +5,7 @@ import useInventoryStore from '../../store/inventoryStore';
 import useSkinFilterStore from '../../store/skinFilterStore';
 import sortByRarity from '../../helpers/sortFinder';
 import SkinFilter from '../SkinFilter/SkinFilter';
+import allSkins from '../../helpers/all-skins-and-agents.json'
 
 export default function Finder() {
     const { itemInFocus, finderIsOpen, currentFaction, setFinderStatus } = useInventoryStore();
@@ -13,32 +14,21 @@ export default function Finder() {
     const setSkinsInFinderCopy = useSkinFilterStore((state) => state.setSkinsInFinderCopy);
 
     useEffect(() => {
-      let storedSkins = null;
-
-      if (itemInFocus.category === "agent") {
-        storedSkins = localStorage.getItem("cs2Agents");
-      } else {
-        storedSkins = localStorage.getItem("cs2Skins");
-      }
-    
-      if (!storedSkins) return;
-    
-      const parsedData = JSON.parse(storedSkins);
       let matchedSkins = [];
     
-      const nameMatches = parsedData.filter(skin => skin.weapon.name === itemInFocus.name);
+      const nameMatches = allSkins.filter(skin => skin.weapon === itemInFocus.name);
     
       if (itemInFocus.category === "agent") {
-        matchedSkins = parsedData.filter(skin => skin.team === currentFaction);
+        matchedSkins = allSkins.filter(skin => skin.team === currentFaction);
 
       } else if (nameMatches.length === 0 && itemInFocus.category !== "agent") {
-        matchedSkins = parsedData.filter(skin => skin.category.name === itemInFocus.category);
+        matchedSkins = allSkins.filter(skin => skin.category === itemInFocus.category);
 
       } else if (itemInFocus.category === "Knives" || itemInFocus.category === "Gloves") {
-        matchedSkins = parsedData.filter(skin => skin.category.name === itemInFocus.category);
+        matchedSkins = allSkins.filter(skin => skin.category === itemInFocus.category);
 
       } else if (nameMatches.length === 0 && itemInFocus.category === "agent") {
-        matchedSkins = parsedData.filter(skin => skin.team === currentFaction);
+        matchedSkins = allSkins.filter(skin => skin.team === currentFaction);
         
       } else {
         matchedSkins = nameMatches;
@@ -80,8 +70,8 @@ export default function Finder() {
                                   key={index}
                                   skin={skin}
                                   skinName={skin.name}
-                                  skinImage={skin.image}
-                                  rarity={skin.rarity.color || skin.rarity}
+                                  skinImage={`/skin-images/${skin.image}`}
+                                  rarity={skin.rarityColor || skin.rarity}
                               />
                           ))}
                       </ul>

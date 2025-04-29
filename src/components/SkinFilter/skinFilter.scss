@@ -86,7 +86,7 @@
         background-size: 70%;
 
         &:hover {
-            filter: unset;
+            box-shadow: c.$hover-shadow-neutral;
         }
     }
 }

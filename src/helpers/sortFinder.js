@@ -14,8 +14,8 @@ const rarityOrder = [
  */
 export default function sortByRarity(skinArray = [], order = 'asc') {
     const sorted = [...skinArray].sort((a, b) => {
-        const indexA = rarityOrder.indexOf(a.rarity.color || a.rarity);
-        const indexB = rarityOrder.indexOf(b.rarity.color || b.rarity);
+        const indexA = rarityOrder.indexOf(a.rarityColor || a.rarity);
+        const indexB = rarityOrder.indexOf(b.rarityColor || b.rarity);
         const safeIndexA = indexA === -1 ? Infinity : indexA;
         const safeIndexB = indexB === -1 ? Infinity : indexB;
 

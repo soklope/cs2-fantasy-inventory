@@ -69,7 +69,7 @@ export default function SkinFilter() {
     }
 
     const filterByType = (itemType) => {
-        const filteredSkins = skinsInFinderCopy.filter((skin) => skin.weapon?.name.toLowerCase() === itemType.toLowerCase());
+        const filteredSkins = skinsInFinderCopy.filter((skin) => skin.weapon?.toLowerCase() === itemType.toLowerCase());
         setSkinsInFinder(filteredSkins);
         setFilteredByItem(itemType)
         toggleDropdown()
