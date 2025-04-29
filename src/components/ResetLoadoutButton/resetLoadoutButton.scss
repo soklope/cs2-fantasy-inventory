@@ -2,10 +2,4 @@
     background-image: url("/svg-icons/trash.svg");
     background-position: center;
     background-size: contain;
-    transition: .1s;
-
-    &:hover {
-        transition: .1s;
-        filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
-    }
 }

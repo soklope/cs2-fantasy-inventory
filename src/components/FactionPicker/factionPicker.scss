@@ -34,10 +34,12 @@
         
         &--ct {
             background-image: url("/default-icons/Ct-patch-small.webp");
+            background-size: 100% !important;
         }
     
         &--t {
             background-image: url("/default-icons/Icon-t-patch-small.webp");
+            background-size: 100% !important;
         }
 
         &--active {

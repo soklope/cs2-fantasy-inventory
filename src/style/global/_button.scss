@@ -8,7 +8,6 @@ button {
     background: none;
     padding: 0 16px;
     height: 32px;
-    border-radius: 4px;
     color: c.$white;
 }
 
@@ -32,10 +31,6 @@ button {
     background-position: center;
     background-size: contain;
     background-image: url("/svg-icons/check.svg");
-
-    &:hover {
-        filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
-    }
 }
 
 .button-cancel {
@@ -43,19 +38,4 @@ button {
     background-position: center;
     background-size: contain;
     background-image: url("/svg-icons/cancel.svg");
-
-    &:hover {
-        filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
-    }
-}
-
-.button-search {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    background-image: url("/svg-icons/search.svg");
-
-    &:hover {
-        filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
-    }
 }

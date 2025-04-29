@@ -2,10 +2,6 @@
     background-position: center;
     background-size: contain;
     background-image: url("/svg-icons/rename.svg");
-
-    &:hover {
-        filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
-    }
 }
 
 .rename-modal {

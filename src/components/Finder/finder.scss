@@ -29,25 +29,22 @@ dialog {
         display: flex;
         flex-direction: column;
         height: 90%;
-        gap: 8px;
+        gap: 4px;
 
         @include break(tablet) {
         }
 
         @include break(laptop) {
-            height: 65%;
-            gap: 4px;
         }
 
         @include break(desktop) {
-            height: 70%;
         }
 
         &__item-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             overflow-y: auto; 
-            gap: 8px;
+            gap: 4px;
 
             @include break(tablet) {
                 grid-template-columns: repeat(4, 1fr);
@@ -55,7 +52,6 @@ dialog {
     
             @include break(laptop) {
                 grid-template-columns: repeat(5, 1fr);
-                padding: 4px;
             }
     
             @include break(desktop) {

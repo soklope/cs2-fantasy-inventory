@@ -4,7 +4,6 @@
 
 .card {
     background-color: c.$black;
-    border-radius: 8px;
     position: relative;
     transition: .1s;
 
@@ -36,8 +35,8 @@
         }
     
         @include break(desktop) {
-            height: 160px;
-            width: 160px;
+            height: 170px;
+            width: 170px;
         }
     }
 
@@ -92,14 +91,12 @@
         width: 100%;
         height: 50%;
         opacity: .15;
-        border-radius: 0 0 8px 8px;
     }
 
     &--t {
         &:hover {
             @include break(laptop) {
                 box-shadow: c.$hover-shadow-t;
-                transition: .1s;
             }
         }
     }
@@ -108,7 +105,6 @@
         @include break(laptop) {
             &:hover {
                 box-shadow: c.$hover-shadow-ct;
-                transition: .1s;
             }
         }       
     }

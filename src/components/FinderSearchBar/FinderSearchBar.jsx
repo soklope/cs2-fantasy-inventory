@@ -19,14 +19,14 @@ export default function FinderSearchBar() {
 
     return (
         <div className="search-bar">
-            <button className="button-search search-bar__icon"></button>
             <input
                 className="search-bar__input"
                 type="text"
-                placeholder="Skin name..."
+                placeholder="Search..."
                 value={searchInput}
                 onChange={handleSearch}
             />
+            <button className="search-bar__icon"></button>
         </div>
     );
 }

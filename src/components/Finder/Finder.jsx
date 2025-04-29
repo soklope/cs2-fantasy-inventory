@@ -7,7 +7,7 @@ import sortByRarity from '../../helpers/sortFinder';
 import SkinFilter from '../SkinFilter/SkinFilter';
 
 export default function Finder() {
-    const { itemInFocus, finderIsOpen, currentFaction } = useInventoryStore();
+    const { itemInFocus, finderIsOpen, currentFaction, setFinderStatus } = useInventoryStore();
     const skinsInFinder = useSkinFilterStore((state) => state.skinsInFinder);
     const setSkinsInFinder = useSkinFilterStore((state) => state.setSkinsInFinder);
     const setSkinsInFinderCopy = useSkinFilterStore((state) => state.setSkinsInFinderCopy);
@@ -63,7 +63,14 @@ export default function Finder() {
     return (
         <>
             {finderIsOpen && (
-                <dialog open>
+                <dialog 
+                  open
+                  onClick={(e) => {
+                    if (e.target === e.currentTarget) {
+                      setFinderStatus(null, null);
+                    }
+                  }}
+                >
                     <div className='finder page-container'>
                       <SkinFilter />
 

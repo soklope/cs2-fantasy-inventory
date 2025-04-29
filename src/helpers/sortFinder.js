@@ -1,9 +1,10 @@
 const rarityOrder = [
-    "#5e98d9",  // light blue
-    "#4b69ff", // blue
-    "#8847ff", // purple
-    "#d32ce6", // pink/purple
-    "#eb4b4b" // red
+    "#b0c3d9", // Consumer Grade (Lightest Gray)
+    "#5e98d9", // Industrial Grade (Light Blue)
+    "#4b69ff", // Mil-Spec (Blue)
+    "#8847ff", // Restricted (Purple)
+    "#d32ce6", // Classified (Pink)
+    "#eb4b4b"  // Covert (Red)
 ];
 
 /**

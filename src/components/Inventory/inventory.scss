@@ -4,7 +4,7 @@
 .inventory {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 4px;
     justify-content: space-between;
     height: 100%;
     
@@ -31,7 +31,7 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        gap: 8px;
+        gap: 4px;
         padding-bottom: 32px;
 
         @include break(tablet) {
@@ -47,7 +47,7 @@
 
     &__weapon-category {
         display: flex;
-        gap: 8px;
+        gap: 4px;
         width: 100%;
         overflow-x: auto;
 

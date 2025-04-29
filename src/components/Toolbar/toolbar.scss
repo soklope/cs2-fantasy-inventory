@@ -22,7 +22,6 @@
         height: 32px;
         background: none;
         background-color: c.$black;
-        border-radius: 24px;
         color: c.$white;
         width: 100%;
         border: solid 2px c.$black;
@@ -35,11 +34,9 @@
     &__buttons {
         display: flex;
         position: relative;
-        gap: 16px;
+        gap: 8px;
         align-items: center;
-        background-color: rgba(c.$green-grey, .3);
         padding: 8px 16px;
-        border-radius: 32px;
 
         @include break(tablet) {
             padding: 16px 24px;
@@ -54,26 +51,27 @@
         }
     }
 
-// Shared base styles for all import buttons
-%button {
-    background-position: center;
-    background-size: contain;
+    button {
+        width: 40px;
+        height: 40px;
+        background-color: c.$black;
+        background-position: center;
+        background-size: 70%;
+        background-repeat: no-repeat;
 
-    &:hover {
-        filter: invert(53%) sepia(41%) saturate(4705%) hue-rotate(6deg) brightness(100%) contrast(96%);
+        &:hover {
+            box-shadow: c.$hover-shadow-neutral;
+        }
     }
-}
 
 
-&__import {
-    @extend %button;
-    background-image: url("/svg-icons/import.svg");
-}
+    &__import {
+        background-image: url("/svg-icons/import.svg");
+    }
 
-&__export {
-    @extend %button;
-    background-image: url("/svg-icons/export.svg");
-}
+    &__export {
+        background-image: url("/svg-icons/export.svg");
+    }
 
     &__spacer {
         height: 24px;

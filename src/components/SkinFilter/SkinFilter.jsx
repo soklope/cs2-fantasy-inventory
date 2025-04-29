@@ -87,13 +87,13 @@ export default function SkinFilter() {
         <div className='filter'>
             {showRarityFilter && (
                 <button className='filter__sort-rarity' onClick={changeOrder}>
-                    rarity: <span>{order}</span>
+                    <span>{order}</span>
                 </button>
             )}
 
             {!showRarityFilter && (
                 <div>
-                    <button className="filter__dropdown-button" onClick={() => toggleDropdown()}>Show: <span>{filteredByItem}</span></button>
+                    <button className="filter__dropdown-button" onClick={() => toggleDropdown()}><span>{filteredByItem}</span></button>
                     {dropdownOpen && (
                         <ul className="filter__dropdown">
                             { isGlove ?
