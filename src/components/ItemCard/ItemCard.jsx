@@ -1,6 +1,6 @@
 import useInventoryStore from "../../store/inventoryStore";
 
-export default function ItemCard({ weaponName, itemName, skinImage, rarity, weaponCategory }) {
+export default function ItemCard({ weaponName, itemName, skinImage, rarity, weaponCategory, phase }) {
     const { setFinderStatus, currentFaction } = useInventoryStore();
 
     const isTerrorist = currentFaction === "terrorists"
@@ -12,7 +12,7 @@ export default function ItemCard({ weaponName, itemName, skinImage, rarity, weap
     return (
         <li className={`card card--loadout ${isTerrorist ? "card--t" : "card--ct"}`} onClick={handleCardClick}>
             <div className='card__inner'>
-                <h3 className="card__title">{itemName}</h3>
+                <h3 className="card__title">{itemName} {phase && (phase)}</h3>
                 <img className="card__image" src={skinImage} alt={`${itemName} skin`}/>
             </div>
             { rarity && (

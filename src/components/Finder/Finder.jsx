@@ -70,6 +70,7 @@ export default function Finder() {
                                   key={index}
                                   skin={skin}
                                   skinName={skin.name}
+                                  phase={skin.phase}
                                   skinImage={`/skin-images/${skin.image}`}
                                   rarity={skin.rarityColor || skin.rarity}
                               />

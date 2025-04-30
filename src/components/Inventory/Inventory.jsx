@@ -4,16 +4,15 @@ import Toolbar from "../Toolbar/Toolbar";
 import Agent from "../Agent/Agent";
 import LoadoutName from "../LoadoutName/LoadoutName";
 import useInventoryStore from "../../store/inventoryStore";
-import { Fade } from "react-awesome-reveal";
 
 export default function Inventory() {
   const { userCtLoadoutStore, userTLoadoutStore, currentFaction } = useInventoryStore();
   const selectedLoadout = currentFaction === "counter-terrorists" ? userCtLoadoutStore : userTLoadoutStore;
   const isTerrorist = currentFaction === "terrorists";
 
-  const renderSection = (title, categories) => {
+  const renderSection = (categories) => {
     const items = selectedLoadout.loadout.filter(item =>
-      categories.includes(item.category.name.toLowerCase())
+      categories.includes(item.category.toLowerCase())
     );
 
     if (items.length === 0) return null;
@@ -25,10 +24,10 @@ export default function Inventory() {
               key={item.id}
               weapon={item?.value}
               itemName={item?.name}
-              weaponName={item.weapon?.name || item.name}
-              skinImage={item?.image}
-              rarity={item?.rarity?.color}
-              weaponCategory={item?.category?.name}
+              weaponName={item.weapon || item.name}
+              skinImage={`/skin-images/${item.image}`}
+              rarity={item?.rarity}
+              weaponCategory={item?.category}
             />
           ))}
       </div>
@@ -42,10 +41,10 @@ export default function Inventory() {
         <LoadoutName 
           loadoutName={selectedLoadout.name}
         />
-        {renderSection("Agent, Knives and Gloves", ["knives", "gloves", "agent"])}
-        {renderSection("Rifles", ["rifles"])}
-        {renderSection("SMGs / Heavy", ["smgs", "heavy"])}
-        {renderSection("Pistols", ["pistols"])}
+        {renderSection(["knives", "gloves", "agent"])}
+        {renderSection(["rifles"])}
+        {renderSection(["smgs", "heavy"])}
+        {renderSection(["pistols"])}
       </div>
       <Agent />
     </div>

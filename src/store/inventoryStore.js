@@ -58,15 +58,15 @@ const useInventoryStore = create(
             : userTLoadoutStore.loadout;
       
         const hasWeaponMatch = currentLoadout.some(
-          (item) => item.weapon?.name === newSkinClicked.weapon?.name
+          (item) => item.weapon === newSkinClicked.weapon
         );
       
         const updatedLoadout = currentLoadout.map((item) => {
-          if (hasWeaponMatch && item.weapon?.name === newSkinClicked.weapon?.name) {
+          if (hasWeaponMatch && item.weapon === newSkinClicked.weapon) {
             return newSkinClicked;
           }
       
-          if (!hasWeaponMatch && item.category?.name === newSkinClicked.category?.name) {
+          if (!hasWeaponMatch && item.category === newSkinClicked.category) {
             return newSkinClicked;
           }
       
