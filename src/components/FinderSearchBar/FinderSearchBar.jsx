@@ -1,11 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./finderSearchBar.scss";
 import useSkinFilterStore from "../../store/skinFilterStore";
+import useInventoryStore from "../../store/inventoryStore";
 
 export default function FinderSearchBar() {
-    const { skinsInFinderCopy, setSkinsInFinder } = useSkinFilterStore();
-    const [searchInput, setSearchInput] = useState("");
+    const { skinsInFinderCopy, setSkinsInFinder, skinsInFinder } = useSkinFilterStore();
+    const { itemInFocus } = useInventoryStore()
 
+    const [searchInput, setSearchInput] = useState("");
+    const [knivesInFinderCopy, setKnivesInFinderCopy] = useState([])
+
+    const isKnivesInFinder = itemInFocus.category === "Knives"
+
+    useEffect(() => {
+        if (!isKnivesInFinder) return; // Skip if not a knife
+
+        const referenceWeaponType = skinsInFinder[0]?.weapon?.toLowerCase(); // This works as long as there is only one "type" of knife is rendered at once
+        if (!referenceWeaponType) return;
+    
+        const knivesOfSameType = skinsInFinderCopy.filter(
+            (knife) => knife.weapon?.toLowerCase() === referenceWeaponType
+        );
+    
+        setKnivesInFinderCopy(knivesOfSameType);
+    }, [skinsInFinder]);
+    
     const handleSearch = (e) => {
         const value = e.target.value;
         setSearchInput(value);
@@ -13,8 +32,16 @@ export default function FinderSearchBar() {
         const filteredSkins = skinsInFinderCopy.filter((skin) =>
             skin.name.toLowerCase().includes(value.toLowerCase())
         );
+        
+        const filteredKnives = knivesInFinderCopy.filter((skin) =>
+            skin.name.toLowerCase().includes(value.toLowerCase())
+        );
 
-        setSkinsInFinder(filteredSkins);
+        if (isKnivesInFinder) {
+            setSkinsInFinder(filteredKnives)            
+        } else {
+            setSkinsInFinder(filteredSkins);
+        }
     };
 
     return (

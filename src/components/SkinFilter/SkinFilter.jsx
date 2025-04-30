@@ -78,9 +78,11 @@ export default function SkinFilter() {
     useEffect(() => {
         if (isKnife || isGlove) {
             setShowRarityFilter(false);
+            setFilteredByItem(itemInFocus.weaponType)
         } else {
             setShowRarityFilter(true);
         }
+        
     }, [itemInFocus]);
 
     return (

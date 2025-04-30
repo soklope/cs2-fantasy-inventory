@@ -25,6 +25,7 @@ export default function Inventory() {
               weapon={item?.value}
               itemName={item?.name}
               weaponName={item.weapon || item.name}
+              weaponType={item.weapon}
               skinImage={`/skin-images/${item.image}`}
               rarity={item?.rarity}
               weaponCategory={item?.category}

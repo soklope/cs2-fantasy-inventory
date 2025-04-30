@@ -21,7 +21,7 @@ const defaultTLoadout = {
     {
       id: "knife-t",
       name: "T Knife",
-      weapon: "CT Knife",
+      weapon: "Karambit",
       category: "Knives",
       rarity: null,
       image: "/T_knife.webp"

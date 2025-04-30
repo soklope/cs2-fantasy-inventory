@@ -8,7 +8,7 @@ const useInventoryStore = create(
     (set, get) => ({
       finderIsOpen: false,
       currentFaction: "counter-terrorists",
-      itemInFocus: { name: "", category: ""},
+      itemInFocus: { name: "", category: "", weaponType: ""},
       userCtLoadoutStore: defaultCtLoadout,
       userTLoadoutStore: defaultTLoadout,
 
@@ -23,10 +23,10 @@ const useInventoryStore = create(
         set({ currentFaction: faction});
       },
 
-      setFinderStatus: (name, category) => {
+      setFinderStatus: (name, category, weaponType) => {
         set((state) => ({
           finderIsOpen: !state.finderIsOpen,
-          itemInFocus: { name, category },
+          itemInFocus: { name, category, weaponType },
         }));
       },
 

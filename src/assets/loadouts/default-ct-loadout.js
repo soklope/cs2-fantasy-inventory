@@ -21,7 +21,7 @@ const defaultCtLoadout = {
     {
       id: "knife-ct",
       name: "CT Knife",
-      weapon: "CT Knife",
+      weapon: "Bayonet",
       category: "Knives",
       rarity: null,
       image: "/CT_knife.webp"

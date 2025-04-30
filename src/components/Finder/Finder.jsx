@@ -13,8 +13,11 @@ export default function Finder() {
     const setSkinsInFinder = useSkinFilterStore((state) => state.setSkinsInFinder);
     const setSkinsInFinderCopy = useSkinFilterStore((state) => state.setSkinsInFinderCopy);
 
+    const itemInFocusIsKnife = itemInFocus.category === "Knives"
+
     useEffect(() => {
       let matchedSkins = [];
+      let matchedSkinsCopy = []; // for filtering purpose if knife or gloves
     
       const nameMatches = allSkins.filter(skin => skin.weapon === itemInFocus.name);
     
@@ -24,8 +27,13 @@ export default function Finder() {
       } else if (nameMatches.length === 0 && itemInFocus.category !== "agent") {
         matchedSkins = allSkins.filter(skin => skin.category === itemInFocus.category);
 
-      } else if (itemInFocus.category === "Knives" || itemInFocus.category === "Gloves") {
+      } else if (itemInFocus.category === "Gloves") {
         matchedSkins = allSkins.filter(skin => skin.category === itemInFocus.category);
+        matchedSkinsCopy = matchedSkins;
+
+      } else if (itemInFocus.category === "Knives") {
+        matchedSkins = allSkins.filter(skin => skin.weapon === itemInFocus.weaponType);
+        matchedSkinsCopy = allSkins.filter(skin => skin.category === itemInFocus.category);
 
       } else if (nameMatches.length === 0 && itemInFocus.category === "agent") {
         matchedSkins = allSkins.filter(skin => skin.team === currentFaction);
@@ -33,9 +41,9 @@ export default function Finder() {
       } else {
         matchedSkins = nameMatches;
       }
-
+      
+      setSkinsInFinderCopy(sortByRarity(itemInFocusIsKnife ? matchedSkinsCopy : matchedSkins, "desc"));
       setSkinsInFinder(sortByRarity(matchedSkins, "desc"));
-      setSkinsInFinderCopy(sortByRarity(matchedSkins, "desc"));
     }, [itemInFocus]);
 
     useEffect(() => {
