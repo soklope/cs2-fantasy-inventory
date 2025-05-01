@@ -17,7 +17,7 @@ export default function SwapWeaponButton() {
       
         const swapWeaponCategory = itemInFocus.category;
         const defaultLoadout = isTerrorist ? defaultTLoadout.loadout : defaultCtLoadout.loadout;
-        const currentLoadout = isTerrorist ? userTLoadoutStore.loadou : userCtLoadoutStore.loadout;
+        const currentLoadout = isTerrorist ? userTLoadoutStore.loadout : userCtLoadoutStore.loadout;
         const currentWeapons = currentLoadout.map(item => item.weapon);
       
         const availableWeapons = defaultLoadout.filter(

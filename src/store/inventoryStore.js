@@ -68,7 +68,7 @@ const useInventoryStore = create(
         const updatedLoadout = currentLoadout.map((item) =>
           item.id === itemInFocus.id ? newSkinClicked : item // Loops over each item in the loadout, and only replaces the item with an ID match
         );
-      
+
         if (currentFaction === "counter-terrorists") {
           set({
             userCtLoadoutStore: {
