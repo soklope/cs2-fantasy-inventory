@@ -15,7 +15,7 @@ export default function FinderSearchBar() {
     useEffect(() => {
         if (!isKnivesInFinder) return; // Skip if not a knife
 
-        const referenceWeaponType = skinsInFinder[0]?.weapon?.toLowerCase(); // This works as long as there is only one "type" of knife is rendered at once
+        const referenceWeaponType = skinsInFinder[0]?.weapon?.toLowerCase(); // This works as long as there is only one "type" of knife is rendered at once in the finder
         if (!referenceWeaponType) return;
     
         const knivesOfSameType = skinsInFinderCopy.filter(

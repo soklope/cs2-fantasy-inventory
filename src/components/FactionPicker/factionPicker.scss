@@ -12,29 +12,16 @@
         background-size: contain;
         opacity: .2;
 
-        @include break(tablet) {
-            height: 64px;
-            width: 64px;
-        }
-    
-        @include break(laptop) {
-            height: 40px;
-            width: 40px;
-        }
-    
-        @include break(desktop) {
-            height: 48px;
-            width: 48px;
-        }
-
         &:hover {
             transition: .1s;
             opacity: 1;
+            box-shadow: none !important;
         }
         
         &--ct {
             background-image: url("/default-icons/Ct-patch-small.webp");
             background-size: 100% !important;
+        
         }
     
         &--t {

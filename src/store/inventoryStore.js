@@ -8,25 +8,36 @@ const useInventoryStore = create(
     (set, get) => ({
       finderIsOpen: false,
       currentFaction: "counter-terrorists",
-      itemInFocus: { name: "", category: "", weaponType: ""},
+      itemInFocus: { id: "", name: "", category: "", weaponType: ""},
       userCtLoadoutStore: defaultCtLoadout,
       userTLoadoutStore: defaultTLoadout,
 
       resetInventory: () => {
         const { currentFaction } = get();
+      
+        const filteredCt = {
+          ...defaultCtLoadout,
+          loadout: defaultCtLoadout.loadout.filter(weapon => weapon.isDefault)
+        };
+      
+        const filteredT = {
+          ...defaultTLoadout,
+          loadout: defaultTLoadout.loadout.filter(weapon => weapon.isDefault)
+        };
+      
         currentFaction === "counter-terrorists"
-          ? set({ userCtLoadoutStore: defaultCtLoadout })
-          : set({ userTLoadoutStore: defaultTLoadout });
+          ? set({ userCtLoadoutStore: filteredCt })
+          : set({ userTLoadoutStore: filteredT });
       },
 
       setFaction: (faction) => {
         set({ currentFaction: faction});
       },
 
-      setFinderStatus: (name, category, weaponType) => {
+      setFinderStatus: (id, name, category, weaponType) => {
         set((state) => ({
           finderIsOpen: !state.finderIsOpen,
-          itemInFocus: { name, category, weaponType },
+          itemInFocus: {id, name, category, weaponType},
         }));
       },
 
@@ -51,27 +62,12 @@ const useInventoryStore = create(
       },
 
       updateUserLoadoutStore: (newSkinClicked) => {
-        const { currentFaction, userCtLoadoutStore, userTLoadoutStore } = get();
-        const currentLoadout =
-          currentFaction === "counter-terrorists"
-            ? userCtLoadoutStore.loadout
-            : userTLoadoutStore.loadout;
+        const { currentFaction, userCtLoadoutStore, userTLoadoutStore, itemInFocus } = get();
+        const currentLoadout = currentFaction === "counter-terrorists" ? userCtLoadoutStore.loadout : userTLoadoutStore.loadout;
       
-        const hasWeaponMatch = currentLoadout.some(
-          (item) => item.weapon === newSkinClicked.weapon
+        const updatedLoadout = currentLoadout.map((item) =>
+          item.id === itemInFocus.id ? newSkinClicked : item // Loops over each item in the loadout, and only replaces the item with an ID match
         );
-      
-        const updatedLoadout = currentLoadout.map((item) => {
-          if (hasWeaponMatch && item.weapon === newSkinClicked.weapon) {
-            return newSkinClicked;
-          }
-      
-          if (!hasWeaponMatch && item.category === newSkinClicked.category) {
-            return newSkinClicked;
-          }
-      
-          return item;
-        });
       
         if (currentFaction === "counter-terrorists") {
           set({
@@ -91,7 +87,7 @@ const useInventoryStore = create(
           });
         }
       },
-
+      
       importInventory: (importData) => {
         if (importData) {
           if (importData.faction === "counter-terrorists") {

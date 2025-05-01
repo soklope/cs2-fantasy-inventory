@@ -1,0 +1,16 @@
+@use '../../style/variables/colors' as c;
+@use '../../style/mixins/breakpoints' as *;
+@use '../../style/mixins/breakpoints' as *;
+
+.swap-weapon-button {
+    height: 100%;
+    background-color: c.$black;
+    height: 40px;
+    text-align: left;
+    white-space: nowrap;
+    text-align: start;
+    
+    @include break(tablet) {
+        width: 120px;
+    }
+}

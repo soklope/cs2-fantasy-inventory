@@ -56,6 +56,7 @@ export default function Finder() {
       return () => {
         document.body.style.overflow = "";
       };
+      
     }, [finderIsOpen]);
 
     return (

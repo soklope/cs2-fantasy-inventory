@@ -1,12 +1,12 @@
 import useInventoryStore from "../../store/inventoryStore";
 
-export default function ItemCard({ weaponName, itemName, skinImage, rarity, weaponCategory, phase, weaponType }) {
+export default function ItemCard({ weaponId, weaponName, itemName, skinImage, rarity, weaponCategory, phase, weaponType }) {
     const { setFinderStatus, currentFaction } = useInventoryStore();
 
     const isTerrorist = currentFaction === "terrorists"
 
     const handleCardClick = () => {
-        setFinderStatus(weaponName, weaponCategory, weaponType);
+        setFinderStatus(weaponId, weaponName, weaponCategory, weaponType);
     }
 
     return (

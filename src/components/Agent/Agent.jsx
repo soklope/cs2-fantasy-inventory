@@ -10,17 +10,18 @@ export default function Agent({ agentImage }) {
 
     useEffect(() => {
         if (selectedLoadout) {
-            const agent = selectedLoadout.loadout.find(item => item.category?.name === "agent");
+            const agent = selectedLoadout.loadout.find(item => item.category === "agent");
             if (agent) {
                 setCurrentAgent(agent);
             }
         }
         
+        
     }, [selectedLoadout]);
     
     return (
         <div className="agent">
-            <div className={`agent__image ${isTerrorist && "agent__image--terrorist"}`} style={{ backgroundImage: `url(${currentAgent.image})`}}></div>
+            <div className={`agent__image ${isTerrorist && "agent__image--terrorist"}`} style={{ backgroundImage: `url(/skin-images/${currentAgent.image})`}}></div>
         </div>
     );
 }

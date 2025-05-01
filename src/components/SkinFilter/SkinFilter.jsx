@@ -1,5 +1,6 @@
 import "./skinFilter.scss"
 import FinderSearchBar from "../FinderSearchBar/FinderSearchBar";
+import SwapWeaponButton from "../SwapWeaponButton/SwapWeaponButton";
 import useSkinFilterStore from "../../store/skinFilterStore"
 import useInventoryStore from '../../store/inventoryStore';
 import sortByRarity from '../../helpers/sortFinder';
@@ -88,9 +89,12 @@ export default function SkinFilter() {
     return (
         <div className='filter'>
             {showRarityFilter && (
-                <button className='filter__sort-rarity' onClick={changeOrder}>
-                    <span>{order}</span>
-                </button>
+                <>
+                    <button className='filter__sort-rarity' onClick={changeOrder}>
+                        <span>{order}</span>
+                    </button>
+                    <SwapWeaponButton />
+                </>
             )}
 
             {!showRarityFilter && (

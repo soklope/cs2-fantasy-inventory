@@ -5,7 +5,7 @@ export default function SkinCard({ skin, skinName, skinImage, rarity, phase }) {
     const isTerrorist = currentFaction === "terrorists"
   
     const handleAddItemClick = () => {
-      updateUserLoadoutStore(skin);
+      updateUserLoadoutStore(skin)
     };
   
     return (

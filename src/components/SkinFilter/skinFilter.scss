@@ -21,9 +21,11 @@
     &__dropdown-button {
         background-color: c.$black;
         height: 40px;
+        width: fit-content;
+        white-space: nowrap;
+        text-align: start;
 
         @include break(tablet) {
-            width: 100px;
 
             &::before {
                 content: "show: ";
@@ -35,7 +37,8 @@
         height: 100%;
         background-color: c.$black;
         height: 40px;
-        text-align: left;
+        white-space: nowrap;
+        text-align: start;
         
         @include break(tablet) {
             width: 120px;
@@ -44,8 +47,9 @@
                 content: "rarity: ";
             }
         }
-
     }
+
+
 
     &__dropdown {
         position: absolute;
@@ -54,7 +58,7 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
-        padding: 8px;
+        padding: 8px 16px;
         z-index: 2;
         background-color: c.$black;
         width: 100%;
@@ -62,6 +66,8 @@
         max-height: 300px;
 
         @include break(tablet) {
+            width: 200px;
+            max-height: 500px;
         }
     
         @include break(laptop) {

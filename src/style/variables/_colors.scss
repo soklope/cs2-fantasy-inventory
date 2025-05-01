@@ -21,7 +21,7 @@ $t-text-light: #F8C471; // Example of light text color for T
 
 $hover-shadow-t: inset 0 0 5px 1px rgba($t-orange-light, 0.5);
 $hover-shadow-ct: inset 0 0 5px 1px rgba($ct-blue-light, 0.5);
-$hover-shadow-neutral: inset 0 0 5px 1px rgba($white, 0.5);
+$hover-shadow-neutral: inset 0 0 5px 1px rgba($primary, 0.5);
 
 // Body Background Gradients
 $ct-body-gradient: linear-gradient(to top, $ct-blue-dark 0%, transparent 70%);
