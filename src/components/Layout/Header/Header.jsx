@@ -1,11 +1,23 @@
 import "./header.scss"
+import useInventoryStore from "../../../store/inventoryStore";
+
 import logo from "../../../assets/images/logo.png"
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Header() {
+    const { resetInventory } = useInventoryStore()
     const [version, setVersion] = useState(0.1);
-    const [localVersion, setLocalVersion] = useState(localStorage.getItem("version")); 
+    const [localVersion, setLocalVersion] = useState(localStorage.getItem("version"));
+    const noUserLoadouts = localStorage.getItem("userLoadouts") === null;
+
+    useEffect(() => {
+        if (noUserLoadouts) {
+            resetInventory() // If this is the first time a user visits the page, set it to the default loadout values
+        }
+    }, [])
+    
+
 
     // const fetchSkins = async () => {
     //     console.log("api called");

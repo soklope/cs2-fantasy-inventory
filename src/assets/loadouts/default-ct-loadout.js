@@ -7,7 +7,7 @@ const defaultCtLoadout = {
       name: "Counter-Terrorist",
       team: "counter-terrorists",
       category: "agent",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/CT_agent.webp",
       isDefault: true
     },
@@ -16,7 +16,7 @@ const defaultCtLoadout = {
       name: "CT Gloves",
       weapon: "CT Gloves",
       category: "Gloves",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/CT_gloves.webp",
       isDefault: true
     },
@@ -25,7 +25,7 @@ const defaultCtLoadout = {
       name: "CT Knife",
       weapon: "Bayonet",
       category: "Knives",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/CT_knife.webp",
       isDefault: true
     },
@@ -36,7 +36,7 @@ const defaultCtLoadout = {
       name: "MP5-SD",
       weapon: "MP5-SD",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/MP5-SD.webp",
       isDefault: true
     },
@@ -45,7 +45,7 @@ const defaultCtLoadout = {
       name: "MP7",
       weapon: "MP7",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/MP7.webp",
       isDefault: true
     },
@@ -54,7 +54,7 @@ const defaultCtLoadout = {
       name: "MP9",
       weapon: "MP9",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/MP9.webp",
       isDefault: true
     },
@@ -63,7 +63,7 @@ const defaultCtLoadout = {
       name: "UMP-45",
       weapon: "UMP-45",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/UMP-45.webp",
       isDefault: false
     },
@@ -72,7 +72,7 @@ const defaultCtLoadout = {
       name: "PP-Bizon",
       weapon: "PP-Bizon",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/PP-Bizon.webp",
       isDefault: false
     },
@@ -81,7 +81,7 @@ const defaultCtLoadout = {
       name: "P90",
       weapon: "P90",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/P90.webp",
       isDefault: false
     },
@@ -92,7 +92,7 @@ const defaultCtLoadout = {
       name: "Nova",
       weapon: "Nova",
       category: "Heavy",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Nova.webp",
       isDefault: true
     },
@@ -101,7 +101,7 @@ const defaultCtLoadout = {
       name: "XM1014",
       weapon: "XM1014",
       category: "Heavy",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/XM1014.webp",
       isDefault: true
     },
@@ -110,7 +110,7 @@ const defaultCtLoadout = {
       name: "MAG-7",
       weapon: "MAG-7",
       category: "Heavy",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/MAG-7.webp",
       isDefault: false
     },
@@ -119,7 +119,7 @@ const defaultCtLoadout = {
       name: "M249",
       weapon: "M249",
       category: "Heavy",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/M249.webp",
       isDefault: false
     },
@@ -128,7 +128,7 @@ const defaultCtLoadout = {
       name: "Negev",
       weapon: "Negev",
       category: "Heavy",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Negev.webp",
       isDefault: false
     },
@@ -139,7 +139,7 @@ const defaultCtLoadout = {
       name: "M4A4",
       weapon: "M4A4",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/M4A4.webp",
       isDefault: true
     },
@@ -148,7 +148,7 @@ const defaultCtLoadout = {
       name: "M4A1-S",
       weapon: "M4A1-S",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/M4A1-S.webp",
       isDefault: true
     },
@@ -157,7 +157,7 @@ const defaultCtLoadout = {
       name: "AWP",
       weapon: "AWP",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/AWP.webp",
       isDefault: true
     },
@@ -166,7 +166,7 @@ const defaultCtLoadout = {
       name: "SSG 08",
       weapon: "SSG 08",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/SSG.webp",
       isDefault: true
     },
@@ -175,7 +175,7 @@ const defaultCtLoadout = {
       name: "FAMAS",
       weapon: "FAMAS",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/FAMAS.webp",
       isDefault: true
     },
@@ -184,10 +184,20 @@ const defaultCtLoadout = {
       name: "AUG",
       weapon: "AUG",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/AUG.webp",
       isDefault: false
     },
+    {
+      id: "weapon-scar20",
+      name: "SCAR-20",
+      weapon: "SCAR-20",
+      category: "Rifles",
+      rarity: "#FFFFFF",
+      image: "/SCAR-20.webp",
+      isDefault: false
+    },
+    
 
     // Pistols
     {
@@ -195,7 +205,7 @@ const defaultCtLoadout = {
       name: "Desert Eagle",
       weapon: "Desert Eagle",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Desert_Eagle.webp",
       isDefault: true
     },
@@ -204,7 +214,7 @@ const defaultCtLoadout = {
       name: "USP-S",
       weapon: "USP-S",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/USP-S.webp",
       isDefault: true
     },
@@ -213,7 +223,7 @@ const defaultCtLoadout = {
       name: "P2000",
       weapon: "P2000",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/P2000.webp",
       isDefault: false
     },
@@ -222,7 +232,7 @@ const defaultCtLoadout = {
       name: "P250",
       weapon: "P250",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/P250.webp",
       isDefault: true
     },
@@ -231,7 +241,7 @@ const defaultCtLoadout = {
       name: "Five-SeveN",
       weapon: "Five-SeveN",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Five_Seven.webp",
       isDefault: true
     },
@@ -240,7 +250,7 @@ const defaultCtLoadout = {
       name: "CZ75-Auto",
       weapon: "CZ75-Auto",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/CZ_Auto.webp",
       isDefault: false
     },
@@ -249,7 +259,7 @@ const defaultCtLoadout = {
       name: "Dual Berettas",
       weapon: "Dual Berettas",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Dual_Berettas.webp",
       isDefault: true
     },
@@ -258,7 +268,7 @@ const defaultCtLoadout = {
       name: "R8 Revolver",
       weapon: "R8 Revolver",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/R8_Revolver.webp",
       isDefault: false
     }

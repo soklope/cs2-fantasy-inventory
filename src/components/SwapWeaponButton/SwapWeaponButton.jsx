@@ -7,14 +7,23 @@ import { useEffect, useState } from "react";
 
 export default function SwapWeaponButton() {
     const { itemInFocus, currentFaction, userCtLoadoutStore, userTLoadoutStore } = useInventoryStore();
-    const { setSkinsInFinder } = useSkinFilterStore()
+    const { setSkinsInFinder, skinsInFinder } = useSkinFilterStore()
     const isTerrorist = currentFaction === "terrorists"
 
     const [swapableWeapons, setSwapableWeapons] = useState([])
+    const [isASwapableItem, SetIsASwapableItem] = useState(false)
 
     useEffect(() => {
         if (!itemInFocus) return;
-      
+
+        if (
+            itemInFocus.category.toLowerCase() !== "agent" &&
+            itemInFocus.category.toLowerCase() !== "gloves" &&
+            itemInFocus.category.toLowerCase() !== "knives"
+          ) {
+            SetIsASwapableItem(true);
+          } 
+
         const swapWeaponCategory = itemInFocus.category;
         const defaultLoadout = isTerrorist ? defaultTLoadout.loadout : defaultCtLoadout.loadout;
         const currentLoadout = isTerrorist ? userTLoadoutStore.loadout : userCtLoadoutStore.loadout;
@@ -28,14 +37,16 @@ export default function SwapWeaponButton() {
       
         setSwapableWeapons(availableWeapons);
     }, [itemInFocus]);
-      
+    
     const showSwapableWeapons = () => {
         setSkinsInFinder(swapableWeapons)
     }
 
     return (
-        <button className="swap-weapon-button" onClick={() => showSwapableWeapons()}>
-            Swap Weapon
-        </button>
+        isASwapableItem && (
+            <button className="swap-weapon-button" onClick={() => showSwapableWeapons()}>
+                Swap Weapon
+            </button>
+        )
     )
 }

@@ -7,7 +7,7 @@ const defaultTLoadout = {
       name: "Terrorist",
       team: "terrorists",
       category: "agent",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/T_agent.webp",
       isDefault: true
     },
@@ -16,7 +16,7 @@ const defaultTLoadout = {
       name: "T Gloves",
       weapon: "CT Gloves",
       category: "Gloves",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/T_gloves.webp",
       isDefault: true
     },
@@ -25,7 +25,7 @@ const defaultTLoadout = {
       name: "T Knife",
       weapon: "Karambit",
       category: "Knives",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/T_knife.webp",
       isDefault: true
     },
@@ -36,7 +36,7 @@ const defaultTLoadout = {
       name: "AK-47",
       weapon: "AK-47",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/AK-47.webp",
       isDefault: true
     },
@@ -45,7 +45,7 @@ const defaultTLoadout = {
       name: "AWP",
       weapon: "AWP",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/AWP.webp",
       isDefault: true
     },
@@ -54,7 +54,7 @@ const defaultTLoadout = {
       name: "SSG 08",
       weapon: "SSG 08",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/SSG.webp",
       isDefault: true
     },
@@ -63,7 +63,7 @@ const defaultTLoadout = {
       name: "SG 553",
       weapon: "SG 553",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/SG.webp",
       isDefault: true
     },
@@ -72,7 +72,7 @@ const defaultTLoadout = {
       name: "Galil AR",
       weapon: "Galil AR",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Galil_AR.webp",
       isDefault: true
     },
@@ -81,7 +81,7 @@ const defaultTLoadout = {
       name: "G3SG1",
       weapon: "G3SG1",
       category: "Rifles",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/G3SG1.webp",
       isDefault: false
     },
@@ -92,7 +92,7 @@ const defaultTLoadout = {
       name: "MAC-10",
       weapon: "MAC-10",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/MAC-10.webp",
       isDefault: true
     },
@@ -101,7 +101,7 @@ const defaultTLoadout = {
       name: "MP5-SD",
       weapon: "MP5-SD",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/MP5-SD.webp",
       isDefault: true
     },
@@ -110,7 +110,7 @@ const defaultTLoadout = {
       name: "MP7",
       weapon: "MP7",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/MP7.webp",
       isDefault: true
     },
@@ -119,7 +119,7 @@ const defaultTLoadout = {
       name: "UMP-45",
       weapon: "UMP-45",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/UMP-45.webp",
       isDefault: false
     },
@@ -128,7 +128,7 @@ const defaultTLoadout = {
       name: "PP-Bizon",
       weapon: "PP-Bizon",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/PP-Bizon.webp",
       isDefault: false
     },
@@ -137,7 +137,7 @@ const defaultTLoadout = {
       name: "P90",
       weapon: "P90",
       category: "SMGs",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/P90.webp",
       isDefault: false
     },
@@ -148,7 +148,7 @@ const defaultTLoadout = {
       name: "Nova",
       weapon: "Nova",
       category: "Heavy",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Nova.webp",
       isDefault: true
     },
@@ -157,7 +157,7 @@ const defaultTLoadout = {
       name: "XM1014",
       weapon: "XM1014",
       category: "Heavy",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/XM1014.webp",
       isDefault: true
     },
@@ -166,7 +166,7 @@ const defaultTLoadout = {
       name: "Sawed-Off",
       weapon: "Sawed-Off",
       category: "Heavy",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Sawed_Off.webp",
       isDefault: false
     },
@@ -175,7 +175,7 @@ const defaultTLoadout = {
       name: "M249",
       weapon: "M249",
       category: "Heavy",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/M249.webp",
       isDefault: false
     },
@@ -184,7 +184,7 @@ const defaultTLoadout = {
       name: "Negev",
       weapon: "Negev",
       category: "Heavy",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Negev.webp",
       isDefault: false
     },
@@ -195,7 +195,7 @@ const defaultTLoadout = {
       name: "Desert Eagle",
       weapon: "Desert Eagle",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Desert_Eagle.webp",
       isDefault: true
     },
@@ -204,7 +204,7 @@ const defaultTLoadout = {
       name: "Glock-18",
       weapon: "Glock-18",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Glock-18.webp",
       isDefault: true
     },
@@ -213,7 +213,7 @@ const defaultTLoadout = {
       name: "P250",
       weapon: "P250",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/P250.webp",
       isDefault: true
     },
@@ -222,7 +222,7 @@ const defaultTLoadout = {
       name: "Tec-9",
       weapon: "Tec-9",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Tec_9.webp",
       isDefault: true
     },
@@ -231,7 +231,7 @@ const defaultTLoadout = {
       name: "CZ75-Auto",
       weapon: "CZ75-Auto",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/CZ_Auto.webp",
       isDefault: false
     },
@@ -240,7 +240,7 @@ const defaultTLoadout = {
       name: "Dual Berettas",
       weapon: "Dual Berettas",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/Dual_Berettas.webp",
       isDefault: true
     },
@@ -249,7 +249,7 @@ const defaultTLoadout = {
       name: "R8 Revolver",
       weapon: "R8 Revolver",
       category: "Pistols",
-      rarity: null,
+      rarity: "#FFFFFF",
       image: "/R8_Revolver.webp",
       isDefault: false
     }

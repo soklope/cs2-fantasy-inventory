@@ -13,31 +13,26 @@ export default function Finder() {
     const setSkinsInFinder = useSkinFilterStore((state) => state.setSkinsInFinder);
     const setSkinsInFinderCopy = useSkinFilterStore((state) => state.setSkinsInFinderCopy);
 
-    const itemInFocusIsKnife = itemInFocus.category === "Knives"
+    const itemInFocusIsKnife = itemInFocus.category.toLowerCase() === "knives"
+    const itemInFocusIsGlove = itemInFocus.category.toLowerCase() === "gloves"
+    const itemInFocusIsAgent = itemInFocus.category.toLowerCase() === "agent"
 
     useEffect(() => {
       let matchedSkins = [];
       let matchedSkinsCopy = []; // for filtering purpose if knife or gloves
-    
-      const nameMatches = allSkins.filter(skin => skin.weapon === itemInFocus.name);
-    
-      if (itemInFocus.category === "agent") {
+      const nameMatches = allSkins.filter(skin => skin.weapon === itemInFocus.weaponType);
+
+      if (itemInFocusIsAgent) {
         matchedSkins = allSkins.filter(skin => skin.team === currentFaction);
 
-      } else if (nameMatches.length === 0 && itemInFocus.category !== "agent") {
-        matchedSkins = allSkins.filter(skin => skin.category === itemInFocus.category);
-
-      } else if (itemInFocus.category === "Gloves") {
+      } else if (itemInFocusIsGlove) {
         matchedSkins = allSkins.filter(skin => skin.category === itemInFocus.category);
         matchedSkinsCopy = matchedSkins;
 
-      } else if (itemInFocus.category === "Knives") {
+      } else if (itemInFocusIsKnife) {
         matchedSkins = allSkins.filter(skin => skin.weapon === itemInFocus.weaponType);
         matchedSkinsCopy = allSkins.filter(skin => skin.category === itemInFocus.category);
 
-      } else if (nameMatches.length === 0 && itemInFocus.category === "agent") {
-        matchedSkins = allSkins.filter(skin => skin.team === currentFaction);
-        
       } else {
         matchedSkins = nameMatches;
       }
@@ -66,7 +61,7 @@ export default function Finder() {
                   open
                   onClick={(e) => {
                     if (e.target === e.currentTarget) {
-                      setFinderStatus(null, null);
+                      setFinderStatus(null, "", "", ""); // 3rd parameter is "category" and has to be reset to string
                     }
                   }}
                 >
@@ -78,10 +73,6 @@ export default function Finder() {
                               <SkinCard 
                                   key={index}
                                   skin={skin}
-                                  skinName={skin.name}
-                                  phase={skin.phase}
-                                  skinImage={`/skin-images/${skin.image}`}
-                                  rarity={skin.rarityColor || skin.rarity}
                               />
                           ))}
                       </ul>

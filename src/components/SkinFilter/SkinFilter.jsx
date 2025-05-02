@@ -93,7 +93,6 @@ export default function SkinFilter() {
                     <button className='filter__sort-rarity' onClick={changeOrder}>
                         <span>{order}</span>
                     </button>
-                    <SwapWeaponButton />
                 </>
             )}
 
@@ -117,6 +116,7 @@ export default function SkinFilter() {
                 </div>
             )}
 
+            <SwapWeaponButton />
             <FinderSearchBar />
             
             <button className='button-cancel filter__close' onClick={() => setFinderStatus('', '', null)}></button>

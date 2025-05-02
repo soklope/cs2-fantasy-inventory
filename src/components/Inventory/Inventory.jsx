@@ -1,5 +1,5 @@
 import "./inventory.scss";
-import ItemCard from "../ItemCard/ItemCard";
+import LoadoutCard from "../LoadoutCard/LoadoutCard";
 import Toolbar from "../Toolbar/Toolbar";
 import Agent from "../Agent/Agent";
 import LoadoutName from "../LoadoutName/LoadoutName";
@@ -21,16 +21,9 @@ export default function Inventory() {
       <div className={`inventory__weapon-category ${isTerrorist ? "inventory__weapon-category--terrorist" : ""}`}>
         {items
           .map(item => (
-            <ItemCard
+            <LoadoutCard
+              skin={item}
               key={item.id}
-              weaponId={item.id}
-              weapon={item?.value}
-              itemName={item?.name}
-              weaponName={item.weapon || item.name}
-              weaponType={item.weapon}
-              skinImage={`/skin-images/${item.image}`}
-              rarity={item?.rarityColor}
-              weaponCategory={item?.category}
             />
         ))}
       </div>
