@@ -5,11 +5,11 @@ const useSkinFilterStore = create((set) => ({
     skinsInFinderCopy: [],
 
     setSkinsInFinder: (skinArray) => {
-        set((state) => ({
-          ...state,
-          skinsInFinder: skinArray,
-        }));
-      },
+      set((state) => ({
+        ...state,
+        skinsInFinder: skinArray,
+      }));
+    },
 
     setSkinsInFinderCopy: (skinArray) => {
       set((state) => ({
@@ -17,6 +17,8 @@ const useSkinFilterStore = create((set) => ({
         skinsInFinderCopy: skinArray,
       }));
     },
+
+
 }));
 
 export default useSkinFilterStore;

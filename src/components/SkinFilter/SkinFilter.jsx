@@ -15,11 +15,12 @@ export default function SkinFilter() {
     const [order, setOrder] = useState("desc");
 
     const [showRarityFilter, setShowRarityFilter] = useState(false);
+    const [showKnifeTypes, setShowKnifeTypes] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false)
-    const [filteredByItem, setFilteredByItem] = useState("All")
+    const [filteredByItem, setFilteredByItem] = useState("")
 
-    const isGlove = itemInFocus.category.toLowerCase() === "gloves";
     const isKnife = itemInFocus.category.toLowerCase() === "knives";
+    const isGlove = itemInFocus.category.toLowerCase() === "gloves";
 
     const knifeTypes = [
         "Bayonet",
@@ -77,9 +78,13 @@ export default function SkinFilter() {
     }
 
     useEffect(() => {
-        if (isKnife || isGlove) {
+        if (isKnife) {
             setShowRarityFilter(false);
+            setShowKnifeTypes(true)
             setFilteredByItem(itemInFocus.weaponType)
+        } else if (isGlove) {
+            setShowRarityFilter(false);
+            setShowKnifeTypes(false)
         } else {
             setShowRarityFilter(true);
         }
@@ -96,20 +101,15 @@ export default function SkinFilter() {
                 </>
             )}
 
-            {!showRarityFilter && (
+            {showKnifeTypes && (
                 <div>
                     <button className="filter__dropdown-button" onClick={() => toggleDropdown()}><span>{filteredByItem}</span></button>
                     {dropdownOpen && (
                         <ul className="filter__dropdown">
-                            { isGlove ?
-                                    gloveTypes.map((glove, index) => (
-                                        <li className="filter__dropdown-item" key={index} onClick={() => filterByType(glove)}>{glove}</li>
-                                    ))
-                                : (
-                                    knifeTypes.map((knife, index) => (
-                                        <li className="filter__dropdown-item" key={index} onClick={() => filterByType(knife)}>{knife}</li>
-                                    ))
-                                )
+                            { 
+                                knifeTypes.map((knife, index) => (
+                                    <li className="filter__dropdown-item" key={index} onClick={() => filterByType(knife)}>{knife}</li>
+                                ))
                             }
                         </ul>
                     )}

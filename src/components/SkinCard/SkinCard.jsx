@@ -1,11 +1,17 @@
 import useInventoryStore from "../../store/inventoryStore";
 
-export default function SkinCard({ skin, }) {
-    const { updateUserLoadoutStore, currentFaction } = useInventoryStore();
+export default function SkinCard({ skin }) {
+    const { updateUserLoadoutStore, currentFaction, setFinderStatusWithSwap, weaponSwapMode, toggleWeaponSwapMode, setSwapableItem, itemInFocus} = useInventoryStore();
     const isTerrorist = currentFaction === "terrorists"
-  
+
     const handleAddItemClick = () => {
-      updateUserLoadoutStore(skin)
+      if (weaponSwapMode) {
+        toggleWeaponSwapMode(false)
+        setSwapableItem(itemInFocus)
+        setFinderStatusWithSwap(skin.id, skin.name, skin.category, skin.weapon)
+      } else {
+        updateUserLoadoutStore(skin)
+      }
     };
   
     return (

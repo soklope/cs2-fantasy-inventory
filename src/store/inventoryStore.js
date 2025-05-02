@@ -9,6 +9,10 @@ const useInventoryStore = create(
       finderIsOpen: false,
       currentFaction: "counter-terrorists",
       itemInFocus: { id: "", name: "", category: "", weaponType: ""},
+
+      swapableItem: null,
+      weaponSwapMode: false,
+      
       userCtLoadoutStore: defaultCtLoadout,
       userTLoadoutStore: defaultTLoadout,
 
@@ -41,6 +45,18 @@ const useInventoryStore = create(
         }));
       },
 
+      setFinderStatusWithSwap: (id, name, category, weaponType) => {
+        set(() => ({
+          itemInFocus: {id, name, category, weaponType},
+        }));
+      },
+
+      setSwapableItem: (skin) => {
+        set(() => ({
+          swapableItem: skin,
+        }));
+      },
+
       updateLoadoutName: (name) => {
         const { currentFaction } = get();
 
@@ -61,12 +77,19 @@ const useInventoryStore = create(
         }
       },
 
+      toggleWeaponSwapMode: (mode) => {
+        set(() => ({
+          weaponSwapMode: mode,
+        }));
+      },
+
       updateUserLoadoutStore: (newSkinClicked) => {
-        const { currentFaction, userCtLoadoutStore, userTLoadoutStore, itemInFocus } = get();
+        const { currentFaction, userCtLoadoutStore, userTLoadoutStore, itemInFocus, setSwapableItem, swapableItem} = get();
         const currentLoadout = currentFaction === "counter-terrorists" ? userCtLoadoutStore.loadout : userTLoadoutStore.loadout;
-      
+        const itemToReplace = swapableItem === null ? itemInFocus : swapableItem;
+
         const updatedLoadout = currentLoadout.map((item) =>
-          item.id === itemInFocus.id ? newSkinClicked : item // Loops over each item in the loadout, and only replaces the item with an ID match
+          item.id === itemToReplace.id ? newSkinClicked : item
         );
 
         if (currentFaction === "counter-terrorists") {
@@ -86,6 +109,8 @@ const useInventoryStore = create(
             finderIsOpen: false,
           });
         }
+
+        setSwapableItem(null)
       },
       
       importInventory: (importData) => {

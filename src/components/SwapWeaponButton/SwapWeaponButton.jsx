@@ -6,23 +6,22 @@ import defaultTLoadout from "../../assets/loadouts/default-t-loadout";
 import { useEffect, useState } from "react";
 
 export default function SwapWeaponButton() {
-    const { itemInFocus, currentFaction, userCtLoadoutStore, userTLoadoutStore } = useInventoryStore();
-    const { setSkinsInFinder, skinsInFinder } = useSkinFilterStore()
+    const { itemInFocus, currentFaction, userCtLoadoutStore, userTLoadoutStore, toggleWeaponSwapMode} = useInventoryStore();
+    const { setSkinsInFinder } = useSkinFilterStore()
     const isTerrorist = currentFaction === "terrorists"
 
     const [swapableWeapons, setSwapableWeapons] = useState([])
     const [isASwapableItem, SetIsASwapableItem] = useState(false)
+    const nonSwapableCategories = ["agent", "gloves", "knives"];
+    const itemInFocusIsSwapable = !nonSwapableCategories.includes(itemInFocus.category.toLowerCase())
 
     useEffect(() => {
+
         if (!itemInFocus) return;
 
-        if (
-            itemInFocus.category.toLowerCase() !== "agent" &&
-            itemInFocus.category.toLowerCase() !== "gloves" &&
-            itemInFocus.category.toLowerCase() !== "knives"
-          ) {
+        if (itemInFocusIsSwapable) {
             SetIsASwapableItem(true);
-          } 
+        } 
 
         const swapWeaponCategory = itemInFocus.category;
         const defaultLoadout = isTerrorist ? defaultTLoadout.loadout : defaultCtLoadout.loadout;
@@ -40,6 +39,7 @@ export default function SwapWeaponButton() {
     
     const showSwapableWeapons = () => {
         setSkinsInFinder(swapableWeapons)
+        toggleWeaponSwapMode(true)
     }
 
     return (

@@ -8,7 +8,7 @@ import SkinFilter from '../SkinFilter/SkinFilter';
 import allSkins from '../../helpers/all-skins-and-agents.json'
 
 export default function Finder() {
-    const { itemInFocus, finderIsOpen, currentFaction, setFinderStatus } = useInventoryStore();
+    const { itemInFocus, finderIsOpen, currentFaction, setFinderStatus, toggleWeaponSwapMode } = useInventoryStore();
     const skinsInFinder = useSkinFilterStore((state) => state.skinsInFinder);
     const setSkinsInFinder = useSkinFilterStore((state) => state.setSkinsInFinder);
     const setSkinsInFinderCopy = useSkinFilterStore((state) => state.setSkinsInFinderCopy);
@@ -61,7 +61,8 @@ export default function Finder() {
                   open
                   onClick={(e) => {
                     if (e.target === e.currentTarget) {
-                      setFinderStatus(null, "", "", ""); // 3rd parameter is "category" and has to be reset to string
+                      setFinderStatus(null, "", "", ""); // reset
+                      toggleWeaponSwapMode(false);       // turn off
                     }
                   }}
                 >
