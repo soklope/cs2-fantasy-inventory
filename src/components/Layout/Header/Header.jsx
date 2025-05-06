@@ -1,7 +1,7 @@
 import "./header.scss"
 import useInventoryStore from "../../../store/inventoryStore";
 
-import logo from "../../../../public/logo/logo.png"
+import logo from "../../../assets/images/logo.png"
 import { useEffect, useState } from "react";
 import axios from "axios";
 

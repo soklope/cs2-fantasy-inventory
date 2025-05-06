@@ -16,24 +16,30 @@ export default function SwapWeaponButton() {
     const itemInFocusIsSwapable = !nonSwapableCategories.includes(itemInFocus.category.toLowerCase())
 
     useEffect(() => {
-
         if (!itemInFocus) return;
-
+    
         if (itemInFocusIsSwapable) {
             SetIsASwapableItem(true);
         } 
-
+    
         const swapWeaponCategory = itemInFocus.category;
         const defaultLoadout = isTerrorist ? defaultTLoadout.loadout : defaultCtLoadout.loadout;
         const currentLoadout = isTerrorist ? userTLoadoutStore.loadout : userCtLoadoutStore.loadout;
         const currentWeapons = currentLoadout.map(item => item.weapon);
-      
+    
+        let categoriesToInclude = [swapWeaponCategory];
+    
+        // If category is "SMGs" or "Heavy", include both
+        if (swapWeaponCategory === "SMGs" || swapWeaponCategory === "Heavy") {
+            categoriesToInclude = ["SMGs", "Heavy"];
+        }
+    
         const availableWeapons = defaultLoadout.filter(
-          item =>
-            item.category === swapWeaponCategory &&
-            !currentWeapons.includes(item.weapon)
+            item =>
+                categoriesToInclude.includes(item.category) &&
+                !currentWeapons.includes(item.weapon)
         );
-      
+    
         setSwapableWeapons(availableWeapons);
     }, [itemInFocus]);
     
