@@ -119,7 +119,7 @@ export default function SkinFilter() {
             <SwapWeaponButton />
             <FinderSearchBar />
             
-            <button className='button-cancel filter__close' onClick={() => setFinderStatus('', '', null)}></button>
+            <button className='button-cancel filter__close' onClick={() => setFinderStatus(null, '', '', '')}></button>
         </div>
     );
 }

@@ -10,7 +10,7 @@ export default function Inventory() {
   const selectedLoadout = currentFaction === "counter-terrorists" ? userCtLoadoutStore : userTLoadoutStore;
   const isTerrorist = currentFaction === "terrorists";
 
-  const renderSection = (categories) => {
+  const renderSection = (categoryTitle, categories) => {
     const items = selectedLoadout.loadout.filter(item =>
       categories.includes(item.category.toLowerCase())
     );
@@ -18,14 +18,17 @@ export default function Inventory() {
     if (items.length === 0) return null;
 
     return (
-      <div className={`inventory__weapon-category ${isTerrorist ? "inventory__weapon-category--terrorist" : ""}`}>
-        {items
-          .map(item => (
-            <LoadoutCard
-              skin={item}
-              key={item.id}
-            />
-        ))}
+      <div className="inventory__weapon-category-container">
+        <h2 className="inventory__weapon-category-title">{categoryTitle}</h2>
+        <div className={`inventory__weapon-category ${isTerrorist ? "inventory__weapon-category--terrorist" : ""}`}>
+          {items
+            .map(item => (
+              <LoadoutCard
+                skin={item}
+                key={item.id}
+              />
+          ))}
+        </div>
       </div>
     );
   };
@@ -33,14 +36,14 @@ export default function Inventory() {
   return (
     <div className={`inventory ${isTerrorist ? "inventory--t-theme" : "inventory--ct-theme"}`}>
       <Toolbar />
-      <div className="inventory__inner page-container">
         <LoadoutName 
           loadoutName={selectedLoadout.name}
         />
-        {renderSection(["knives", "gloves", "agent"])}
-        {renderSection(["rifles"])}
-        {renderSection(["smgs", "heavy"])}
-        {renderSection(["pistols"])}
+      <div className="inventory__inner page-container">
+        {renderSection("Equipment", ["knives", "gloves", "agent"])}
+        {renderSection("Rifles", ["rifles"])}
+        {renderSection("Mid-Tier", ["smgs", "heavy"])}
+        {renderSection("Pistols", ["pistols"])}
       </div>
       <Agent />
     </div>

@@ -30,42 +30,50 @@
         }
     
         @include break(laptop) {
-            height: 140px;
-            width: 140px; 
+            height: 110px;
+            width: 100%; 
         }
     
         @include break(desktop) {
-            height: 170px;
-            width: 170px;
+            height: 150px;
         }
     }
 
     &--finder {
-        aspect-ratio: 1/1;
     }
 
     &__inner {
         display: flex;
-        justify-content: space-between;
         flex-direction: column;
+        justify-content: space-between;
         z-index: 1;
         height: 100%;
         padding: 8px;
+        overflow: hidden;
 
         @include break(tablet) {
-            padding: 16px;
         }
     
         @include break(laptop) {
+            padding: 8px 8px 16px 8px;
+            align-items: center;
         }
         
         @include break(desktop) {
+            padding: 8px 8px 24px 8px;
+            gap: 8px;
+        }
+
+        &--finder {
+            justify-content: space-between;
+            padding: 16px;
         }
     }
 
     &__image {
         max-height: 100%;
         z-index: 1;
+        width: fit-content;
     }
 
     &__title {

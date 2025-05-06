@@ -5,6 +5,10 @@
     padding: 24px 0;
     font-family: f.$primary-font;
 
+    &__logo {
+        max-width: 100px;
+    }
+
     &__inner {
         display: flex;
         align-items: center;

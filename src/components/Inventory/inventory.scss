@@ -5,12 +5,11 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    justify-content: space-between;
     height: 100%;
+    min-height: calc(100dvh - 72px);
     
     @include break(tablet) {
-        height: calc(100dvh - 72px);
-        max-height: calc(1080px - 72px);
+        max-height: calc(1440px - 72px);
     }
 
     @include break(laptop) {
@@ -38,10 +37,27 @@
         }
     
         @include break(laptop) {
+            flex-direction: row;
             padding-bottom: 60px;
+            gap: 8px;
         }
     
         @include break(desktop) {
+        }
+    }
+
+    &__weapon-category-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    &__weapon-category-title {
+        color: c.$white;
+        margin-bottom: 8px;
+
+        @include break(laptop) {
         }
     }
 
@@ -67,6 +83,8 @@
 
         @include break(laptop) {
             overflow: unset;
+            flex-direction: column;
+            gap: 8px;
         }
 
         @include break(desktop) {

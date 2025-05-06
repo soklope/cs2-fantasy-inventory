@@ -5,16 +5,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
 
     @include break(tablet) {
-        margin-bottom: 0;
+        margin-bottom: 48px;
     }
 
     @include break(laptop) {
+        margin-bottom: 16px;
     }
 
     @include break(desktop) {
+        margin-bottom: 24px;
     }
 
     input {
@@ -34,14 +36,17 @@
     &__buttons {
         display: flex;
         position: relative;
-        gap: 8px;
+        gap: 4px;
         align-items: center;
-        padding: 8px;
+        padding: 4px 16px;
+        border: solid rgba(c.$white, .4) 1px;
+        border-radius: 25px;
         
         @include break(tablet) {
         }
         
         @include break(laptop) {
+            gap: 8px;
         }
         
         @include break(desktop) {
@@ -51,13 +56,12 @@
     button {
         width: 40px;
         height: 40px;
-        background-color: c.$black;
         background-position: center;
         background-size: 70%;
         background-repeat: no-repeat;
 
         &:hover {
-            box-shadow: c.$hover-shadow-neutral;
+            scale: 1.1;
         }
     }
 
@@ -68,11 +72,5 @@
 
     &__export {
         background-image: url("/svg-icons/export.svg");
-    }
-
-    &__spacer {
-        height: 24px;
-        width: 1px;
-        background-color: rgba(c.$white, .3);
     }
 }

@@ -1,7 +1,7 @@
 import "./header.scss"
 import useInventoryStore from "../../../store/inventoryStore";
 
-import logo from "../../../assets/images/logo.png"
+import logo from "../../../../public/logo/logo.png"
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -75,8 +75,7 @@ export default function Header() {
     return (
         <header className="header">
             <div className="header__inner page-container">
-                {/* <img src={logo} alt="" /> */}
-                <p>CS Loadout</p>
+                <img className="header__logo" src={logo} alt="cs loadout logo" />
                 <p className="header__version-text">v.{version}</p>
             </div>
         </header>

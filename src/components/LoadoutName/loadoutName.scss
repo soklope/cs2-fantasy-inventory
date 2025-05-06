@@ -3,10 +3,14 @@
 @use '../../style/variables/fonts.scss' as f;
 
 .loadout-name {
-    width: 100%;
     color: c.$ct-text-light;
     display: flex;
     gap: 16px;
+    margin-bottom: 8px;
+
+    @include break(laptop) {
+        margin-bottom: 16px;
+    }
 
     &--t {
         color: c.$t-text-light;

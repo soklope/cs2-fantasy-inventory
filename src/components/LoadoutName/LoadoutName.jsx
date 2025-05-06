@@ -33,7 +33,7 @@ export default function LoadoutName({ loadoutName }) {
     }
 
     return showRenameInput ? (
-        <form className="loadout-name" onSubmit={handleAccept}>
+        <form className="page-container loadout-name" onSubmit={handleAccept}>
             <input
                 ref={inputRef}
                 className={`loadout-name__rename-input ${isTerrorist ? "loadout-name__rename-input--t" : ""}`}
@@ -55,6 +55,6 @@ export default function LoadoutName({ loadoutName }) {
             </div>
         </form>
     ) : (
-        <h1 className={`loadout-name ${isTerrorist ? "loadout-name--t" : ""}`}>{loadoutName}</h1>
+        <h1 className={`page-container loadout-name ${isTerrorist ? "loadout-name--t" : ""}`}>{loadoutName}</h1>
     );
 }
