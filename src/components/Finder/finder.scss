@@ -47,11 +47,10 @@ dialog {
             gap: 4px;
 
             @include break(tablet) {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
     
             @include break(laptop) {
-                grid-template-columns: repeat(5, 1fr);
             }
     
             @include break(desktop) {

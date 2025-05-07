@@ -1,19 +1,26 @@
 import "./header.scss"
 import HelpButton from "../../HelpButton/HelpButton";
-import useInventoryStore from "../../../store/inventoryStore";
 import logo from "../../../assets/images/logo.png"
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import defaultCtLoadout from "../../../assets/loadouts/default-ct-loadout";
+import defaultTLoadout from "../../../assets/loadouts/default-t-loadout";
+
 export default function Header() {
-    const { resetInventory } = useInventoryStore()
     const [version, setVersion] = useState(0.1);
     const [localVersion, setLocalVersion] = useState(localStorage.getItem("version"));
     const noUserLoadouts = localStorage.getItem("userLoadouts") === null;
 
     useEffect(() => {
         if (noUserLoadouts) {
-            resetInventory() // If this is the first time a user visits the page, set it to the default loadout values
+            localStorage.setItem(
+                "userLoadouts",
+                JSON.stringify({
+                  userCtLoadoutStore: defaultCtLoadout,
+                  userTLoadoutStore: defaultTLoadout,
+                })
+              );
         }
     }, [])
     
