@@ -1,6 +1,6 @@
 import "./header.scss"
+import HelpButton from "../../HelpButton/HelpButton";
 import useInventoryStore from "../../../store/inventoryStore";
-
 import logo from "../../../assets/images/logo.png"
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -17,8 +17,6 @@ export default function Header() {
         }
     }, [])
     
-
-
     // const fetchSkins = async () => {
     //     console.log("api called");
 
@@ -76,6 +74,7 @@ export default function Header() {
         <header className="header">
             <div className="header__inner page-container">
                 <img className="header__logo" src={logo} alt="cs loadout logo" />
+                <HelpButton />
                 <p className="header__version-text">v.{version}</p>
             </div>
         </header>

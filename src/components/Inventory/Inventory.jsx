@@ -45,7 +45,7 @@ export default function Inventory() {
         {renderSection("Mid-Tier", ["smgs", "heavy"])}
         {renderSection("Pistols", ["pistols"])}
       </div>
-      <Agent />
+      {/* <Agent /> */}
     </div>
   );
 }

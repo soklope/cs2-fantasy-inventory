@@ -1,0 +1,89 @@
+@use '../../style/mixins/breakpoints' as *;
+@use '../../style/variables/colors' as c;
+@use '../../style/variables/fonts.scss' as f;
+
+.help-button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("/svg-icons/info.svg");
+    margin-left: auto;
+
+    @include break(tablet) {
+    
+    }
+
+    @include break(laptop) {
+    
+    }
+
+    @include break(desktop) {
+    
+    }
+}
+
+.help-dialog {
+    &__inner {
+        position: relative;
+        text-align: center;
+        width: fit-content;
+        max-width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        background-color: c.$black;
+        padding: 32px 16px;
+
+        @include break(tablet) {
+            padding: 48px 32px;
+        }
+
+        @include break(laptop) {
+            padding: 32px;
+        }
+
+        @include break(desktop) {
+            padding: 48px;
+        }
+    }
+
+    &__close-button {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+    }
+
+    &__title {
+        font-size: f.$title-mobile;
+    }
+
+    &__text {
+        font-family: f.$secondary-font;
+        font-size: f.$text-mobile;
+    }
+
+    &__icon-container{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 16px;
+
+        @include break(tablet) {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    &__icon {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-direction: column;
+        width: 200px;
+
+        @include break(tablet) {
+            width: 150px;
+        }
+    }
+}

@@ -19,13 +19,7 @@ export default function Footer() {
                     </li>
                     <hr />
                     <li>
-                        <a href="https://www.linkedin.com/in/s%C3%B8ren-kloster-pedersen-aa9481220/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/ByMykkel" target="_blank" rel="noopener noreferrer"><span>GitHub</span></a>
-                    </li>
-                    <li>
-                        © {new Date().getFullYear()} CS Fantasy Loadout
+                        © {new Date().getFullYear()} CSLoadout.online
                     </li>
                 </ul>
             </div>

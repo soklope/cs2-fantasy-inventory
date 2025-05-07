@@ -26,16 +26,38 @@ button {
     padding: 0;
 }
 
-.button-accept {
+%button {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+}
+
+.button-accept {
+    @extend %button;
     background-image: url("/svg-icons/check.svg");
 }
 
 .button-cancel {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    @extend %button;
     background-image: url("/svg-icons/cancel.svg");
+}
+
+.button-rename {
+    @extend %button;
+    background-image: url("/svg-icons/rename.svg");
+}
+
+.button-export {
+    @extend %button;
+    background-image: url("/svg-icons/export.svg");
+}
+
+.button-import {
+    @extend %button;
+    background-image: url("/svg-icons/import.svg");
+}
+
+.button-trash {
+    @extend %button;
+    background-image: url("/svg-icons/trash.svg");
 }

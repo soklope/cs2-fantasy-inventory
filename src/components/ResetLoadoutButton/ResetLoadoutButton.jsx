@@ -6,7 +6,7 @@ export default function ResetLoadoutButton() {
 
     return (
         <button
-            className="reset-loadout-button"
+            className="button-trash"
             onClick={() => {
                 setShowConfirm(true)
                 setActionType("reset");

@@ -5,6 +5,6 @@ export default function RenameButton() {
     const { toggleRenameInput } = useRenameStore()
 
     return (
-        <button className="rename-button" onClick={toggleRenameInput}></button>
+        <button className="button-rename" onClick={toggleRenameInput}></button>
     )
 }

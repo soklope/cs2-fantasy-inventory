@@ -6,9 +6,11 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
+    gap: 16px;
 
     @include break(tablet) {
         margin-bottom: 48px;
+        gap: 0;
     }
 
     @include break(laptop) {
@@ -23,13 +25,14 @@
         padding: 0 24px;
         height: 32px;
         background: none;
-        background-color: c.$black;
+        background-color: c.$green-grey;
         color: c.$white;
         width: 100%;
         border: solid 2px c.$black;
-    
+        border-radius: 16px;
+
         &:focus {
-            border: solid 1px c.$white;
+            border: solid rgba(c.$white, .4) 1px;
         }
     }
 
@@ -38,7 +41,7 @@
         position: relative;
         gap: 4px;
         align-items: center;
-        padding: 4px 16px;
+        padding: 4px 12px;
         border: solid rgba(c.$white, .4) 1px;
         border-radius: 25px;
         
@@ -56,21 +59,10 @@
     button {
         width: 40px;
         height: 40px;
-        background-position: center;
         background-size: 70%;
-        background-repeat: no-repeat;
 
         &:hover {
             scale: 1.1;
         }
-    }
-
-
-    &__import {
-        background-image: url("/svg-icons/import.svg");
-    }
-
-    &__export {
-        background-image: url("/svg-icons/export.svg");
     }
 }
