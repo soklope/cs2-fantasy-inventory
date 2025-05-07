@@ -14,15 +14,26 @@ export default function Header() {
 
     useEffect(() => {
         if (noUserLoadouts) {
-            localStorage.setItem(
-                "userLoadouts",
-                JSON.stringify({
-                  userCtLoadoutStore: defaultCtLoadout,
-                  userTLoadoutStore: defaultTLoadout,
-                })
-              );
+          const filteredCtLoadout = {
+            ...defaultCtLoadout,
+            loadout: defaultCtLoadout.loadout.filter((item) => item.isDefault),
+          };
+      
+          const filteredTLoadout = {
+            ...defaultTLoadout,
+            loadout: defaultTLoadout.loadout.filter((item) => item.isDefault),
+          };
+      
+          localStorage.setItem(
+            "userLoadouts",
+            JSON.stringify({
+              userCtLoadoutStore: filteredCtLoadout,
+              userTLoadoutStore: filteredTLoadout,
+            })
+          );
         }
-    }, [])
+      }, []);
+      
     
     // const fetchSkins = async () => {
     //     console.log("api called");
