@@ -3,36 +3,20 @@ import HelpButton from "../../HelpButton/HelpButton";
 import logo from "../../../assets/images/logo.png"
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-import defaultCtLoadout from "../../../assets/loadouts/default-ct-loadout";
-import defaultTLoadout from "../../../assets/loadouts/default-t-loadout";
+import useInventoryStore from "../../../store/inventoryStore";
 
 export default function Header() {
     const [version, setVersion] = useState(0.1);
     const [localVersion, setLocalVersion] = useState(localStorage.getItem("version"));
     const noUserLoadouts = localStorage.getItem("userLoadouts") === null;
 
+    const { initializeInventoryIfNeeded } = useInventoryStore();
+
     useEffect(() => {
         if (noUserLoadouts) {
-          const filteredCtLoadout = {
-            ...defaultCtLoadout,
-            loadout: defaultCtLoadout.loadout.filter((item) => item.isDefault),
-          };
-      
-          const filteredTLoadout = {
-            ...defaultTLoadout,
-            loadout: defaultTLoadout.loadout.filter((item) => item.isDefault),
-          };
-      
-          localStorage.setItem(
-            "userLoadouts",
-            JSON.stringify({
-              userCtLoadoutStore: filteredCtLoadout,
-              userTLoadoutStore: filteredTLoadout,
-            })
-          );
+            initializeInventoryIfNeeded();
         }
-      }, []);
+    }, []);
       
     
     // const fetchSkins = async () => {

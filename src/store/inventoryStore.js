@@ -16,6 +16,23 @@ const useInventoryStore = create(
       userCtLoadoutStore: defaultCtLoadout,
       userTLoadoutStore: defaultTLoadout,
 
+      initializeInventoryIfNeeded: () => {
+          const filteredCt = {
+            ...defaultCtLoadout,
+            loadout: defaultCtLoadout.loadout.filter(weapon => weapon.isDefault)
+          };
+      
+          const filteredT = {
+            ...defaultTLoadout,
+            loadout: defaultTLoadout.loadout.filter(weapon => weapon.isDefault)
+          };
+      
+          set({
+            userCtLoadoutStore: filteredCt,
+            userTLoadoutStore: filteredT
+          });
+      },
+
       resetInventory: () => {
         const { currentFaction } = get();
       
