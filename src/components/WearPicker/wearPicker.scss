@@ -1,0 +1,27 @@
+@use '../../style/variables/colors' as c;
+@use '../../style/mixins/breakpoints' as *;
+@use '../../style/mixins/breakpoints' as *;
+
+.wear-picker {
+    position: absolute;
+    right: 0;
+    background-color: c.$primary;
+
+    &__options {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+    }
+
+    &__option {
+        height: 100%;
+        background-color: c.$primary;
+
+        &:hover {
+            background-color: black;
+        }        
+    }
+}

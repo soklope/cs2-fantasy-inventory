@@ -101,37 +101,102 @@ const useInventoryStore = create(
       },
 
       updateUserLoadoutStore: (newSkinClicked) => {
-        const { currentFaction, userCtLoadoutStore, userTLoadoutStore, itemInFocus, setSwapableItem, swapableItem} = get();
-        const currentLoadout = currentFaction === "counter-terrorists" ? userCtLoadoutStore.loadout : userTLoadoutStore.loadout;
+        const {currentFaction, userCtLoadoutStore, userTLoadoutStore, itemInFocus, setSwapableItem, swapableItem} = get();
+    
+        const currentLoadout =
+            currentFaction === "counter-terrorists"
+                ? userCtLoadoutStore.loadout
+                : userTLoadoutStore.loadout;
+    
         const itemToReplace = swapableItem === null ? itemInFocus : swapableItem;
+        const activeWear = newSkinClicked.wears?.find(wear => wear.active)?.name;
 
+        const updatedSkin = {
+            ...newSkinClicked,
+            name: activeWear
+                ? `${newSkinClicked.name} (${activeWear})`
+                : newSkinClicked.name,
+        };
+    
         const updatedLoadout = currentLoadout.map((item) =>
-          item.id === itemToReplace.id ? newSkinClicked : item
+            item.id === itemToReplace.id ? updatedSkin : item
         );
-
+    
         if (currentFaction === "counter-terrorists") {
-          set({
-            userCtLoadoutStore: {
-              ...userCtLoadoutStore,
-              loadout: updatedLoadout,
-            },
-            finderIsOpen: false,
-          });
+            set({
+                userCtLoadoutStore: {
+                    ...userCtLoadoutStore,
+                    loadout: updatedLoadout,
+                },
+                finderIsOpen: false,
+            });
         } else {
-          set({
-            userTLoadoutStore: {
-              ...userTLoadoutStore,
-              loadout: updatedLoadout,
-            },
-            finderIsOpen: false,
-          });
+            set({
+                userTLoadoutStore: {
+                    ...userTLoadoutStore,
+                    loadout: updatedLoadout,
+                },
+                finderIsOpen: false,
+            });
         }
+    
+        setSwapableItem(null);
+    },
 
-        setSwapableItem(null)
-      },
+    updateActiveWearInLoadout: (skinId, clickedWearName) => {
+      const { currentFaction, userCtLoadoutStore, userTLoadoutStore, setSwapableItem } = get();
+  
+      const currentLoadout =
+          currentFaction === "counter-terrorists"
+              ? userCtLoadoutStore.loadout
+              : userTLoadoutStore.loadout;
+  
+      const updatedLoadout = currentLoadout.map((item) => {
+          if (item.id === skinId) {
+              const oldActiveWear = item.wears.find(wear => wear.active)?.name;
+  
+              const updatedWears = item.wears.map(wear => ({
+                  ...wear,
+                  active: wear.name === clickedWearName,
+              }));
+  
+              let baseName = item.name;
+              if (oldActiveWear && baseName.endsWith(`(${oldActiveWear})`)) {
+                  baseName = baseName.replace(` (${oldActiveWear})`, "");
+              }
+  
+              const newName = `${baseName} (${clickedWearName})`;
+  
+              return {
+                  ...item,
+                  wears: updatedWears,
+                  name: newName,
+              };
+          }
+  
+          return item;
+      });
+  
+      if (currentFaction === "counter-terrorists") {
+          set({
+              userCtLoadoutStore: {
+                  ...userCtLoadoutStore,
+                  loadout: updatedLoadout,
+              },
+          });
+      } else {
+          set({
+              userTLoadoutStore: {
+                  ...userTLoadoutStore,
+                  loadout: updatedLoadout,
+              },
+          });
+      }
+  },
+  
       
-      importInventory: (importData) => {
-        if (importData) {
+    importInventory: (importData) => {
+      if (importData) {
           if (importData.faction === "counter-terrorists") {
             set({ userCtLoadoutStore: importData });
             set({ currentFaction: "counter-terrorists" });

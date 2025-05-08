@@ -1,0 +1,52 @@
+(function () {
+    const parseLocalStorageJSON = key => {
+        try {
+            return JSON.parse(localStorage.getItem(key)) || [];
+        } catch (e) {
+            console.error(`Failed to parse ${key}:`, e);
+            return [];
+        }
+    };
+
+    const cs2Skins = parseLocalStorageJSON("cs2Skins");
+    const cs2Agents = parseLocalStorageJSON("cs2Agents");
+
+    const allItems = [...cs2Skins, ...cs2Agents];
+
+    const defaultGeneratedPrefix = "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/";
+    const charactersPrefix = "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/characters/";
+
+    const transformedItems = allItems.map(item => {
+        const weaponName = item.weapon?.name?.toLowerCase() || "";
+
+        let image = item.image || "default.png";
+
+        if (weaponName === "agent" && image.startsWith(charactersPrefix)) {
+            image = image.replace(charactersPrefix, "");
+        } else if (image.startsWith(defaultGeneratedPrefix)) {
+            image = image.replace(defaultGeneratedPrefix, "");
+        }
+
+        const wearsArray = (item.wears || []).map((wear, index) => ({
+            name: wear,
+            active: index === 0
+        }));
+
+        return {
+            id: item.id || `weapon-${item.weapon?.id || "unknown"}`,
+            name: item.name,
+            category: item.category?.name || "Unknown",
+            weapon: item.weapon?.name || item.name,
+            team: item.team || null,
+            rarityColor: item.rarity?.color || null,
+            phase: item.phase || null,
+            image,
+            wears: wearsArray
+        };
+    });
+
+    console.log(transformedItems);
+
+    // Optional: copy to clipboard
+    copy(transformedItems);
+})();

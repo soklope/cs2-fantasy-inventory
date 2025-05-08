@@ -72,13 +72,11 @@
 
     &__image {
         max-height: 100%;
-        z-index: 1;
         width: fit-content;
     }
 
     &__title {
         font-size: f.$card-title-mobile;
-        text-align: center;
 
         @include break(tablet) {
             font-size: f.$card-title-tablet;
@@ -91,14 +89,6 @@
         @include break(desktop) {
             font-size: f.$card-title-desktop;
         }
-    }
-
-    &__rarity {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 50%;
-        opacity: .15;
     }
 
     &--t {
