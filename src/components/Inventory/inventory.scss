@@ -26,6 +26,16 @@
         background: c.$t-body-gradient;
     }
 
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+
+        @include break(laptop) {
+            margin-bottom: 16px;
+        }
+    }
+
     &__inner {
         display: flex;
         flex-direction: column;

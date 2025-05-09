@@ -6,6 +6,7 @@
     background-color: c.$black;
     position: relative;
     transition: .1s;
+    font-family: f.$secondary-font;
 
     @include break(tablet) {
     }
@@ -22,11 +23,11 @@
 
     &--loadout {
         height: 120px;
-        width: 120px;
+        width: 180px;
 
         @include break(tablet) {
             height: 140px;
-            width: 150px;
+            width: 200px;
         }
     
         @include break(laptop) {
@@ -56,7 +57,6 @@
     
         @include break(laptop) {
             padding: 8px 8px 16px 8px;
-            align-items: center;
         }
         
         @include break(desktop) {
@@ -73,6 +73,8 @@
     &__image {
         max-height: 100%;
         width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     &__title {
@@ -88,6 +90,17 @@
 
         @include break(desktop) {
             font-size: f.$card-title-desktop;
+        }
+    }
+
+    &__price {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+
+        &::after {
+            content: "€";
+            margin-left: 4px;
         }
     }
 

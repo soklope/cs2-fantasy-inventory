@@ -1,9 +1,9 @@
 import "./inventory.scss";
 import LoadoutCard from "../LoadoutCard/LoadoutCard";
-import Toolbar from "../Toolbar/Toolbar";
 import Agent from "../Agent/Agent";
 import LoadoutName from "../LoadoutName/LoadoutName";
 import useInventoryStore from "../../store/inventoryStore";
+import TotalLoadoutPrice from "../TotalLoadoutPrice/TotalLoadoutPrice";
 
 export default function Inventory() {
   const { userCtLoadoutStore, userTLoadoutStore, currentFaction } = useInventoryStore();
@@ -35,10 +35,12 @@ export default function Inventory() {
 
   return (
     <div className={`inventory ${isTerrorist ? "inventory--t-theme" : "inventory--ct-theme"}`}>
-      <Toolbar />
+      <div className="page-container inventory__header">
         <LoadoutName 
           loadoutName={selectedLoadout.name}
         />
+        <TotalLoadoutPrice />
+      </div>
       <div className="inventory__inner page-container">
         {renderSection("Equipment", ["knives", "gloves", "agent"])}
         {renderSection("Rifles", ["rifles"])}

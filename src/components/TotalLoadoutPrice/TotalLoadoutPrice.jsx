@@ -1,3 +1,4 @@
+import "./totalLoadoutPrice.scss"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import useInventoryStore from "../../store/inventoryStore"
 import { useEffect, useState } from "react"
@@ -64,7 +65,6 @@ export default function TotalLoadoutPrice() {
             
         });
     
-        console.log(`Total loadout price: $${total.toFixed(2)}`);
         setLoadoutPrice(total.toFixed(2));
     }, [userCtLoadoutStore, userTLoadoutStore, skinPrices, currentFaction]);
     
@@ -72,14 +72,13 @@ export default function TotalLoadoutPrice() {
     
     
     return (
-        <div className="page-container">
+        <div className="total-loadout-price">
             {/* <button onClick={() => activateMutation()}>Reload Prices</button> */}
-            <h5>Total Loadout Prices</h5>
 
             { isLoading ? (
                 <div>Calculating price</div>
             ) : (
-                <div>{loadoutPrice}</div>
+                <div className="total-loadout-price__value">{loadoutPrice}</div>
                 // Object.entries(skinPrices).map(([itemName, itemData]) => (
                 //     console.log(itemName, itemData)
                 // ))

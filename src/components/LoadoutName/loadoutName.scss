@@ -6,10 +6,8 @@
     color: c.$ct-text-light;
     display: flex;
     gap: 16px;
-    margin-bottom: 8px;
 
     @include break(laptop) {
-        margin-bottom: 16px;
     }
 
     &--t {

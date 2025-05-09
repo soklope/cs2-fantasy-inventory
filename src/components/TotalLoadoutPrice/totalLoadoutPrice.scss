@@ -1,0 +1,37 @@
+@use '../../style/mixins/breakpoints' as *;
+@use '../../style/variables/colors' as c;
+@use '../../style/variables/fonts.scss' as f;
+
+.total-loadout-price {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: f.$primary-font;
+    font-size: f.$loadout-price-mobile;
+
+    @include break(tablet) {
+        font-size: f.$loadout-price-tablet;
+    }
+
+    @include break(laptop) {
+        font-size: f.$loadout-price-laptop;
+    }
+
+    @include break(desktop) {
+        font-size: f.$loadout-price-desktop;
+    }
+
+    &__value {
+        &::before {
+            content: "Loadout Price:";
+            margin-right: 8px;
+            font-size: 75%;
+        }
+        
+        &::after {
+            content: "€";
+            margin-left: 4px;
+        }
+    }
+}
